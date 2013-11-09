@@ -1,0 +1,25 @@
+form submit="submit"
+
+  if errors
+    .error-explanation = displayErrors errors root="officials"
+  .form-body
+    ul.form-fields
+      li
+        Whistlr.TextField valueBinding="name" placeholderTranslation="officials.attributes.name" tip="OfficialsFormTipsNameView"
+      li
+        Whistlr.TextArea valueBinding="bio" placeholderTranslation="officials.attributes.bio" tip="OfficialsFormTipsBioView"
+      li
+        Whistlr.TextField valueBinding="facebookAlias" placeholderTranslation="officials.attributes.facebook_alias" tip="OfficialsFormTipsFacebookView"
+      li
+        Whistlr.TextField valueBinding="twitterAlias" placeholderTranslation="officials.attributes.twitter_alias" tip="OfficialsFormTipsTwitterView"
+      li
+        Whistlr.TextField valueBinding="website" placeholderTranslation="officials.attributes.website" tip="OfficialsFormTipsWebsiteView"
+      li
+        Whistlr.FileFieldView
+      li.push--top
+        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="FormTipsNotesView"
+
+    Whistlr.FormTipBoxView
+
+  .form-actions
+    Whistlr.Button

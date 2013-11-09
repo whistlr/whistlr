@@ -1,0 +1,13 @@
+p
+  t organizations.form.tips.country.text1
+p
+  t organizations.form.tips.country.text2
+ul
+  li
+    t organizations.form.tips.country.example1
+  li
+    t organizations.form.tips.country.example2
+  li
+    t organizations.form.tips.country.example3
+p.note
+  t organizations.form.tips.country.text3

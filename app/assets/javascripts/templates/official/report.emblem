@@ -1,0 +1,17 @@
+.banner
+  h1
+    span = t officials.reports.header
+    span.push--left = linkTo 'official.report.new' reportable
+      .new-white-icon
+
+outlet
+
+ul.block-list
+  each report in controller
+    if report.approved?
+      li = report-item report=report authToken=auth.authToken
+  li
+    if loadingMore
+      | Loading more...
+    else
+      a click='getMore' Get More...

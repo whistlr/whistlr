@@ -1,6 +1,13 @@
 Whistlr::Application.routes.draw do
   root 'static#home'
 
+  concern :resourceful do
+    member do
+      resources :events, path: :timeline
+      resources :reports
+    end
+  end
+
   devise_for :users, path: 'auth'
   resources :users, except: [:new, :destroy]
 
@@ -14,18 +21,33 @@ Whistlr::Application.routes.draw do
   resources :responses, only: [:create], controller: "report/responses"
 
   resources :organizations do
-    member do
-      resources :events, path: :timeline
-      resources :reports
-    end
+    concerns :resourceful
+  end
+
+  resources :products do
+    concerns :resourceful
+  end
+
+  resources :policies do
+    concerns :resourceful
+  end
+
+  resources :officials do
+    concerns :resourceful
   end
   
   resource :explore, only: [:show], controller: :generic do
     resources :organizations, only: [:index, :show], controller: :generic
+    resources :officials, only: [:index, :show], controller: :generic
+    resources :policies, only: [:index, :show], controller: :generic
+    resources :products, only: [:index, :show], controller: :generic
   end
 
   resource :engage, only: [:show], controller: :generic do
     resources :organizations, controller: :generic
+    resources :officials, controller: :generic
+    resources :policies, controller: :generic
+    resources :products, controller: :generic
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

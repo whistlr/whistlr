@@ -1,0 +1,4 @@
+.banner
+  h1
+    t policies.edit.header
+partial "policy/form"

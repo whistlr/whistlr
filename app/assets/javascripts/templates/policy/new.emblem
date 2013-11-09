@@ -1,0 +1,12 @@
+#main-column--left
+  partial "policy/profile"
+
+#main-column--center
+  .banner
+    h1
+      t policies.new.header
+  p.form-width
+    t policies.new.p1
+  partial "policy/form"
+
+#main-column--right

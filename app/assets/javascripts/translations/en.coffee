@@ -13,8 +13,14 @@ Em.I18n.translations =
     header: 'Explore'
   engage:
     header: 'Engage'
+    officials:
+      new_officials: 'New Official'
     organizations:
       new_organizations: 'New Organization'
+    policies:
+      new_policies: 'New Policy'
+    products:
+      new_products: 'New Product'
   form:
     tips:
       notes:
@@ -28,6 +34,25 @@ Em.I18n.translations =
   officials:
     one: "Official"
     other: "Officials"
+    attributes:
+      bio: 'Bio'
+      facebook_alias: 'Facebook Alias'
+      image: 'Portrait'
+      name: 'Name'
+      twitter_alias: 'Twitter Alias'
+      website: 'Website'
+    edit:
+      header: 'Edit Official'
+    new:
+      header: 'New Official'
+      p1: "An <em>official</em> can include any public figure, from elected representatives to board members of a company."
+    reports:
+      header: "Reports"
+    timeline:
+      header: "Timeline for Official"
+    versions:
+      revised: "{{firstLink}} proposed revisions to the official {{secondLink}}."
+      submitted: "{{firstLink}} submitted the official {{secondLink}}."
   organizations:
     one: 'Organization'
     other: 'Organizations'
@@ -113,9 +138,52 @@ Em.I18n.translations =
   policies:
     one: "Policy"
     other: "Policies"
+    attributes:
+      facebook_alias: 'Facebook Alias'
+      image: 'Logo'
+      name: 'Name'
+      organization: 'Organization'
+      twitter_alias: 'Twitter Alias'
+      website: 'Website'
+    edit:
+      header: 'Edit Policy'
+    new:
+      header: 'New Policy'
+      p1: "A <em>policy</em> is an operating guideline for an organization. This might be a governmental bill that was passed or an internal memo on behavior for a company."
+    profile:
+      owned_by: 'Policy of {{firstLink}}'
+    reports:
+      header: "Reports"
+    timeline:
+      header: "Timeline for Policy"
+    versions:
+      revised: "{{firstLink}} proposed revisions to the policy {{secondLink}}."
+      submitted: "{{firstLink}} submitted the policy {{secondLink}}."
   products:
     one: "Product"
     other: "Products"
+    attributes:
+      ean13: 'EAN13'
+      facebook_alias: 'Facebook Alias'
+      image: 'Portrait'
+      name: 'Name'
+      organization: 'Organization'
+      twitter_alias: 'Twitter Alias'
+      website: 'Website'
+    edit:
+      header: 'Edit Product'
+    new:
+      header: 'New Product'
+      p1: "A <em>product</em> might be a manufactured item, service, or media, such as a film or newspaper."
+    profile:
+      owned_by: 'Produced by {{firstLink}}'
+    reports:
+      header: "Reports"
+    timeline:
+      header: "Timeline for Product"
+    versions:
+      revised: "{{firstLink}} proposed revisions to the product {{secondLink}}."
+      submitted: "{{firstLink}} submitted the product {{secondLink}}."
   reports:
     one: 'Report'
     other: 'Reports'

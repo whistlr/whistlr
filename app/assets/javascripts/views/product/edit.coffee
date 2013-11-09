@@ -1,0 +1,1 @@
+Whistlr.ProductEditView = Em.View.extend()

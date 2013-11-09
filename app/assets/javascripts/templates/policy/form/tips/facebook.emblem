@@ -1,0 +1,16 @@
+p
+  t organizations.form.tips.facebook.text1
+p.url
+  t organizations.form.tips.facebook.example1
+p
+  t organizations.form.tips.facebook.text2
+p.url
+  t organizations.form.tips.facebook.example2
+p
+  t organizations.form.tips.facebook.text3
+p.url
+  t organizations.form.tips.facebook.example3
+p
+  t organizations.form.tips.facebook.text4
+p.url
+  t organizations.form.tips.facebook.example4

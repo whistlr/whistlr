@@ -1,0 +1,1 @@
+Whistlr.ProductReportView = Em.View.extend()

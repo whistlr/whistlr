@@ -1,0 +1,57 @@
+if event.eventable.versionAttributes.initial?
+  linked-translation translation='officials.versions.submitted' firstResource=event.eventable.submittedBy secondResource=event.eventable.master
+else
+  linked-translation translation='officials.versions.revised' firstResource=event.eventable.submittedBy secondResource=event.eventable.master
+
+if event.isExpanded
+  a.milli.float--right.forefront.push--ends click="collapse target='event'"
+    t shared.collapse
+  .cf
+  table.table--striped
+    colgroup
+      col.20
+      col.40
+      col.40
+    thead
+      th
+      th = t shared.this_version
+      th = t shared.previous
+    tbody
+      if event.eventable.nameChanged
+        tr
+          th = t officials.attributes.name
+          td = event.eventable.name
+          td = event.eventable.previousVersion.name
+      if event.eventable.bioChanged
+        tr
+          th = t officials.attributes.bio
+          td = event.eventable.bio
+          td = event.eventable.previousVersion.bio
+      if event.eventable.facebookAliasChanged
+        tr
+          th = t officials.attributes.facebook_alias
+          td == event.eventable.facebookLink
+          td == event.eventable.previousVersion.facebookLink
+      if event.eventable.twitterAliasChanged
+        tr
+          th = t officials.attributes.twitter_alias
+          td == event.eventable.twitterLink
+          td == event.eventable.previousVersion.twitterLink
+      if event.eventable.websiteChanged
+        tr
+          th = t officials.attributes.website
+          td == event.eventable.websiteLink
+          td == event.eventable.previousVersion.websiteLink
+      if event.eventable.uploadChanged
+        tr
+          th = t officials.attributes.image
+          td == event.eventable.image
+          td == event.eventable.previousVersion.image
+  if event.eventable.pollAttributes.notes
+    = event.eventable.pollAttributes.notes
+  a.milli.float--right.forefront.push--top click="collapse target='event'"
+    t shared.collapse
+else
+  a.milli.float--right.forefront.push--top click="expand target='event'"
+    t shared.expand
+.cf

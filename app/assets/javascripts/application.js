@@ -30,8 +30,6 @@
 // for more details see: http://emberjs.com/guides/application/
 Ember.FEATURES["query-params"] = true
 
-Whistlr = Ember.Application.create({
-    currentPath: ''
-});
+Whistlr = Ember.Application.create();
 
 //= require_tree .

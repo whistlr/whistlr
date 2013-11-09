@@ -1,0 +1,10 @@
+p
+  t organizations.form.tips.website.text1
+p.url
+  t organizations.form.tips.website.example1
+p.url
+  t organizations.form.tips.website.example2
+p.url
+  t organizations.form.tips.website.example3
+p.url
+  t organizations.form.tips.website.example4

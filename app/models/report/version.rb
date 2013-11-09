@@ -8,7 +8,7 @@ class Report::Version < Report
   before_create :connect_with_master_associates
   after_create :assign_default_summary_to_participants
 
-  add_event_to :user, :master, :organizations
+  add_event_to :user, :master, :officials, :organizations, :policies, :products
 
   def active_model_serializer
     ReportVersionSerializer

@@ -1,0 +1,13 @@
+ul.nav
+  li = linkTo 'official.new' class="resource"
+    .resource-image.resource-image--new
+    .resource-text = t engage.officials.new_officials
+  each official in controller
+    li = linkTo 'official.report' official class="resource"
+      == official.image
+      = official.name
+  li
+    if loadingMore
+      | Loading more...
+    else
+      a click='getMore' Get More...

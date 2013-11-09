@@ -26,6 +26,27 @@ ActiveRecord::Schema.define(version: 20130600000045) do
 
   add_index "events", ["timelineable_id", "timelineable_type"], name: "index_events_on_timelineable_id_and_timelineable_type", using: :btree
 
+  create_table "officials", force: true do |t|
+    t.string  "type",                            null: false
+    t.integer "master_id"
+    t.boolean "approved",        default: false, null: false
+    t.boolean "declined",        default: false, null: false
+    t.boolean "pending",         default: true,  null: false
+    t.integer "organization_id"
+    t.integer "upload_id"
+    t.string  "name",            default: "",    null: false
+    t.text    "bio"
+    t.string  "website"
+    t.string  "facebook_id"
+    t.string  "facebook_alias"
+    t.string  "twitter_alias"
+  end
+
+  add_index "officials", ["approved"], name: "index_officials_on_approved", using: :btree
+  add_index "officials", ["name"], name: "index_officials_on_name", where: "((approved IS TRUE) AND ((type)::text = 'Official::Master'::text))", using: :btree
+  add_index "officials", ["pending"], name: "index_officials_on_pending", using: :btree
+  add_index "officials", ["type"], name: "index_officials_on_type", using: :btree
+
   create_table "organizations", force: true do |t|
     t.string  "type",                           null: false
     t.integer "master_id"
@@ -51,6 +72,23 @@ ActiveRecord::Schema.define(version: 20130600000045) do
   add_index "organizations", ["pending"], name: "index_organizations_on_pending", using: :btree
   add_index "organizations", ["type"], name: "index_organizations_on_type", using: :btree
 
+  create_table "policies", force: true do |t|
+    t.string  "type",                            null: false
+    t.integer "master_id"
+    t.boolean "approved",        default: false, null: false
+    t.boolean "declined",        default: false, null: false
+    t.boolean "pending",         default: true,  null: false
+    t.integer "organization_id"
+    t.integer "upload_id"
+    t.string  "name",            default: "",    null: false
+  end
+
+  add_index "policies", ["approved"], name: "index_policies_on_approved", using: :btree
+  add_index "policies", ["name"], name: "index_policies_on_name", where: "((approved IS TRUE) AND ((type)::text = 'Policy::Master'::text))", using: :btree
+  add_index "policies", ["organization_id"], name: "index_policies_on_organization_id", where: "((approved IS TRUE) AND ((type)::text = 'Policy::Master'::text))", using: :btree
+  add_index "policies", ["pending"], name: "index_policies_on_pending", using: :btree
+  add_index "policies", ["type"], name: "index_policies_on_type", using: :btree
+
   create_table "poll_attributes", force: true do |t|
     t.integer "user_id"
     t.integer "pollable_id",                    null: false
@@ -66,6 +104,28 @@ ActiveRecord::Schema.define(version: 20130600000045) do
   end
 
   add_index "poll_attributes", ["pollable_id", "pollable_type"], name: "index_poll_attributes_on_pollable_id_and_pollable_type", using: :btree
+
+  create_table "products", force: true do |t|
+    t.string  "type",                            null: false
+    t.integer "master_id"
+    t.boolean "approved",        default: false, null: false
+    t.boolean "declined",        default: false, null: false
+    t.boolean "pending",         default: true,  null: false
+    t.integer "organization_id"
+    t.integer "upload_id"
+    t.string  "name",            default: "",    null: false
+    t.string  "ean13"
+    t.string  "website"
+    t.string  "facebook_id"
+    t.string  "facebook_alias"
+    t.string  "twitter_alias"
+  end
+
+  add_index "products", ["approved"], name: "index_products_on_approved", using: :btree
+  add_index "products", ["name"], name: "index_products_on_name", where: "((approved IS TRUE) AND ((type)::text = 'Product::Master'::text))", using: :btree
+  add_index "products", ["organization_id"], name: "index_products_on_organization_id", where: "((approved IS TRUE) AND ((type)::text = 'Product::Master'::text))", using: :btree
+  add_index "products", ["pending"], name: "index_products_on_pending", using: :btree
+  add_index "products", ["type"], name: "index_products_on_type", using: :btree
 
   create_table "report_evidence", force: true do |t|
     t.string  "citation"

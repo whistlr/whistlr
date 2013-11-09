@@ -1,7 +1,7 @@
 h1.thin.push-half--top = t devise.sign_up
 form
   if view.errors
-    #error_explanation = displayErrors view.errors
+    .error-explanation = displayErrors view.errors root="users"
   ul.form-fields
     li
       Whistlr.TextField valueBinding="view.name" placeholderTranslation="users.attributes.name"

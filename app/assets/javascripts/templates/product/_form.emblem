@@ -1,0 +1,29 @@
+form submit="submit"
+
+  if errors
+    .error-explanation = displayErrors errors root="products"
+  .form-body
+    ul.form-fields
+      li
+        Whistlr.TextField valueBinding="name" placeholderTranslation="products.attributes.name" tip="OrganizationsFormTipsNameView"
+      li
+        Whistlr.TextField valueBinding="organizationInput" placeholderTranslation="products.attributes.organization" tip="OrganizationsFormTipsOrganizationView"
+        Whistlr.TextField type="hidden" valueBinding="organization"
+        = organization-autocomplete setTo="organization" organizations=organizationList
+      li
+        Whistlr.TextField valueBinding="ean13" placeholderTranslation="products.attributes.ean13" tip="OrganizationsFormTipsEan13View"
+      li
+        Whistlr.TextField valueBinding="facebookAlias" placeholderTranslation="products.attributes.facebook_alias" tip="OrganizationsFormTipsFacebookView"
+      li
+        Whistlr.TextField valueBinding="twitterAlias" placeholderTranslation="products.attributes.twitter_alias" tip="OrganizationsFormTipsTwitterView"
+      li
+        Whistlr.TextField valueBinding="website" placeholderTranslation="products.attributes.website" tip="OrganizationsFormTipsWebsiteView"
+      li
+        Whistlr.FileFieldView
+      li.push--top
+        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="FormTipsNotesView"
+
+    Whistlr.FormTipBoxView
+
+  .form-actions
+    Whistlr.Button

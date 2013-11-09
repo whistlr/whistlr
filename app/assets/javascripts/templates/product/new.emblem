@@ -1,0 +1,12 @@
+#main-column--left
+  partial "product/profile"
+
+#main-column--center
+  .banner
+    h1
+      t products.new.header
+  p.form-width
+    t products.new.p1
+  partial "product/form"
+
+#main-column--right

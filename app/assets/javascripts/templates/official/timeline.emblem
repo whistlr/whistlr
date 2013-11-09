@@ -1,0 +1,13 @@
+.banner
+  h1
+    t officials.timeline.header
+
+ul.block-list
+  each event in controller
+    if event.eventable.isLoaded?
+      li = event-item event=event authToken=auth.authToken
+  li
+    if loadingMore
+      | Loading more...
+    else
+      a click='getMore' Get More...

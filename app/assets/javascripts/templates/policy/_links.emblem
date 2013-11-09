@@ -1,0 +1,6 @@
+ul.nav.float--left.forefront.secondary-font
+  li = linkTo 'policy.report' this | #{t shared.main}
+ul.nav.float--right.micro.forefront.secondary-font.push-quarter--top
+  li.push--right = linkTo 'policy.edit' this | #{t shared.edit}
+  li = linkTo 'policy.timeline' this | #{t shared.timeline}
+.cf

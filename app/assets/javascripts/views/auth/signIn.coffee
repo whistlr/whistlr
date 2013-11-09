@@ -10,6 +10,7 @@ Whistlr.AuthSignInView = Em.View.extend
     event.preventDefault()
     event.stopPropagation()
     @get('context').auth.signIn
+      dataType: "json"
       data:
         "email": @get 'email'
         "password": @get 'password'
@@ -17,5 +18,5 @@ Whistlr.AuthSignInView = Em.View.extend
       success: =>
         lightbox = Ember.View.views[$(".ember-lightbox").attr('id')]
         lightbox.set 'visible', false
-      error: (jqXHR, textStatus, errorThrown) =>
-        @set 'errors', jqXHR.responseText
+      error: (response) =>
+        @set 'errors', response.responseJSON

@@ -22,7 +22,7 @@ class OrganizationsController < ApplicationController
   def create
     organization = Organization::Master.new(organization_params)
     organization.save
-    respond_with organization, location: organization_path(organization)
+    respond_with organization, location: root_path
   end
 
   def edit

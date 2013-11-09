@@ -1,0 +1,13 @@
+#main-column--left
+  if approved?
+    .return = linkTo 'explore.policies' | #{t policies.other}
+  else
+    .return = linkTo 'engage.policies' | #{t policies.other}
+  == image
+  h1.delta = name
+  if organization?
+    .nano.push--bottom = linked-translation translation='policies.profile.owned_by' firstResource=organization secondResource=organization
+  .push--top
+    == facebookLinkIcon
+    == twitterLinkIcon
+    == websiteLinkIcon

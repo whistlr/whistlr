@@ -3,8 +3,7 @@ header
     li.border--left = linkTo 'home' | #{t layout.header.whistlr}
     li = linkTo 'explore' | #{t layout.header.explore}
     li = linkTo 'engage' | #{t layout.header.engage}
-    span
-      input.search-bar
+    Whistlr.searchQueryView
   ul.nav.nav--header.nav--right
     if auth.signedIn
       li.border--left

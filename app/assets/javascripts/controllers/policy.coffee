@@ -1,0 +1,1 @@
+Whistlr.PolicyController = Ember.ObjectController.extend()

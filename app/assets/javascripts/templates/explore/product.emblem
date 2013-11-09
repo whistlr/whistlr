@@ -1,0 +1,10 @@
+ul.nav
+  each product in controller
+    li = linkTo 'product.report' product class="resource"
+      == product.image
+      = product.name
+  li
+    if loadingMore
+      | Loading more...
+    else
+      a click='getMore' Get More...

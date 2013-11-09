@@ -1,0 +1,1 @@
+Whistlr.OfficialReportView = Em.View.extend()

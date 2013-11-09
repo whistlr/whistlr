@@ -1,0 +1,1 @@
+Whistlr.ProductController = Ember.ObjectController.extend()

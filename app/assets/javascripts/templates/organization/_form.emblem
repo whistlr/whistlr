@@ -1,7 +1,7 @@
 form submit="submit"
 
   if errors
-    .error-explanation = displayErrors errors
+    .error-explanation = displayErrors errors root="organizations"
   .form-body
     ul.form-fields
       li

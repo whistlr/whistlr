@@ -16,6 +16,7 @@ Whistlr.AuthRegisterView = Ember.View.extend
     $.ajax
       url: '/users'
       type: "POST"
+      dataType: "json"
       data:
         "user[name]": @get 'name'
         "user[email]": @get 'email'
@@ -24,7 +25,7 @@ Whistlr.AuthRegisterView = Ember.View.extend
       success: =>
         lightbox = Ember.View.views[$(".ember-lightbox").attr('id')]
         lightbox.set 'visible', false
-      error: (jqXHR, textStatus, errorThrown) =>
-        @set 'errors', jqXHR.responseText
+      error: (response) =>
+        @set 'errors', response.responseJSON
       complete: =>
         @set 'submitting', false

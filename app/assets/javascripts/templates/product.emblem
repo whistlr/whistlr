@@ -1,0 +1,7 @@
+partial "product/profile"
+
+#main-column--center
+  partial "product/links"
+  outlet
+
+#main-column--right

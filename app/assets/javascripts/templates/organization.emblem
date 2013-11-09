@@ -1,0 +1,7 @@
+partial "organization/profile"
+
+#main-column--center
+  partial "organization/links"
+  outlet
+
+#main-column--right

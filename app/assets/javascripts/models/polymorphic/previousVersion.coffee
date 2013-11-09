@@ -1,0 +1,1 @@
+Whistlr.Previous = DS.Model.extend()

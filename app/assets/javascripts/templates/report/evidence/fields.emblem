@@ -1,0 +1,4 @@
+li
+  Whistlr.TextField valueBinding="citation" placeholderTranslation="reports.evidence.attributes.citation"
+li
+  Whistlr.TextField valueBinding="url" placeholderTranslation="reports.evidence.attributes.url"

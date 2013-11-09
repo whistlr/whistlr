@@ -1,0 +1,6 @@
+span.inline-block.push-half--right
+  .icon--width = response-button report=report value='1' respondedTo=report.respondedTo authToken=authToken approve=true
+  .center = report.responsesApprove
+span.inline-block.push-half--right
+  .icon--width = response-button report=report value='-1' respondedTo=report.respondedTo authToken=authToken approve=false
+  .center = report.responsesDisapprove

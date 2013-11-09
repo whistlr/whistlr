@@ -1,0 +1,93 @@
+if event.eventable.versionAttributes.initial?
+  linked-translation translation='reports.versions.submitted' firstResource=event.eventable.submittedBy secondResource=event.eventable.master
+else
+  linked-translation translation='reports.versions.revised' firstResource=event.eventable.submittedBy secondResource=event.eventable.master
+
+if event.isExpanded
+  a.milli.float--right.forefront.push--ends click="collapse target='event'"
+    t shared.collapse
+  .cf
+  h3.epsilon.push--top.flush--bottom = t shared.general
+  hr.rule
+  table.table--striped
+    colgroup
+      col.20
+      col.40
+      col.40
+    thead
+      th
+      th = t shared.this_version
+      th = t shared.previous
+    tbody
+      if event.eventable.summaryChanged
+        tr
+          th = t reports.attributes.summary
+          td = event.eventable.summary
+          td = event.eventable.previousVersion.summary
+      if event.eventable.descriptionChanged
+        tr
+          th = t reports.attributes.description
+          td = event.eventable.description
+          td = event.eventable.previousVersion.description
+  if event.eventable.changedParticipants
+    h3.epsilon.push--top.flush--bottom = t reports.participants.other
+    hr.rule
+    table.table--striped
+      colgroup
+        col.20
+        col.40
+        col.40
+      thead
+        th
+        th = t shared.this_version
+        th = t shared.previous
+      tbody
+        each participant in event.eventable.changedParticipants
+          tr
+            th = t reports.participants.one
+            td = linkTo participant.reportable.modelCamelized participant.reportable
+              participant.reportable.name
+            td = linkTo participant.previousVersion.reportable.modelCamelized participant.previousVersion.reportable
+              participant.previousVersion.reportable.name
+          tr
+            th = t reports.participants.attributes.summary
+            td = participant.name
+            td = participant.previousVersion.name
+          tr
+            th = t reports.participants.attributes.involvement
+            td = participant.involvement
+            td = participant.previousVersion.involvement
+          tr
+            td
+  if event.eventable.changedEvidence
+    h3.epsilon.push--top.flush--bottom = t reports.evidence.other
+    hr.rule
+    table.table--striped
+      colgroup
+        col.20
+        col.40
+        col.40
+      thead
+        th
+        th = t shared.this_version
+        th = t shared.previous
+      tbody
+        each evidence in event.eventable.changedEvidence
+          tr
+            th = t reports.evidence.attributes.citation
+            td = evidence.citation
+            td = evidence.previousVersion.citation
+          tr
+            th = t reports.evidence.attributes.url
+            td = evidence.url
+            td = evidence.previousVersion.url
+          tr
+            td
+  if event.eventable.pollAttributes.notes
+    = event.eventable.pollAttributes.notes
+  a.milli.float--right.forefront.push--top click="collapse target='event'"
+    t shared.collapse
+else
+  a.milli.float--right.forefront.push--top click="expand target='event'"
+    t shared.expand
+.cf

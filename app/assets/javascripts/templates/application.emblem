@@ -1,0 +1,20 @@
+header
+  ul.nav.nav--header.nav--left
+    li.border--left = linkTo 'home' | #{t layout.header.whistlr}
+    li = linkTo 'explore' | #{t layout.header.explore}
+    li = linkTo 'engage' | #{t layout.header.engage}
+    span
+      input.search-bar
+  ul.nav.nav--header.nav--right
+    if auth.signedIn
+      li.border--left
+        Whistlr.AuthSignOutView
+    else
+      li.border--left
+        Whistlr.AuthRegisterLinkView text="devise.register"
+      li
+        Whistlr.AuthSignInLinkView text="devise.sign_in"
+
+Whistlr.LightboxPromptView
+#main
+  = outlet

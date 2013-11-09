@@ -1,0 +1,1 @@
+Whistlr.Master = DS.Model.extend()

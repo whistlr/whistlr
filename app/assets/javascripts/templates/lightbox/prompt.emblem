@@ -1,0 +1,4 @@
+if view.visible?
+  #lightbox
+    = view view.content
+  Whistlr.LightboxScreenView

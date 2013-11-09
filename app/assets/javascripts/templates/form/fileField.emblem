@@ -1,0 +1,6 @@
+.file-upload.btn
+  .progress-bar
+  span = t organizations.attributes.image
+  span.upload-icon
+  Em.TextField valueBinding="upload" type="hidden"
+  input#file_upload type="file" name="upload[file]"

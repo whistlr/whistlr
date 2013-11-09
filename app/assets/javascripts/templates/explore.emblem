@@ -1,0 +1,9 @@
+#main-column--left
+  h1.delta.highlight = t explore.header
+  ul.nav.nav--stacked
+   li = linkTo 'explore.organizations' | #{t organizations.other}
+
+#main-column--center
+  = outlet
+
+#main-column--right

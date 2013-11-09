@@ -1,0 +1,4 @@
+p
+  t form.tips.notes.text1
+p.note
+  t form.tips.notes.text2

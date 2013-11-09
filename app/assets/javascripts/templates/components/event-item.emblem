@@ -1,0 +1,10 @@
+.float--left.forefront
+  if event.eventable.pollAttributes.pending?
+    poll-vote voteable=event.eventable authToken=authToken
+  else
+    if event.eventable.pollAttributes.approved?
+      .icon.checkmark.muted-extra
+    else
+      .icon.xmark.muted-extra
+= eventPartial event.eventable.type
+.cf

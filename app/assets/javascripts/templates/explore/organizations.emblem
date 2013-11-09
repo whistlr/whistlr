@@ -1,0 +1,10 @@
+ul.nav
+  each organization in controller
+    li = linkTo 'organization.report' organization class="resource"
+      == organization.image
+      = organization.name
+  li
+    if loadingMore
+      | Loading more...
+    else
+      a click='getMore' Get More...

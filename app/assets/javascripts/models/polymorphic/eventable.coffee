@@ -1,0 +1,1 @@
+Whistlr.Eventable = DS.Model.extend()

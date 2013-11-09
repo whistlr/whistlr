@@ -1,0 +1,10 @@
+li
+  Whistlr.TextField valueBinding="summary" placeholderTranslation="reports.participants.attributes.summary"
+li
+  Whistlr.TextField valueBinding="involvement" placeholderTranslation="reports.participants.attributes.involvement"
+li
+  Ember.Select valueBinding="reportableType" content=resourceTypes
+li
+  Whistlr.TextField valueBinding="reportableInput" placeholderTranslation="reports.participants.attributes.reportable_name"
+  Whistlr.TextField type="hidden" valueBinding="reportable"
+  = organization-autocomplete setTo="reportable" organizations=reportableList

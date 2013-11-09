@@ -1,0 +1,1 @@
+a href='/sign_out' #{t devise.sign_out}

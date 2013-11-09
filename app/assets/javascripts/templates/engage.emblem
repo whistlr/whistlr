@@ -1,0 +1,10 @@
+#main-column--left
+  h1.delta.highlight = t engage.header
+
+  ul.nav.nav--stacked
+   li = linkTo 'engage.organizations' | #{t organizations.other}
+
+#main-column--center
+  = outlet
+
+#main-column--right

@@ -1,0 +1,12 @@
+#main-column--left
+  partial "organization/profile"
+
+#main-column--center
+  .banner
+    h1
+      t organizations.new.header
+  p.form-width
+    t organizations.new.p1
+  partial "organization/form"
+
+#main-column--right

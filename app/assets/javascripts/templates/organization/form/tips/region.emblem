@@ -1,0 +1,15 @@
+p
+  t organizations.form.tips.region.text1
+ul
+  li
+    t organizations.form.tips.region.example1
+  li
+    t organizations.form.tips.region.example2
+  li
+    t organizations.form.tips.region.example3
+  li
+    t organizations.form.tips.region.example4
+  li
+    t organizations.form.tips.region.example5
+p.note
+  t organizations.form.tips.region.text2

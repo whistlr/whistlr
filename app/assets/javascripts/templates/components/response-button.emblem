@@ -1,0 +1,7 @@
+form.icon--width
+  input type="hidden" valueBinding="report" value=report
+  input type="hidden" valueBinding="value" value=value
+  if approve
+    a{bindAttr class=":clickable :icon :approve view.respondedToApprove:muted-extra"} click="submit target='view'"
+  else
+    a{bindAttr class=":clickable :icon :disapprove view.respondedToDisapprove:muted-extra"} click="submit target='view'"

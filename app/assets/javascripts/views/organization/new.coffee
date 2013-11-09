@@ -1,0 +1,1 @@
+Whistlr.OrganizationNewView = Em.View.extend()

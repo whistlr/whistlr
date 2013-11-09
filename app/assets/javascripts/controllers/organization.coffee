@@ -1,0 +1,1 @@
+Whistlr.OrganizationController = Ember.ObjectController.extend()

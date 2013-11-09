@@ -1,0 +1,24 @@
+h1.thin.push-half--top = t devise.sign_in
+form
+  if view.errors
+    #error_explanation = displayErrors view.errors
+  ul.form-fields
+    li
+      Whistlr.TextField valueBinding="view.email" placeholderTranslation="users.attributes.email"
+    li
+      Whistlr.TextField valueBinding="view.password" type="password" placeholderTranslation="users.attributes.password"
+    li
+      label
+        Whistlr.Checkbox checkedBinding="view.remember"
+        span.push-half--left = t devise.remember_me
+
+    li
+      Whistlr.Button
+
+hr.rule.push--top
+
+  Whistlr.AuthRegisterLinkView text="devise.are_you_new"
+
+hr.rule.push--top
+
+  Whistlr.AuthPasswordRecoveryLinkView text="devise.forgot_your_password"

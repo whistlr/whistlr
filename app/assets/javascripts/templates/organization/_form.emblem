@@ -1,0 +1,32 @@
+form submit="submit"
+
+  if errors
+    .error-explanation = displayErrors errors
+  .form-body
+    ul.form-fields
+      li
+        Whistlr.TextField valueBinding="name" placeholderTranslation="organizations.attributes.name" tip="OrganizationsFormTipsNameView"
+      li
+        Whistlr.TextField valueBinding="parentInput" placeholderTranslation="organizations.attributes.parent" tip="OrganizationsFormTipsParentView"
+        Whistlr.TextField type="hidden" valueBinding="parent"
+        = organization-autocomplete setTo="parent" organizations=parentList
+      li
+        Whistlr.TextField valueBinding="country" placeholderTranslation="organizations.attributes.country" tip="OrganizationsFormTipsCountryView"
+      li
+        Whistlr.TextField valueBinding="region" placeholderTranslation="organizations.attributes.region" tip="OrganizationsFormTipsRegionView" class="text-field--half push-half--right"
+        Whistlr.TextField valueBinding="city" placeholderTranslation="organizations.attributes.city" tip="OrganizationsFormTipsCityView" class="text-field--half"
+      li
+        Whistlr.TextField valueBinding="facebookAlias" placeholderTranslation="organizations.attributes.facebook_alias" tip="OrganizationsFormTipsFacebookView"
+      li
+        Whistlr.TextField valueBinding="twitterAlias" placeholderTranslation="organizations.attributes.twitter_alias" tip="OrganizationsFormTipsTwitterView"
+      li
+        Whistlr.TextField valueBinding="website" placeholderTranslation="organizations.attributes.website" tip="OrganizationsFormTipsWebsiteView"
+      li
+        Whistlr.FileFieldView
+      li.push--top
+        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="FormTipsNotesView"
+
+    Whistlr.FormTipBoxView
+
+  .form-actions
+    Whistlr.Button

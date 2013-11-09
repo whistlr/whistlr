@@ -1,0 +1,15 @@
+#main-column--left
+  if approved?
+    .return = linkTo 'explore.organizations' | #{t organizations.other}
+  else
+    .return = linkTo 'engage.organizations' | #{t organizations.other}
+  == image
+  h1.delta = name
+  if parent?
+    .nano.push--bottom = linked-translation translation='organizations.profile.owned_by' firstResource=parent secondResource=parent
+  if location?
+    .micro = location
+  .push--top
+    == facebookLinkIcon
+    == twitterLinkIcon
+    == websiteLinkIcon

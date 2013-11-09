@@ -1,0 +1,1 @@
+Whistlr.Pollable = DS.Model.extend()

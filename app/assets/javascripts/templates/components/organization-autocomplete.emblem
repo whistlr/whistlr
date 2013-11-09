@@ -1,0 +1,6 @@
+if organizations
+  ul.autocomplete
+    each organization in organizations
+      li{action setItem organization setTo on="click" target='view'}
+        .milli = organization.name 
+        .nano = organization.location

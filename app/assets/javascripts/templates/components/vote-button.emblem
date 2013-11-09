@@ -1,0 +1,8 @@
+form.icon--width
+  input type="hidden" valueBinding="voteableType" value=voteableType
+  input type="hidden" valueBinding="voteableId" value=voteableId
+  input type="hidden" valueBinding="value" value=value
+  if approve
+    a{bindAttr class=":clickable :icon :checkmark view.votedYea:muted-extra"} click="submit target='view'"
+  else
+    a{bindAttr class=":clickable :icon :xmark view.votedNay:muted-extra"} click="submit target='view'"

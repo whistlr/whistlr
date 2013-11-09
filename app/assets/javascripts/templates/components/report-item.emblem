@@ -1,0 +1,18 @@
+.float--left.forefront
+  response-interface report=report authToken=authToken
+div = report.name
+
+if report.isExpanded
+  a.milli.float--right.forefront.push--top click="collapse target='report'"
+    t shared.collapse
+  .cf
+  .push--top
+    p = report.description
+  a.milli.float--right.forefront.push--top click="collapse target='report'"
+    t shared.collapse
+  .cf
+else
+  a.milli.float--right.forefront.push--top click="expand target='report'"
+    t shared.expand
+  .cf
+.cf

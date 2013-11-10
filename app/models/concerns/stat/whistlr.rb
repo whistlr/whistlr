@@ -6,7 +6,7 @@ module Stat::Whistlr
   end
 
   def stats
-    user.whistlr_stats.present? ? user.whistlr_stats : user.create_whistlr_stats
+    poll_attributes.user.whistlr_stats.present? ? poll_attributes.user.whistlr_stats : poll_attributes.user.create_whistlr_stats
   end
 
   def accepted_submission

@@ -2,6 +2,7 @@
 
 Whistlr.Router.map ()->
   @route 'home', path: '/'
+  @route 'static.welcome', path: 'welcome'
 
   @resource 'explore', ->
     @resource 'explore.organizations', path: 'organizations'

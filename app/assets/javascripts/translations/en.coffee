@@ -1,4 +1,8 @@
 Em.I18n.translations =
+  static:
+    welcome:
+      header: "Welcome to Whistlr"
+      text1: "The site is still young and there's plenty of opportunity to contribute. Catalog businesses and officials, report on their activities, and help us map out threads of power and ethical responsibility."
   devise:
     register: "Register"
     sign_up: "Sign Up"

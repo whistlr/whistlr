@@ -1,0 +1,10 @@
+#main-column--left
+
+#main-column--center
+  .banner
+    h1
+      t static.welcome.header
+  p.form-width
+      t static.welcome.text1
+
+#main-column--right

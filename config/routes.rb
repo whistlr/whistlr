@@ -1,6 +1,8 @@
 Whistlr::Application.routes.draw do
   root 'static#home'
 
+  get 'welcome' => 'generic#show'
+
   concern :resourceful do
     member do
       resources :events, path: :timeline

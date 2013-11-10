@@ -84,6 +84,6 @@ end
 Whistlr::Application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :email_prefix => "[Whistlr Errors:] ",
-    :sender_address => %{"notifier" <no-reply@whistlr.com>},
+    :sender_address => %{"notifier" <no-reply@whistlr.org>},
     :exception_recipients => %w{timothythehuman@gmail.com}
 }

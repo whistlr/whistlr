@@ -5,11 +5,11 @@ ActionMailer::Base.smtp_settings = {
   :user_name => ENV['MANDRILL_USER_NAME'],
   :password  => ENV['MANDRILL_PASSWORD'], # SMTP password is any valid API key
   :authentication => 'login', # Mandrill supports 'plain' or 'login'
-  :domain => 'whistlr.com', # your domain to identify your server when
+  :domain => 'whistlr.org', # your domain to identify your server when
 }
 
 if Rails.env.production?
-  ActionMailer::Base.default_url_options[:host] = "whistlr.com"
+  ActionMailer::Base.default_url_options[:host] = "whistlr.org"
 else
   ActionMailer::Base.default_url_options[:host] = "localhost:3000"
 end

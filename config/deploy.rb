@@ -37,6 +37,7 @@ namespace :deploy do
   end
 end
 
+before "deploy", "deploy:setup"
 before 'deploy:finalize_update', 'figaro:setup'
 after 'figaro:setup', 'figaro:finalize'
 after 'deploy:update_code', 'deploy:migrate'

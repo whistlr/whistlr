@@ -1,5 +1,6 @@
 *.rbc
 *.sassc
+*198.58.97.33
 .sass-cache
 /.bundle
 /vendor/bundle

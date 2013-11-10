@@ -8,5 +8,5 @@
 /public/system
 /coverage/
 /spec/tmp
-config/initializers/secret_token.rb
-config/database.yml
+# Ignore application configuration
+/config/application.yml

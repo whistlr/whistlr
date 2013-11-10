@@ -1,45 +1,52 @@
-set :application, 'whistlr'
-set :repo_url, 'https://github.com/whistlr/whistlr.git'
-
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
-
-set :deploy_to, '/var/www/whistlr'
+set :application, 'Whistlr'
 set :scm, :git
+set :repository, "https://github.com/whistlr/whistlr.git"
 
-# set :format, :pretty
-# set :log_level, :debug
-# set :pty, true
+set :deploy_to, '/var/www/whistlr.org'
+server "198.58.97.33", :web, :app, :db, primary: true
+set :user, "timothythehuman"
 
-# set :linked_files, %w{config/database.yml}
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+ssh_options[:forward_agent] = true
+default_run_options[:pty] = true
 
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
-# set :keep_releases, 5
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
-set :rbenv_type, :user
-set :rbenv_ruby, '2.0.0-p247'
+set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
 
-set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
+require "bundler/capistrano" 
+
+namespace :figaro do
+  desc "SCP transfer figaro configuration to the shared folder"
+  task :setup do
+    transfer :up, "config/application.yml", "#{shared_path}/application.yml", :via => :scp
+  end
+ 
+  desc "Symlink application.yml to the release path"
+  task :finalize do
+    run "ln -sf #{shared_path}/application.yml #{release_path}/config/application.yml"
+  end
+end
 
 namespace :deploy do
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      execute :touch, release_path.join('tmp/restart.txt')
-    end
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+end
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      within release_path do
-        execute :rake, 'cache:clear'
-      end
-    end
+after 'deploy:update_code', 'figaro:setup'
+after 'figaro:setup', 'figaro:finalize'
+after 'figaro:finalize', 'deploy:migrate'
+
+set :keep_releases, 5
+after "deploy:update", "customtasks:customcleanup"
+
+namespace :customtasks do
+  task :customcleanup, :except => {:no_release => true} do
+    count = fetch(:keep_releases, 5).to_i
+    run "ls -1dt #{releases_path}/* | tail -n +#{count + 1} | #{try_sudo} xargs rm -rf"
   end
-
-  after :finishing, 'deploy:cleanup'
-
 end

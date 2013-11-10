@@ -3,10 +3,8 @@ source 'https://rubygems.org'
 gem "rails"
 gem "thin"
 gem "pg"
-gem 'capistrano', '~> 3.0.1'
-gem 'capistrano-rails'
-gem 'capistrano-rbenv', github: "capistrano/rbenv"
 gem "debugger"
+gem "figaro"
 
 gem "jquery-rails"
 gem "jquery-fileupload-rails"
@@ -44,3 +42,7 @@ gem 'mini_magick'
 gem 'cancan'
 gem "devise"
 gem "fb_graph"
+
+group :development do
+  gem "capistrano", '~> 2.15'
+end

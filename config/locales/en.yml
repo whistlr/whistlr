@@ -26,3 +26,4 @@ en:
         invalid: "is invalid"
     shared:
       must_be_signed_in: "You must be signed in"
+      no_change: "We didn't detect any changes"

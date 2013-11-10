@@ -4,13 +4,12 @@ class VersionAttributes < ActiveRecord::Base
 
   before_create :set_previous
 
-  delegate :approved_versions, :initial_version, to: :master, prefix: true
   delegate :master, to: :versionable
 
 private
 
   def set_previous
-    self.previous = master_approved_versions.last || master_initial_version unless initial?
+    self.previous = master.last_approved_version unless initial?
   end
 
 end

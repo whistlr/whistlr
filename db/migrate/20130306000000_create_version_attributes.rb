@@ -6,6 +6,7 @@ class CreateVersionAttributes < ActiveRecord::Migration
 
       t.integer :previous_id
       t.string :previous_type
+      t.integer :details_provided, null: false
       
       t.boolean :initial, null: false, default: false
     end

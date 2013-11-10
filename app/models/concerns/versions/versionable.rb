@@ -26,6 +26,10 @@ module Versions::Versionable
     versions.create(params.merge(initial: initial))
   end
 
+  def last_approved_version
+    approved_versions.last || initial_version unless versions.length == 0
+  end
+
 private
 
   def clone_initial_version

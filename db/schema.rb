@@ -381,6 +381,7 @@ ActiveRecord::Schema.define(version: 20130600000045) do
     t.string  "versionable_type",                 null: false
     t.integer "previous_id"
     t.string  "previous_type"
+    t.integer "details_provided",                 null: false
     t.boolean "initial",          default: false, null: false
   end
 

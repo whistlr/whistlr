@@ -13,6 +13,6 @@ class PollAttributesSerializer < ActiveModel::Serializer
   end
 
   def voted_for
-    current_user.vote_for(object.pollable)
+    current_user.vote_for(object.pollable) if current_user.present?
   end
 end

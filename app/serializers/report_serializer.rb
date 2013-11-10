@@ -7,6 +7,6 @@ class ReportSerializer < ActiveModel::Serializer
   has_many :evidence, root: :report_evidence
   
   def responded_to
-    current_user.response_for(object)
+    current_user.response_for(object) if current_user.present?
   end
 end

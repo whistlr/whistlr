@@ -13,6 +13,8 @@ Em.I18n.translations =
     are_you_new: "Are you new here? <strong>Setup an account</strong>"
     forgot_your_password: "Forgot your password?"
     reset_password: "Reset Password"
+    attributes:
+      error: ""
   explore:
     header: 'Explore'
   engage:

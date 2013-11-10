@@ -37,9 +37,9 @@ namespace :deploy do
   end
 end
 
-after 'deploy:update_code', 'figaro:setup'
+before 'deploy:finalize_update', 'figaro:setup'
 after 'figaro:setup', 'figaro:finalize'
-after 'figaro:finalize', 'deploy:migrate'
+after 'deploy:update_code', 'deploy:migrate'
 
 set :keep_releases, 5
 after "deploy:update", "customtasks:customcleanup"

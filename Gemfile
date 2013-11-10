@@ -46,3 +46,7 @@ gem "fb_graph"
 group :development do
   gem "capistrano", '~> 2.15'
 end
+
+group :production do
+  gem 'exception_notification'
+end

@@ -80,3 +80,10 @@ Whistlr::Application.configure do
 
   config.ember.variant = :production
 end
+
+Whistlr::Application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[Whistlr Errors:] ",
+    :sender_address => %{"notifier" <no-reply@whistlr.com>},
+    :exception_recipients => %w{timothythehuman@gmail.com}
+}

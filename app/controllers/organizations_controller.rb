@@ -21,6 +21,7 @@ class OrganizationsController < ApplicationController
 
   def create
     organization = Organization::Master.new(organization_params)
+    authorize! :create, organization
     organization.save
     respond_with organization, location: root_path
   end
@@ -30,6 +31,7 @@ class OrganizationsController < ApplicationController
 
   def update
     organization = Organization::Master.find(params[:id])
+    authorize! :update, organization
     version = organization.create_version(organization_params)
     respond_with version
   end

@@ -1,8 +1,10 @@
 Whistlr.EngagePoliciesRoute = Ember.Route.extend(
 
   model: ->
+    name = Whistlr.searchBar() != undefined ? Whistlr.searchBar().get('searchQuery') || ""
     @store.findQuery 'policy',
       pending: "true"
+      name: name
 
   actions:
     getMore: ->

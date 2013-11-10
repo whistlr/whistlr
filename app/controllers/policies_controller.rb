@@ -21,6 +21,7 @@ class PoliciesController < ApplicationController
 
   def create
     policy = Policy::Master.new(policy_params)
+    authorize! :create, policy
     policy.save
     respond_with policy, location: root_path
   end
@@ -30,6 +31,7 @@ class PoliciesController < ApplicationController
 
   def update
     policy = Policy::Master.find(params[:id])
+    authorize! :update, policy
     version = policy.create_version(policy_params)
     respond_with version
   end

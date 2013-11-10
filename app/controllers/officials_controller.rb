@@ -21,6 +21,7 @@ class OfficialsController < ApplicationController
 
   def create
     official = Official::Master.new(official_params)
+    authorize! :create, official
     official.save
     respond_with official, location: root_path
   end
@@ -30,6 +31,7 @@ class OfficialsController < ApplicationController
 
   def update
     official = Official::Master.find(params[:id])
+    authorize! :update, official
     version = official.create_version(official_params)
     respond_with version
   end

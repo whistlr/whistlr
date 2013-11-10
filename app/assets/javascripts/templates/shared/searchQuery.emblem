@@ -1,1 +1,1 @@
-input.search-bar valueBinding="searchQuery" 
+Whistlr.TextField valueBinding="view.searchQuery" class="search-bar"

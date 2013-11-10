@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
 
   def create
     product = Product::Master.new(product_params)
+    authorize! :create, product
     product.save
     respond_with product, location: root_path
   end
@@ -30,6 +31,7 @@ class ProductsController < ApplicationController
 
   def update
     product = Product::Master.find(params[:id])
+    authorize! :update, product
     version = product.create_version(product_params)
     respond_with version
   end

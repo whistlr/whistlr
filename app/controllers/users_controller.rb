@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    authorize! :create, user
     if user.save
       render nothing: true, status: 204
     else

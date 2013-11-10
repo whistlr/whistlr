@@ -29,6 +29,7 @@ class ReportsController < ApplicationController
 
   def create
     report = Report::Master.new(report_params)
+    authorize! :create, report
     report.save
     respond_with report, location: root_path
   end

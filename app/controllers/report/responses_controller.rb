@@ -2,6 +2,7 @@ class Report::ResponsesController < ApplicationController
 
   def create
     report = Report.find(params[:response][:report_id])
+    authorize! :create, report
     response = report.create_response(report_response_params)
     render json: response.report(true), serializer: ReportResponseSerializer
   end

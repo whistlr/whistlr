@@ -1,6 +1,7 @@
-span.inline-block.push-half--right
-  .icon--width = vote-button voteableType=voteable.model voteableId=voteable.id value='1' approve=true votedFor=voteable.votedFor authToken=authToken
-  .center = voteable.votesYea
-span.inline-block.push-half--right
-  .icon--width = vote-button voteableType=voteable.model voteableId=voteable.id value='-1' approve=false votedFor=voteable.votedFor authToken=authToken
-  .center = voteable.votesNay
+if canVote
+  span.inline-block.push-half--right
+    .icon--width = vote-button voteableType=voteable.model voteableId=voteable.id value='1' approve=true votedFor=voteable.votedFor authToken=authToken
+    .center = voteable.votesYea
+  span.inline-block.push-half--right
+    .icon--width = vote-button voteableType=voteable.model voteableId=voteable.id value='-1' approve=false votedFor=voteable.votedFor authToken=authToken
+    .center = voteable.votesNay

@@ -1,8 +1,7 @@
 Whistlr.EngageOrganizationsRoute = Ember.Route.extend(
 
   model: ->
-    view = Whistlr.getView "searchQueryView"
-    name = view.get('searchQuery')
+    name = Whistlr.searchBar() != undefined ? Whistlr.searchBar().get('searchQuery') || ""
     @store.findQuery 'organization',
       pending: "true"
       name: name

@@ -1,8 +1,10 @@
 Whistlr.ExploreOfficialsRoute = Ember.Route.extend(
 
   model: ->
+    name = Whistlr.searchBar() != undefined ? Whistlr.searchBar().get('searchQuery') || ""
     @store.findQuery 'official',
       approved: "true"
+      name: name
 
   actions:
     getMore: ->

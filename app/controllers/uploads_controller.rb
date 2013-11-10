@@ -2,6 +2,7 @@ class UploadsController < ApplicationController
 
   def create
     upload = Upload.new(upload_params)
+    authorize! :create, upload
     upload.save
     render json: {upload: upload, authenticity_token: form_authenticity_token}, status: 201
   end

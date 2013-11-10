@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem "rails"
 gem "thin"
 gem "pg"
+gem 'capistrano', '~> 3.0.1'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
 gem "debugger"
 
 gem "jquery-rails"
@@ -38,5 +41,6 @@ gem "strip_attributes"
 
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'cancan'
 gem "devise"
 gem "fb_graph"

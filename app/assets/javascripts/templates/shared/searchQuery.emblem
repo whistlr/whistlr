@@ -1,1 +1,1 @@
-Whistlr.TextField valueBinding="view.searchQuery" class="search-bar"
+Whistlr.TextField valueBinding="view.searchQuery" class="search-bar" placeholderTranslation="layout.header.search_bar"

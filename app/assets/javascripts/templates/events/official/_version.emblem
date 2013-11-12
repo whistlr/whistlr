@@ -48,7 +48,7 @@ if event.isExpanded
           td == event.eventable.image
           td == event.eventable.previousVersion.image
   if event.eventable.pollAttributes.notes
-    = event.eventable.pollAttributes.notes
+    = format-markdown event.eventable.pollAttributes.notes
   a.milli.float--right.forefront.push--top click="collapse target='event'"
     t shared.collapse
 else

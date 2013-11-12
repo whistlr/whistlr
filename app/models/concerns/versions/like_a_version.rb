@@ -15,6 +15,10 @@ module Versions::LikeAVersion
     scope :initial, -> { includes(:version_attributes).where("version_attributes.initial = true").first }
   end
 
+  def versionable_attributes
+    self.attributes.except("id", "type", "approved", "declined", "pending", "master_id")
+  end
+
   def failure_handling
     if self.initial?
       versionable.update_column(:pending, false)
@@ -29,7 +33,7 @@ module Versions::LikeAVersion
       master.update_columns(approved: true, pending: false)
       accepted_submission if respond_to?(:accepted_submission)
     else
-      master.update_columns(self.attributes.except("id", "type", "approved", "declined", "pending", "master_id"))
+      master.update_columns(versionable_attributes)
       accepted_edit if respond_to?(:accepted_edit)
     end
   end
@@ -52,31 +56,19 @@ module Versions::LikeAVersion
   end
 
   def details_count
-    @initial ? attribute_count : alteration_count
+    versionable_attributes.inject(0) do |count, attribute|
+      detail_is_new(attribute) ? count + 1 : count
+    end
   end
 
-  def alteration_count
-    count = 0
-    attributes.except("id", "type", "approved", "declined", "pending", "master_id").each do |attribute|
-      count += 1 if attribute[1] != previous.public_send(attribute[0])
-    end
-    count
-  end
-
-  def attribute_count
-    count = 0
-    attributes.except("id", "type", "approved", "declined", "pending", "master_id").each do |attribute|
-      count += 1 if attribute[1].present?
-    end
-    count
+  def detail_is_new(attribute)
+    initial? ? attribute[1].present? : attribute[1] != previous.public_send(attribute[0])
   end
 
 private
 
   def is_altered
-    if details_count == 0
-      errors[:base] << I18n.t("activerecord.errors.messages.no_changes")
-    end
+    errors[:base] << I18n.t("errors.shared.no_changes") if details_count == 0
   end
 
   def create_version_attributes_with_extra_params

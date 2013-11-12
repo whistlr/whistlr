@@ -1,0 +1,2 @@
+div id=view.buttonBarId
+Em.TextArea placeholder=view.placeholder id=view.inputId valueBinding="view.value"

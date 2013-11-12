@@ -27,8 +27,8 @@ if event.isExpanded
       if event.eventable.descriptionChanged
         tr
           th = t reports.attributes.description
-          td = event.eventable.description
-          td = event.eventable.previousVersion.description
+          td = format-markdown event.eventable.description
+          td = format-markdown event.eventable.previousVersion.description
   if event.eventable.changedParticipants
     h3.epsilon.push--top.flush--bottom = t reports.participants.other
     hr.rule
@@ -84,7 +84,7 @@ if event.isExpanded
           tr
             td
   if event.eventable.pollAttributes.notes
-    = event.eventable.pollAttributes.notes
+    = format-markdown event.eventable.pollAttributes.notes
   a.milli.float--right.forefront.push--top click="collapse target='event'"
     t shared.collapse
 else

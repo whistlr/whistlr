@@ -7,7 +7,7 @@ if report.isExpanded
     t shared.collapse
   .cf
   .push--top
-    p = report.description
+    p = format-markdown report.description
   a.milli.float--right.forefront.push--top click="collapse target='report'"
     t shared.collapse
   .cf

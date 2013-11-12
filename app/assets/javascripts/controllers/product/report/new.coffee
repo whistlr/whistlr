@@ -19,7 +19,7 @@ Whistlr.ProductReportNewController = Ember.ObjectController.extend(
 
     submit: (event, view) ->
       @get('model').save().then ((response) =>
-        @transitionToRoute('product.report', @content)
+        @transitionToRoute('product.report')
       ), (response) =>
         @set "errors", response.errors
 )

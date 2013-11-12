@@ -19,7 +19,7 @@ Whistlr.OrganizationReportNewController = Ember.ObjectController.extend(
 
     submit: (event, view) ->
       @get('model').save().then ((response) =>
-        @transitionToRoute('organization.report', @content)
+        @transitionToRoute('organization.report')
       ), (response) =>
         @set "errors", response.errors
 )

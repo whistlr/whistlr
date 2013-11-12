@@ -36,6 +36,7 @@ Em.I18n.translations =
     header:
       engage: 'Engage'
       explore: 'Explore'
+      search_bar: 'Search for companies, governments, products, and officials'
       whistlr: 'Whistlr'
   officials:
     one: "Official"

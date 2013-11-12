@@ -2,7 +2,7 @@
   if approved?
     .return = linkTo 'explore.products' | #{t products.other}
   else
-    .return = linkTo 'engage.products' | #{t products.other}
+    .return = linkTo 'contribute.products' | #{t products.other}
   == image
   h1.delta = name
   if organization?

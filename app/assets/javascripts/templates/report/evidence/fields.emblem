@@ -1,4 +1,4 @@
 li
-  Whistlr.TextField valueBinding="citation" placeholderTranslation="reports.evidence.attributes.citation"
+  Whistlr.TextField valueBinding="citation" placeholderTranslation="reports.evidence.attributes.citation" tip="reports.evidence.form.tips.citation"
 li
-  Whistlr.TextField valueBinding="url" placeholderTranslation="reports.evidence.attributes.url"
+  Whistlr.TextField valueBinding="url" placeholderTranslation="reports.evidence.attributes.url" tip="reports.evidence.form.tips.url"

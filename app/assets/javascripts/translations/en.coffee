@@ -1,5 +1,8 @@
 Em.I18n.translations =
   static:
+    home:
+      header: "About Whistlr"
+      content: "Coming this week."
     welcome:
       header: "Welcome to Whistlr"
       text1: "The site is still young and there's plenty of opportunity to contribute. Catalog businesses and officials, report on their activities, and help us map out threads of power and ethical responsibility."
@@ -17,8 +20,8 @@ Em.I18n.translations =
       error: ""
   explore:
     header: 'Explore'
-  engage:
-    header: 'Engage'
+  contribute:
+    header: 'Contribute'
     officials:
       new_officials: 'New Official'
     organizations:
@@ -29,11 +32,13 @@ Em.I18n.translations =
       new_products: 'New Product'
   form:
     tips:
-      notes:
-        text1: "If you want, you can leave notes for the peer reviewers. These are helpful if something about your submission is unusual, or if you feel the need to leave references."
-        text2: "These notes will only be visible to reviewers. They will not be displayed on the front-end."
+      notes: "If you want, you can leave notes for the peer reviewers. These are helpful if something about your submission is unusual, or if you feel the need to leave references.\r\rThese notes will only be visible to reviewers. They will not be displayed on the front-end."
+      facebook: "To get an organization's Facebook alias, visit their Facebook page and look at their URL. For instance, Whole Food's URL is:\r\r    www.facebook.com/wholefoods\r\rSo their alias would be:\r\r    wholefoods\r\rIn some cases, the URL is longer:\r\r    www.facebook.com/pages/Hatch-Workshop/193953577353585\r\rNote the presence of 'pages' and a long number at the end. In such cases, the alias is the long number:\r\r    193953577353585"
+      twitter: "To get an organization's Twitter alias, visit their Twitter page and look at their URL. For instance, Bed Bath & Beyond's URL is:\r\r    twitter.com/BedBathBeyond\r\rSo their alias would be:\r\r    BedBathBeyond"
+      website: "The full URL for the organization's public-facing website. Eg:\r\r    http://www.cia.gov/\r\r    http://www.aljazeera.com/\r\r    http://www.scientology.org/\r\r    http://austintexas.gov/"
   layout:
     header:
+      contribute: 'Contribute'
       engage: 'Engage'
       explore: 'Explore'
       search_bar: 'Search for companies, governments, products, and officials'
@@ -50,6 +55,10 @@ Em.I18n.translations =
       website: 'Website'
     edit:
       header: 'Edit Official'
+    form:
+      tips:
+        bio: "A brief biography of the official, preferably under 500 characters."
+        name: "The official's full name."
     new:
       header: 'New Official'
       p1: "An <em>official</em> can include any public figure, from elected representatives to board members of a company."
@@ -77,59 +86,11 @@ Em.I18n.translations =
       header: 'Edit Organization'
     form:
       tips:
-        city:
-          text1: "The city in which the organization is headquartered."
-          text2: "Governmental organizations do not need to input anything here unless they administer on a municipal level, such as a city council or sheriff's office."
-          example1: "New York City"
-          example2: "Austin"
-          example3: "Seattle"
-          example4: "Archorage"
-        country:
-          text1: "The country in which the organization is headquartered."
-          text2: "Alternatively, if it's a governmental organization, the country which it administers."
-          text3: "International governmental organizations do not need to input anything here."
-          example1: "United States of America"
-          example2: "People's Republic of China"
-          example3: "Federative Republic of Brazil"
-        facebook:
-          text1: "To get an organization's Facebook alias, visit their Facebook page and look at their URL. For instance, Whole Food's URL is:"
-          example1: "www.facebook.com/wholefoods"
-          text2: "So their alias would be:"
-          example2: "wholefoods"
-          text3: "In some cases, the URL is longer:"
-          example3: "www.facebook.com/pages/Hatch-Workshop/193953577353585"
-          text4: "Note the presence of 'pages' and a long number at the end. In such cases, the alias is the long number:"
-          example4: "193953577353585"
-        name:
-          preamble: "This is the only required field. Go ahead and leave the organization's full name, eg:"
-          example1: "Coca-Cola Company"
-          example2: "Apple Inc."
-          example3: "Massachusetts Institute of Technology"
-          example4: "United States of America"
-          example5: "National Security Agency"
-        parent:
-          text1: "If this organization is a subsidiary or department of a larger organization, give the name of the immediate parent."
-          text2: "For instance, Quaker Oats Company is owned by PepsiCo, so the parent would be 'PepsiCo'."
-          text3: "Similarly, the National Security Agency is a part of the United States Department of Defense, so the parent would be 'United States Department of Defense'."
-        region:
-          text1: "The region in which the organization is headquartered, such as a state or province."
-          text2: "International and national governmental organizations do not need to input anything here."
-          example1: "California"
-          example2: "New York"
-          example3: "Texas"
-          example4: "British Columbia"
-          example5: "New South Wales"
-        twitter:
-          text1: "To get an organization's Twitter alias, visit their Twitter page and look at their URL. For instance, Bed Bath & Beyond's URL is:"
-          example1: "twitter.com/BedBathBeyond"
-          text2: "So their alias would be:"
-          example2: "BedBathBeyond"
-        website:
-          text1: "The full URL for the organization's public-facing website. Eg:"
-          example1: "http://www.cia.gov/"
-          example2: "http://www.aljazeera.com/"
-          example3: "http://www.scientology.org/"
-          example4: "http://austintexas.gov/"
+        city: "The city in which the organization is headquartered.\r\r - New York City\r - Austin\r - Seattle\r - Archorage\r\rGovernmental organizations do not need to input anything here unless they administer on a municipal level, such as a city council or sheriff's office."
+        country: "The country in which the organization is headquartered.\r\rAlternatively, if it's a governmental organization, the country which it administers.\r\r - United States of America\r - People's Republic of China\r - Federative Republic of Brazil\r\rInternational governmental organizations do not need to input anything here."
+        name: "This is the only required field. Go ahead and leave the organization's full name, eg:\r\r - Coca-Cola Company\r - Apple Inc.\r - Massachusetts Institute of Technology\r - United States of America\r - National Security Agency"
+        parent: "If this organization is a subsidiary or department of a larger organization, give the name of the immediate parent.\r\rFor instance, Quaker Oats Company is owned by PepsiCo, so the parent would be 'PepsiCo'.\r\rSimilarly, the National Security Agency is a part of the United States Department of Defense, so the parent would be 'United States Department of Defense'."
+        region: "The region in which the organization is headquartered, such as a state or province.\r\r - California\r - New York\r - Texas\r - British Columbia\r - New South Wales\r\rInternational and national governmental organizations do not need to input anything here."
     new:
       header: 'New Organization'
       p1: "Our definition of <em>organization</em> is inclusive by design. It encompasses everything from corporations to governments to fraternal orders to&mdash;well, any other institution you can think of."
@@ -154,6 +115,10 @@ Em.I18n.translations =
       website: 'Website'
     edit:
       header: 'Edit Policy'
+    form:
+      tips:
+        name: "The name of the policy."
+        organization: "The name of the organization the policy belongs to."
     new:
       header: 'New Policy'
       p1: "A <em>policy</em> is an operating guideline for an organization. This might be a governmental bill that was passed or an internal memo on behavior for a company."
@@ -179,6 +144,11 @@ Em.I18n.translations =
       website: 'Website'
     edit:
       header: 'Edit Product'
+    form:
+      tips:
+        ean13: "The product code."
+        name: "The name of the product."
+        organization: "The name of the organization that manufactures the product."
     new:
       header: 'New Product'
       p1: "A <em>product</em> might be a manufactured item, service, or media, such as a film or newspaper."
@@ -218,7 +188,15 @@ Em.I18n.translations =
         citation: "Citation"
         url: "URL"
         file: "File"
+      form:
+        tips:
+          citation: "The source's name and details. Use [MLA formatting][1].\r\r[1]: https://owl.english.purdue.edu/owl/resource/747/01/"
+          url: "If using a web-based source, provided the url here."
       new: "New Report"
+    form:
+      tips:
+        description: "A longer recounting of the events of the report."
+        summary: "A brief (140 characters or less) description of the report. Remain as neutral as possible while still conveying key controversies."
     participants:
       one: "Participant"
       other: "Participants"
@@ -227,6 +205,12 @@ Em.I18n.translations =
         reportable_name: 'Participant Name'
         involvement: 'Involvement'
         summary: 'Summary'
+      form:
+        tips:
+          involvement: "The role the participant played in the report, whether as a supporter or opponent."
+          summary: "A brief (140 characters or less) description of the participant's role in the report. If left blank, will default to the report's main summary."
+          reportable_type: ""
+          reportable_name: "The name of the participant."
       new_participant: 'New Participant'
     new: "New Report"
     versions:

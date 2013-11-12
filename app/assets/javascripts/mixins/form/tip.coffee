@@ -4,5 +4,5 @@ Whistlr.FormTipMixin = Ember.Mixin.create
   focusIn: ->
     tipBox = Whistlr.formTipBox()
     if @tip?
-      tipBox.set 'content', eval("Whistlr.#{@tip}").create()
+      tipBox.set 'content', markdown.makeHtml(Em.I18n.t(@tip))
       tipBox.rerender()

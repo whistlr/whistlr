@@ -5,11 +5,11 @@ form.push--bottom submit="submit"
   .form-body
     ul.form-fields
       li
-        Whistlr.TextField valueBinding="summary" placeholderTranslation="reports.attributes.summary"
+        Whistlr.TextField valueBinding="summary" placeholderTranslation="reports.attributes.summary" tip="reports.form.tips.summary"
       li
-        Whistlr.TextArea valueBinding="description" placeholderTranslation="reports.attributes.description"
+        Whistlr.TextArea valueBinding="description" placeholderTranslation="reports.attributes.description" tip="reports.form.tips.description"
       li.push--top
-        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="FormTipsNotesView"
+        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="form.tips.notes"
       h6.thin.sub-fields-title = t reports.participants.other
       each participants
         hr.rule

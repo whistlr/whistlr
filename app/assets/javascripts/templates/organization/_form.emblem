@@ -5,26 +5,26 @@ form submit="submit"
   .form-body
     ul.form-fields
       li
-        Whistlr.TextField valueBinding="name" placeholderTranslation="organizations.attributes.name" tip="OrganizationsFormTipsNameView"
+        Whistlr.TextField valueBinding="name" placeholderTranslation="organizations.attributes.name" tip="organizations.form.tips.name"
       li
-        Whistlr.TextField valueBinding="parentInput" placeholderTranslation="organizations.attributes.parent" tip="OrganizationsFormTipsParentView"
+        Whistlr.TextField valueBinding="parentInput" placeholderTranslation="organizations.attributes.parent" tip="organizations.form.tips.parent"
         Whistlr.TextField type="hidden" valueBinding="parent"
         = organization-autocomplete setTo="parent" organizations=parentList
       li
-        Whistlr.TextField valueBinding="country" placeholderTranslation="organizations.attributes.country" tip="OrganizationsFormTipsCountryView"
+        Whistlr.TextField valueBinding="country" placeholderTranslation="organizations.attributes.country" tip="organizations.form.tips.country"
       li
-        Whistlr.TextField valueBinding="region" placeholderTranslation="organizations.attributes.region" tip="OrganizationsFormTipsRegionView" class="text-field--half push-half--right"
-        Whistlr.TextField valueBinding="city" placeholderTranslation="organizations.attributes.city" tip="OrganizationsFormTipsCityView" class="text-field--half"
+        Whistlr.TextField valueBinding="region" placeholderTranslation="organizations.attributes.region" tip="organizations.form.tips.region" class="text-field--half push-half--right"
+        Whistlr.TextField valueBinding="city" placeholderTranslation="organizations.attributes.city" tip="organizations.form.tips.city" class="text-field--half"
       li
-        Whistlr.TextField valueBinding="facebookAlias" placeholderTranslation="organizations.attributes.facebook_alias" tip="OrganizationsFormTipsFacebookView"
+        Whistlr.TextField valueBinding="facebookAlias" placeholderTranslation="organizations.attributes.facebook_alias" tip="form.tips.facebook"
       li
-        Whistlr.TextField valueBinding="twitterAlias" placeholderTranslation="organizations.attributes.twitter_alias" tip="OrganizationsFormTipsTwitterView"
+        Whistlr.TextField valueBinding="twitterAlias" placeholderTranslation="organizations.attributes.twitter_alias" tip="form.tips.twitter"
       li
-        Whistlr.TextField valueBinding="website" placeholderTranslation="organizations.attributes.website" tip="OrganizationsFormTipsWebsiteView"
+        Whistlr.TextField valueBinding="website" placeholderTranslation="organizations.attributes.website" tip="form.tips.website"
       li
         Whistlr.FileFieldView
       li.push--top
-        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="FormTipsNotesView"
+        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="form.tips.notes"
 
     Whistlr.FormTipBoxView
 

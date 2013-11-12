@@ -5,23 +5,23 @@ form submit="submit"
   .form-body
     ul.form-fields
       li
-        Whistlr.TextField valueBinding="name" placeholderTranslation="products.attributes.name" tip="OrganizationsFormTipsNameView"
+        Whistlr.TextField valueBinding="name" placeholderTranslation="products.attributes.name" tip="products.form.tips.name"
       li
-        Whistlr.TextField valueBinding="organizationInput" placeholderTranslation="products.attributes.organization" tip="OrganizationsFormTipsOrganizationView"
+        Whistlr.TextField valueBinding="organizationInput" placeholderTranslation="products.attributes.organization" tip="products.form.tips.organization"
         Whistlr.TextField type="hidden" valueBinding="organization"
         = organization-autocomplete setTo="organization" organizations=organizationList
       li
-        Whistlr.TextField valueBinding="ean13" placeholderTranslation="products.attributes.ean13" tip="OrganizationsFormTipsEan13View"
+        Whistlr.TextField valueBinding="ean13" placeholderTranslation="products.attributes.ean13" tip="products.form.tips.ean13"
       li
-        Whistlr.TextField valueBinding="facebookAlias" placeholderTranslation="products.attributes.facebook_alias" tip="OrganizationsFormTipsFacebookView"
+        Whistlr.TextField valueBinding="facebookAlias" placeholderTranslation="products.attributes.facebook_alias" tip="form.tips.facebook"
       li
-        Whistlr.TextField valueBinding="twitterAlias" placeholderTranslation="products.attributes.twitter_alias" tip="OrganizationsFormTipsTwitterView"
+        Whistlr.TextField valueBinding="twitterAlias" placeholderTranslation="products.attributes.twitter_alias" tip="form.tips.twitter"
       li
-        Whistlr.TextField valueBinding="website" placeholderTranslation="products.attributes.website" tip="OrganizationsFormTipsWebsiteView"
+        Whistlr.TextField valueBinding="website" placeholderTranslation="products.attributes.website" tip="form.tips.website"
       li
         Whistlr.FileFieldView
       li.push--top
-        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="FormTipsNotesView"
+        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="form.tips.notes"
 
     Whistlr.FormTipBoxView
 

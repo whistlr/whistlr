@@ -1,0 +1,13 @@
+ul.nav
+  li = linkTo 'policy.new' class="resource"
+    .resource-image.resource-image--new
+    .resource-text = t contribute.policies.new_policies
+  each policy in controller
+    li = linkTo 'policy.report' policy class="resource"
+      == policy.image
+      = policy.name
+  li
+    if loadingMore
+      | Loading more...
+    else
+      a click='getMore' Get More...

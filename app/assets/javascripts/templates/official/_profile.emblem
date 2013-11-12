@@ -2,7 +2,7 @@
   if approved?
     .return = linkTo 'explore.officials' | #{t officials.other}
   else
-    .return = linkTo 'engage.officials' | #{t officials.other}
+    .return = linkTo 'contribute.officials' | #{t officials.other}
   == image
   h1.delta = name
   .push--top

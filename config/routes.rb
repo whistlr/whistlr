@@ -37,6 +37,8 @@ Whistlr::Application.routes.draw do
   resources :officials do
     concerns :resourceful
   end
+
+  resource :engage, controller: :generic
   
   resource :explore, only: [:show], controller: :generic do
     resources :organizations, only: [:index, :show], controller: :generic
@@ -45,7 +47,7 @@ Whistlr::Application.routes.draw do
     resources :products, only: [:index, :show], controller: :generic
   end
 
-  resource :engage, only: [:show], controller: :generic do
+  resource :contribute, only: [:show], controller: :generic do
     resources :organizations, controller: :generic
     resources :officials, controller: :generic
     resources :policies, controller: :generic

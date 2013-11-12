@@ -2,7 +2,7 @@
   if approved?
     .return = linkTo 'explore.policies' | #{t policies.other}
   else
-    .return = linkTo 'engage.policies' | #{t policies.other}
+    .return = linkTo 'contribute.policies' | #{t policies.other}
   == image
   h1.delta = name
   if organization?

@@ -1,11 +1,4 @@
 #main-column--left
-  h1.delta.highlight = t engage.header
-
-  ul.nav.nav--stacked
-   li = linkTo 'engage.officials' | #{t officials.other}
-   li = linkTo 'engage.organizations' | #{t organizations.other}
-   li = linkTo 'engage.policies' | #{t policies.other}
-   li = linkTo 'engage.products' | #{t products.other}
 
 #main-column--center
   = outlet

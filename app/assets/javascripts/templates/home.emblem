@@ -1,1 +1,9 @@
-= outlet
+#main-column--left
+
+#main-column--center
+  .banner
+    h1
+      t static.home.header
+  formatMarkdownTranslation "static.home.content"
+
+#main-column--right

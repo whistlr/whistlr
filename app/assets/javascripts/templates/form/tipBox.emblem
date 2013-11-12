@@ -1,2 +1,2 @@
 if view.content?
-  == view view.content
+  == view.content

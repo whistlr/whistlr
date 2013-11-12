@@ -90,6 +90,10 @@ textarea
   width: 300px
   resize: none
 
+code
+  font-size: 14px
+  font-weight: 700
+
 
 // Buttons
 
@@ -199,10 +203,6 @@ textarea
   .active:after
     content: "\00A0" "\00BB"!important
 
-.url
-  font-size: 16px
-  font-weight: 700
-
 .icon--width
   width: 57px
 
@@ -230,7 +230,7 @@ header
   .border--left
     border-left: thin solid $header-color
   a
-    @extend .soft
+    @extend .soft--ends
     @extend .secondary-font
     display: inline-block
     width: 140px
@@ -241,8 +241,6 @@ header
   .active, a:hover, a:focus
     @include unmutable
     background: $header-background-focus
-  input 
-    @extend .push--left
 
 .nav--left
   left: 96px
@@ -250,8 +248,16 @@ header
 .nav--right
   right: 21px
 
+.nav--center
+  position: absolute
+  top: $base-line-height / 2
+  left: 543px
+  right: 328px
+
 .search-bar
-  width: 300px
+  width: 100%
+  height: $base-line-height * 2
+  font-size: 16px 
 
 // Main
 

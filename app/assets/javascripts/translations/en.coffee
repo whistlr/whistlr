@@ -211,6 +211,13 @@ Em.I18n.translations =
           summary: "A brief (140 characters or less) description of the participant's role in the report. If left blank, will default to the report's main summary."
           reportable_type: ""
           reportable_name: "The name of the participant."
+      involvement_types:
+        primary_proponent: "Primary Proponent"
+        active_proponent: "Active Proponent"
+        vocal_proponent: "Vocal Proponent"
+        vocal_opponent: "Vocal Opponent"
+        active_opponent: "Active Opponent"
+        primary_opponent: "Primary Opponent"
       new_participant: 'New Participant'
     new: "New Report"
     versions:

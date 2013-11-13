@@ -7,6 +7,8 @@ Whistlr.ReportParticipant = DS.Model.extend
 
   resourceTypes: [Ember.I18n.t('officials.one'), Ember.I18n.t('organizations.one'), Ember.I18n.t('policies.one'), Ember.I18n.t('products.one')]
 
+  involvementTypes: [{name: Ember.I18n.t('reports.participants.involvement_types.primary_proponent'), value: 3}, {name: Ember.I18n.t('reports.participants.involvement_types.active_proponent'), value: 2}, {name: Ember.I18n.t('reports.participants.involvement_types.vocal_proponent'), value: 1}, {name: Ember.I18n.t('reports.participants.involvement_types.vocal_opponent'), value: -1}, {name: Ember.I18n.t('reports.participants.involvement_types.active_opponent'), value: -2}, {name: Ember.I18n.t('reports.participants.involvement_types.primary_opponent'), value: -3}, ]
+
   involvement: DS.attr()
   summary: DS.attr()
 

@@ -10,6 +10,8 @@ class Report::Participant < ActiveRecord::Base
   belongs_to :previous, class_name: "Report::Participant"
   has_one :next, class_name: "Report::Participant", foreign_key: :previous_id
 
+  validates :involvement, presence: true, inclusion: { in: [-3, -2, -1, 1, 2, 3] }
+
   def master_report
     reports.find_by(type: "Report::Master")
   end

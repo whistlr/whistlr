@@ -55,8 +55,8 @@ if event.isExpanded
             td = participant.previousVersion.name
           tr
             th = t reports.participants.attributes.involvement
-            td = participant.involvement
-            td = participant.previousVersion.involvement
+            td = involvementConverter participant.
+            td = involvementConverter participant.previousVersion
           tr
             td
   if event.eventable.changedEvidence

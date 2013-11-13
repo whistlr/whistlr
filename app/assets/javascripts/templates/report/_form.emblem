@@ -8,8 +8,6 @@ form.push--bottom submit="submit"
         Whistlr.TextField valueBinding="summary" placeholderTranslation="reports.attributes.summary" tip="reports.form.tips.summary"
       li
         Whistlr.TextArea valueBinding="description" placeholderTranslation="reports.attributes.description" tip="reports.form.tips.description"
-      li.push--top
-        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="form.tips.notes"
       h6.thin.sub-fields-title = t reports.participants.other
       each participants
         hr.rule
@@ -24,6 +22,8 @@ form.push--bottom submit="submit"
         .sub-fields = render "report.evidence.fields" this
       button.btn.btn--alt click="addEvidence"
         t reports.evidence.add_evidence
+      li.push--top
+        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="form.tips.notes"
 
     Whistlr.FormTipBoxView
 

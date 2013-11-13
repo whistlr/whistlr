@@ -4,4 +4,6 @@ Whistlr.AuthSignOutView = Em.View.extend
   click: (event, view) ->
     event.preventDefault()
     event.stopPropagation()
-    @get('context').auth.signOut()
+    @get('context').auth.signOut
+      success: ->
+        document.location.href="/"

@@ -54,7 +54,7 @@ class Devise::SessionsController < DeviseController
 
   def invalid_credentials
     warden.custom_failure!
-    render json: {error: t("devise.failure.invalid_token")}, status: 401
+    render json: {error: t("devise.failure.invalid")}, status: 401
   end
 
   def remember_token(resource)

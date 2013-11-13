@@ -1,0 +1,5 @@
+if view.content
+  .flash-item
+    div class=view.flashType
+      .flash-content
+        view.content

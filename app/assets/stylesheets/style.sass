@@ -52,7 +52,7 @@ a
   color: $main-color
   text-decoration: none
 
-a:hover, a:focus, .btn:hover, .btn:focus, .active
+a:hover, a:focus, .btn:hover, .btn:focus, .active, .flash-item:hover
   @extend .muted
   outline: 0
 
@@ -277,6 +277,10 @@ header
 
 // Main
 
+.center-column-margins
+  margin-left: 200px + ($base-line-height * 2)
+  margin-right: 265px + ($base-line-height * 2)
+  
 #main
   padding-top: $base-line-height * 3
 
@@ -293,9 +297,8 @@ header
   overflow: hidden
 
 #main-column--center
+  @extend .center-column-margins
   @extend .soft
-  margin-left: 200px + ($base-line-height * 2)
-  margin-right: 265px + ($base-line-height * 2)
   overflow: hidden
 
 #main-column--right
@@ -598,3 +601,23 @@ header
         font-family: trebuchet MS, helvetica, sans-serif
         font-size: 0.8em
         font-weight: bold
+
+.ember-flash-container
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  z-index: 999
+  .flash-item
+    box-shadow: 0 0 6px 2px #aaa
+    &:hover
+      cursor: pointer
+  .flash-content
+    @extend .soft
+    @extend .center-column-margins
+  .error, .alert
+    background: $warning
+    color: $warning-color
+  .notice
+    background: $notice
+    color: $notice-color

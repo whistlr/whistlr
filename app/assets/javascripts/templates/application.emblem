@@ -19,3 +19,5 @@ header
 Whistlr.LightboxPromptView
 #main
   = outlet
+
+Whistlr.FlashView

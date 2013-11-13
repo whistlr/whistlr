@@ -7,6 +7,22 @@ Whistlr.formTipBox = ->
 Whistlr.searchBar = ->
   Ember.View.views[$(".ember-search-field").attr('id')]
 
+Whistlr.flash = ->
+  Ember.View.views[$(".ember-flash-container").attr('id')]
+
+Whistlr.setFlash = (content, flashType) ->
+  flash = Whistlr.flash()
+  flash.set('content', content)
+  flash.set('flashType', flashType)
+  flash.rerender()
+  setTimeout("Whistlr.clearFlash()", 30000);
+
+Whistlr.clearFlash = ->
+  flash = Whistlr.flash()
+  flash.set('content', '')
+  flash.set('flashType', '')
+  flash.rerender()
+
 Whistlr.showVersionRow = (version, attr) ->
   !version.get('previousVersion') || (version.get(attr) != version.get('previousVersion.'+attr) && version.get('previousVersion.'+attr) != undefined)
 

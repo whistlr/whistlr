@@ -6,4 +6,5 @@ Whistlr.AuthSignOutView = Em.View.extend
     event.stopPropagation()
     @get('context').auth.signOut
       success: ->
+        Whistlr.setFlash(Em.I18n.t("devise.sign_out_successful"), 'notice')
         document.location.href="/"

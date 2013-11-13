@@ -16,6 +16,9 @@ Em.I18n.translations =
     are_you_new: "Are you new here? <strong>Setup an account</strong>"
     forgot_your_password: "Forgot your password?"
     reset_password: "Reset Password"
+    registration_successful: "Registration successful. You'll find a confirmation email in your inbox. Please read it and confirm your account."
+    sign_in_successful: "Sign in successful."
+    sign_out_successful: "Sign out successful. Redirecting to homepage."
     attributes:
       error: ""
   explore:
@@ -30,6 +33,9 @@ Em.I18n.translations =
       new_policies: 'New Policy'
     products:
       new_products: 'New Product'
+  flash:
+    resource_edited: "Your edit was successfully submitted. It is now awaiting peer review. You can check its progress by clicking on the 'Timeline' link in the top right corner of this page."
+    resource_submitted: "Your submission was successful. It is now awaiting peer review. You can check its progress by clicking on the 'Timeline' link in the top right corner of this page."
   form:
     tips:
       notes: "If you want, you can leave notes for the peer reviewers. These are helpful if something about your submission is unusual, or if you feel the need to leave references.\r\rThese notes will only be visible to reviewers. They will not be displayed on the front-end."

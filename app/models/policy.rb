@@ -6,5 +6,6 @@ class Policy < ActiveRecord::Base
   belongs_to :organization, -> { where type: "Organization::Master" }, class_name: "Organization"
 
   validates :name, presence: true
+  validates :organization, presence: true
 
 end

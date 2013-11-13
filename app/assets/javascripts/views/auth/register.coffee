@@ -25,6 +25,7 @@ Whistlr.AuthRegisterView = Ember.View.extend
       success: =>
         lightbox = Ember.View.views[$(".ember-lightbox").attr('id')]
         lightbox.set 'visible', false
+        Whistlr.setFlash(Em.I18n.t("devise.registration_successful"), 'notice')
       error: (response) =>
         @set 'errors', response.responseJSON
       complete: =>

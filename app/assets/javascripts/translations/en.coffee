@@ -41,7 +41,7 @@ Em.I18n.translations =
       contribute: 'Contribute'
       engage: 'Engage'
       explore: 'Explore'
-      search_bar: 'Search for companies, governments, products, and officials'
+      search_bar: 'Search'
       whistlr: 'Whistlr'
   officials:
     one: "Official"

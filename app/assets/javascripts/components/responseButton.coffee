@@ -26,3 +26,5 @@ Whistlr.ResponseButtonComponent = Em.Component.extend
           report = @get('report')
           $.each response.report_response, (key, value) ->
             report.set(key.camelize(), value)
+        error: (response) ->
+          Whistlr.setFlash(response.responseJSON["errors"]["base"], 'error')

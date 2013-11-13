@@ -29,3 +29,5 @@ Whistlr.VoteButtonComponent = Em.Component.extend
           store.find(response.voteable.voteableType, response.voteable.voteableId).then (voteable) ->
             $.each response.voteable, (key, value) ->
               voteable.get('pollAttributes').set(key.camelize(), value)
+        error: (response) ->
+          Whistlr.setFlash(response.responseJSON["errors"]["base"], 'error')

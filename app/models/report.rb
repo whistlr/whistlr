@@ -15,6 +15,8 @@ class Report < ActiveRecord::Base
 
   validates :summary, presence: true, length: {maximum: 140}
   validates :description, length: {maximum: 2500}
+  validates :participant_joins, presence: true
+  validates :evidence_joins, presence: true
 
   accepts_nested_attributes_for :participant_joins
   accepts_nested_attributes_for :evidence_joins

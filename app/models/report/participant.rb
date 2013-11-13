@@ -11,6 +11,7 @@ class Report::Participant < ActiveRecord::Base
   has_one :next, class_name: "Report::Participant", foreign_key: :previous_id
 
   validates :involvement, presence: true, inclusion: { in: [-3, -2, -1, 1, 2, 3] }
+  validates_presence_of :reportable
 
   def master_report
     reports.find_by(type: "Report::Master")

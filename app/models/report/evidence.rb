@@ -1,5 +1,6 @@
 class Report::Evidence < ActiveRecord::Base
   include Attributes::Uploadable
+  include Validations::Regexes
 
   strip_attributes
 
@@ -8,6 +9,9 @@ class Report::Evidence < ActiveRecord::Base
 
   belongs_to :previous, class_name: "Report::Evidence"
   has_one :next, class_name: "Report::Evidence", foreign_key: :previous_id
+
+  validates :citation, presence: true
+  validates :url, allow_blank: true, uri: { format: VALID_URI_REGEX }
 
   mount_uploader :file, FileUploader
 

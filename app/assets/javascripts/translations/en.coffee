@@ -173,7 +173,6 @@ Em.I18n.translations =
             citation: "Evidence Citation"
             url: "Evidence URL"
             file: "Evidence File"
-        joins: "Participants"
       participant:
         joins:
           participants:
@@ -181,7 +180,6 @@ Em.I18n.translations =
             reportable_name: 'Participant Name'
             involvement: 'Participant Involvement'
             summary: 'Participant Summary'
-        joins: 'Evidence'
     evidence:
       one: "Evidence"
       other: "Evidence"

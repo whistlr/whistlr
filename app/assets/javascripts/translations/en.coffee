@@ -2,7 +2,7 @@ Em.I18n.translations =
   static:
     home:
       header: "About Whistlr"
-      content: "Coming this week."
+      content: "Coming soon."
     welcome:
       header: "Welcome to Whistlr"
       text1: "The site is still young and there's plenty of opportunity to contribute. Catalog businesses and officials, report on their activities, and help us map out threads of power and ethical responsibility."
@@ -230,6 +230,8 @@ Em.I18n.translations =
     edit: 'Edit'
     expand: 'Expand [+]'
     general: 'General'
+    load_more: 'Load More'
+    loading_more: 'Loading More'
     main: 'Main'
     previous: 'Previous Version'
     this_version: 'This Version'

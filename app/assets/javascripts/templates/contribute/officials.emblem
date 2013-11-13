@@ -6,8 +6,10 @@ ul.nav
     li = linkTo 'official.report' official class="resource"
       == official.image
       = official.name
-  li
-    if loadingMore
-      | Loading more...
-    else
-      a click='getMore' Get More...
+  if loadingMore
+    .border--ends.soft--ends.center
+      t shared.loading_more
+  else
+    a click='getMore'
+      .border--ends.soft--ends.center.clickable
+        t shared.load_more

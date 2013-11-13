@@ -3,7 +3,7 @@
     .return = linkTo 'explore.officials' | #{t officials.other}
   else
     .return = linkTo 'contribute.officials' | #{t officials.other}
-  == image
+  .push--ends == image
   h1.delta = name
   .push--top
     == facebookLinkIcon

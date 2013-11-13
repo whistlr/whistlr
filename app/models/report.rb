@@ -21,7 +21,7 @@ class Report < ActiveRecord::Base
   accepts_nested_attributes_for :participant_joins
   accepts_nested_attributes_for :evidence_joins
 
-  #after_save :adjust_reportable_stats
+  after_save :adjust_reportable_stats
 
   def name
     summary
@@ -40,7 +40,7 @@ private
     participants.each do |participant|
       approved_reports_count = participant.reportable.approved_reports.count
       reportable_controversy = approved_reports_count > 0 ? participant.reportable.approved_reports.sum(:controversy)/approved_reports_count : 0
-      participant.reportable.update_columns(
+      participant.reportable.reportable_attributes.update_columns(
         controversy: reportable_controversy,
         favor: participant.reportable.collective_opinion,
         report_count: participant.reportable.approved_reports.count)

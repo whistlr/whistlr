@@ -3,7 +3,7 @@
     .return = linkTo 'explore.organizations' | #{t organizations.other}
   else
     .return = linkTo 'contribute.organizations' | #{t organizations.other}
-  == image
+  .push--ends == image
   h1.delta = name
   if parent?
     .nano.push--bottom = linked-translation translation='organizations.profile.owned_by' firstResource=parent secondResource=parent

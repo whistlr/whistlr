@@ -10,8 +10,10 @@ ul.block-list
   each report in controller
     if report.approved?
       li = report-item report=report authToken=auth.authToken
-  li
-    if loadingMore
-      | Loading more...
-    else
-      a click='getMore' Get More...
+  if loadingMore
+    li.soft--ends.center
+      t shared.loading_more
+  else
+    li.soft--ends.center.clickable
+      a.block-list__link click='getMore'
+        t shared.load_more

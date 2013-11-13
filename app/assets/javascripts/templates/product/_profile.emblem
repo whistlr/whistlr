@@ -3,7 +3,7 @@
     .return = linkTo 'explore.products' | #{t products.other}
   else
     .return = linkTo 'contribute.products' | #{t products.other}
-  == image
+  .push--ends == image
   h1.delta = name
   if organization?
     .nano.push--bottom = linked-translation translation='products.profile.owned_by' firstResource=organization secondResource=organization

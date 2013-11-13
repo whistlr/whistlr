@@ -20,7 +20,14 @@ class Report::Response < ActiveRecord::Base
   def sum_responses
     positive = report.responses.where("value > 0").count
     negative = report.responses.where("value < 0").count
-    controversy = positive > negative ? positive : negative
+    if positive > 0 && negative > 0
+      controversy = positive > negative ? negative/positive : positive/negative
+      controversy = controversy * 100000
+      total = positive + negative
+      controversy = controversy * (total/100) if total < 100
+    else
+      controversy = 0
+    end
     report.update_columns(controversy: controversy, responses_approve: positive,
       responses_disapprove: negative, responses_sum: report.responses.sum(:value))
   end

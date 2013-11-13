@@ -3,7 +3,7 @@
     .return = linkTo 'explore.policies' | #{t policies.other}
   else
     .return = linkTo 'contribute.policies' | #{t policies.other}
-  == image
+  .push--ends == image
   h1.delta = name
   if organization?
     .nano.push--bottom = linked-translation translation='policies.profile.owned_by' firstResource=organization secondResource=organization

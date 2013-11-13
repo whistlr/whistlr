@@ -25,6 +25,13 @@
     @include unmutable
     box-shadow: 0 0 18px 11px $main-border
 
+@mixin transition($speed)
+  -webkit-transition: all $speed ease               
+  -moz-transition: all $speed ease               
+  -o-transition: all $speed ease
+  -ms-transition: all $speed ease   
+  transition: all $speed ease
+
 // Main
 
 html, body
@@ -35,18 +42,13 @@ body
   background: $main-background
   color: $main-color
 
-$transition-time: 0.5s
 *
+  @include transition(0.5s)
   -moz-box-sizing: border-box
   -webkit-box-sizing: border-box
   box-sizing: border-box
   background-repeat: no-repeat
   position: relative
-  -webkit-transition: all $transition-time ease               
-  -moz-transition: all $transition-time ease               
-  -o-transition: all $transition-time ease
-  -ms-transition: all $transition-time ease   
-  transition: all $transition-time ease
 
 a
   color: $main-color
@@ -539,20 +541,20 @@ header
   background-color: #c0e0ff
 
 .wmd-button-row
+  @extend .flush
   position: relative
-  margin-left: 5px
-  margin-right: 5px
-  margin-bottom: 5px
-  margin-top: 10px
-  padding: 0px
-  height: 20px
+  background: #FFF
+  height: 30px
+  padding: 5px
+  border: thin solid $main-border
+  border-bottom: 0
 
 .wmd-spacer
   width: 1px
   height: 20px
   margin-left: 14px
   position: absolute
-  background-color: Silver
+  background-color: $main-border
   display: inline-block
   list-style: none
 
@@ -601,6 +603,8 @@ header
         font-family: trebuchet MS, helvetica, sans-serif
         font-size: 0.8em
         font-weight: bold
+
+// Flash
 
 .ember-flash-container
   position: fixed

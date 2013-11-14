@@ -234,11 +234,13 @@ Em.I18n.translations =
   shared:
     collapse: 'Collapse [-]'
     edit: 'Edit'
+    everything: 'Everything'
     expand: 'Expand [+]'
     general: 'General'
     load_more: 'Load More'
     loading_more: 'Loading More'
     main: 'Main'
+    more: 'More'
     previous: 'Previous Version'
     this_version: 'This Version'
     timeline: 'Timeline'

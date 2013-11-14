@@ -7,11 +7,13 @@ Whistlr.Router.map ()->
   @resource 'engage'
 
   @resource 'explore', ->
+    @resource 'explore.everything', path: 'everything'
     @resource 'explore.organizations', path: 'organizations'
     @resource 'explore.products', path: 'products'
     @resource 'explore.policies', path: 'policies'
     @resource 'explore.officials', path: 'officials'
   @resource 'contribute', ->
+    @resource 'contribute.everything', path: 'everything'
     @resource 'contribute.organizations', path: 'organizations'
     @resource 'contribute.products', path: 'products'
     @resource 'contribute.policies', path: 'policies'

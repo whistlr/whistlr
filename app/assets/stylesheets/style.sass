@@ -156,6 +156,12 @@ code
 .center
   text-align: center
 
+.text-align--right
+  text-align: right
+
+.text-align--left
+  text-align: left
+
 .thin
   font-weight: 300
 
@@ -367,7 +373,13 @@ header
       display: none
 
 
-// Resource List 
+// Resource List
+
+.more
+  font-size: 16px
+  &:after
+    content: "\00A0" "\00BB"!important
+  
 
 .resource
   @extend .soft-half
@@ -400,6 +412,27 @@ header
   @extend .push--top
   height: 52px
   overflow: hidden
+
+.resource--mini
+  @extend .push-half--right
+  @extend .push-half--bottom
+  width: 110px + $base-line-height
+  height: 178px
+  .resource-image
+    height: 110px
+    width: 110px
+  .resource-text
+    @extend .push-half--top
+    height: 39px
+    font-size: 16px
+    line-height: 18px
+    overflow: hidden
+  .resource-image--new
+    background-image: url(image_path('icons/new-mini.png'))
+  .resource-image--default-logo
+    background-image: url(image_path('icons/default-logo-mini.png'))
+  .resource-image--default-portrait
+    background-image: url(image_path('icons/default-portrait-mini.png'))
 
 // Reports
 

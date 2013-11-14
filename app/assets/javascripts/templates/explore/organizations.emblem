@@ -1,8 +1,8 @@
 ul.nav
   each organization in controller
     li = linkTo 'organization.report' organization class="resource"
-      == organization.image
-      = organization.name
+      .resource-image == organization.image
+      .resource-text = organization.name
   if loadingMore
     .border--ends.soft--ends.center
       t shared.loading_more

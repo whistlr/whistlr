@@ -1,8 +1,8 @@
 ul.nav
   each policy in controller
     li = linkTo 'policy.report' policy class="resource"
-      == policy.image
-      = policy.name
+      .resource-image == policy.image
+      .resource-text = policy.name
   if loadingMore
     .border--ends.soft--ends.center
       t shared.loading_more

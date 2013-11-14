@@ -1,8 +1,8 @@
 ul.nav
   each product in controller
     li = linkTo 'product.report' product class="resource"
-      == product.image
-      = product.name
+      .resource-image == product.image
+      .resource-text = product.name
   if loadingMore
     .border--ends.soft--ends.center
       t shared.loading_more

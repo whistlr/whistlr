@@ -1,0 +1,47 @@
+if controller.officials
+  h2.epsilon
+    t officials.other
+  hr.rule
+  ul.nav
+    each official in controller.officials
+      li = linkTo 'official.report' official class="resource resource--mini"
+        .resource-image == official.image
+        .resource-text = official.name
+  .text-align--right = linkTo 'explore.officials'
+    .more = t shared.more
+
+if controller.organizations
+  h2.epsilon
+    t organizations.other
+  hr.rule
+  ul.nav
+    each organization in controller.organizations
+      li = linkTo 'organization.report' organization class="resource resource--mini"
+        .resource-image == organization.image
+        .resource-text = organization.name
+  .text-align--right = linkTo 'explore.organizations'
+    .more = t shared.more
+
+if controller.policies
+  h2.epsilon
+    t policies.other
+  hr.rule
+  ul.nav
+    each policy in controller.policies
+      li = linkTo 'policy.report' policy class="resource resource--mini"
+        .resource-image == policy.image
+        .resource-text = policy.name
+  .text-align--right = linkTo 'explore.policies'
+    .more = t shared.more
+
+if controller.products
+  h2.epsilon
+    t products.other
+  hr.rule
+  ul.nav
+    each product in controller.products
+      li = linkTo 'product.report' product class="resource resource--mini"
+        .resource-image == product.image
+        .resource-text = product.name
+  .text-align--right = linkTo 'explore.products'
+    .more = t shared.more

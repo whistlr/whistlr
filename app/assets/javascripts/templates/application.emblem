@@ -1,13 +1,13 @@
 header
   ul.nav.nav--header.nav--left
     li.border--left = linkTo 'home' | #{t layout.header.whistlr}
-    li = linkTo 'explore' | #{t layout.header.explore}
+    li = linkTo 'explore.everything' | #{t layout.header.explore}
     li = linkTo 'engage' | #{t layout.header.engage}
   .nav--center
     Whistlr.searchQueryView
   ul.nav.nav--header.nav--right
     if auth.signedIn
-      li.border--left = linkTo 'contribute' | #{t layout.header.contribute}
+      li.border--left = linkTo 'contribute.everything' | #{t layout.header.contribute}
       li
         Whistlr.AuthSignOutView
     else

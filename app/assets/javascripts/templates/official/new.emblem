@@ -1,12 +1,12 @@
-#main-column--left
+.unstable--left
   partial "official/profile"
 
-#main-column--center
-  .banner
-    h1
-      t officials.new.header
-  p.form-width
-    t officials.new.p1
-  partial "official/form"
+  #main-column--center
+    .banner
+      h1
+        t officials.new.header
+    p.form-width
+      t officials.new.p1
+    partial "official/form"
 
-#main-column--right
+  #main-column--right

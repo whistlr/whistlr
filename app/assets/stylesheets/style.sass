@@ -38,6 +38,9 @@ html, body
   height: 100%
   line-height: 24px
 
+html, body, header
+  min-width: 960px
+
 body 
   background: $main-background
   color: $main-color
@@ -323,6 +326,46 @@ header
   background: $header-background-focus
   h1
     margin-bottom: 0
+
+.profile__item
+  @extend .soft-half--ends
+  display: inline-block
+  width: 200px + ($base-line-height * 2)
+  vertical-align: top
+
+@media screen and (max-width: 1100px)
+  .unstable--left
+    .center-column-margins
+      margin-left: 0
+      margin-right: 265px + ($base-line-height * 2)
+
+    #main-column--left
+      @extend .center-column-margins
+      position: relative
+      top: 0
+      left: 0
+      width: auto
+
+  .unstable--right
+    .center-column-margins
+      margin-left: 200px + ($base-line-height * 2)
+      margin-right: 0
+
+    #main-column--right
+      display: none
+
+@media screen and (max-width: 960px)
+  .unstable--left
+    .center-column-margins
+      margin-right: 0
+      margin-left: 0
+
+    #main-column--left
+      @extend .center-column-margins
+
+    #main-column--right
+      display: none
+
 
 // Resource List 
 

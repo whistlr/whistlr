@@ -1,13 +1,14 @@
-#main-column--left
-  h1.delta.highlight = t contribute.header
+.unstable--right
+  #main-column--left
+    h1.delta.highlight = t contribute.header
 
-  ul.nav.nav--stacked
-   li = linkTo 'contribute.officials' | #{t officials.other}
-   li = linkTo 'contribute.organizations' | #{t organizations.other}
-   li = linkTo 'contribute.policies' | #{t policies.other}
-   li = linkTo 'contribute.products' | #{t products.other}
+    ul.nav.nav--stacked
+     li = linkTo 'contribute.officials' | #{t officials.other}
+     li = linkTo 'contribute.organizations' | #{t organizations.other}
+     li = linkTo 'contribute.policies' | #{t policies.other}
+     li = linkTo 'contribute.products' | #{t products.other}
 
-#main-column--center
-  = outlet
+  #main-column--center
+    = outlet
 
-#main-column--right
+  #main-column--right

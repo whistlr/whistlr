@@ -3,9 +3,11 @@
     .return = linkTo 'explore.officials' | #{t officials.other}
   else
     .return = linkTo 'contribute.officials' | #{t officials.other}
-  .push--ends == image
-  h1.delta = name
-  .push--top
-    == facebookLinkIcon
-    == twitterLinkIcon
-    == websiteLinkIcon
+  span.profile__item
+    == image
+  span.profile__item
+    h1.delta = name
+    .push--top
+      == facebookLinkIcon
+      == twitterLinkIcon
+      == websiteLinkIcon

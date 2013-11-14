@@ -3,11 +3,13 @@
     .return = linkTo 'explore.policies' | #{t policies.other}
   else
     .return = linkTo 'contribute.policies' | #{t policies.other}
-  .push--ends == image
-  h1.delta = name
-  if organization?
-    .nano.push--bottom = linked-translation translation='policies.profile.owned_by' firstResource=organization secondResource=organization
-  .push--top
-    == facebookLinkIcon
-    == twitterLinkIcon
-    == websiteLinkIcon
+  span.profile__item
+    == image
+  span.profile__item
+    h1.delta = name
+    if organization?
+      .nano.push--bottom = linked-translation translation='policies.profile.owned_by' firstResource=organization secondResource=organization
+    .push--top
+      == facebookLinkIcon
+      == twitterLinkIcon
+      == websiteLinkIcon

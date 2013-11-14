@@ -1,7 +1,8 @@
-partial "product/profile"
+.unstable--left
+  partial "product/profile"
 
-#main-column--center
-  partial "product/links"
-  outlet
+  #main-column--center
+    partial "product/links"
+    outlet
 
-#main-column--right
+  #main-column--right

@@ -3,13 +3,15 @@
     .return = linkTo 'explore.organizations' | #{t organizations.other}
   else
     .return = linkTo 'contribute.organizations' | #{t organizations.other}
-  .push--ends == image
-  h1.delta = name
-  if parent?
-    .nano.push--bottom = linked-translation translation='organizations.profile.owned_by' firstResource=parent secondResource=parent
-  if location?
-    .micro = location
-  .push--top
-    == facebookLinkIcon
-    == twitterLinkIcon
-    == websiteLinkIcon
+  span.profile__item
+    == image
+  span.profile__item
+    h1.delta = name
+    if parent?
+      .nano.push--bottom = linked-translation translation='organizations.profile.owned_by' firstResource=parent secondResource=parent
+    if location?
+      .micro = location
+    .push--top
+      == facebookLinkIcon
+      == twitterLinkIcon
+      == websiteLinkIcon

@@ -1,7 +1,8 @@
-partial "official/profile"
+.unstable--left
+  partial "official/profile"
 
-#main-column--center
-  partial "official/links"
-  outlet
+  #main-column--center
+    partial "official/links"
+    outlet
 
-#main-column--right
+  #main-column--right

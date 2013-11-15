@@ -7,7 +7,7 @@ form submit="submit"
       li
         Whistlr.TextField valueBinding="name" placeholderTranslation="policies.attributes.name" tip="policies.form.tips.name"
       li
-        Whistlr.TextField valueBinding="organizationInput" placeholderTranslation="policies.attributes.organization" tip="policies.form.tips.organization" autocomplete="false"
+        Whistlr.TextField valueBinding="organizationInput" placeholderTranslation="policies.attributes.organization" tip="policies.form.tips.organization" autocomplete="off"
         Whistlr.TextField type="hidden" valueBinding="organization"
         = organization-autocomplete setTo="organization" organizations=organizationList
       li

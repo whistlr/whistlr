@@ -5,6 +5,6 @@ li
 li
   Whistlr.Select valueBinding="reportableType" content=resourceTypes tip="reports.participants.form.tips.reportable_type"
 li
-  Whistlr.TextField valueBinding="reportableInput" placeholderTranslation="reports.participants.attributes.reportable_name" tip="reports.participants.form.tips.reportable_name" autocomplete="false"
+  Whistlr.TextField valueBinding="reportableInput" placeholderTranslation="reports.participants.attributes.reportable_name" tip="reports.participants.form.tips.reportable_name" autocomplete="off"
   Whistlr.TextField type="hidden" valueBinding="reportable"
   = organization-autocomplete setTo="reportable" organizations=reportableList

@@ -1,4 +1,4 @@
-Whistlr.TextField valueBinding="view.searchQuery" class="search-bar" placeholderTranslation="layout.header.search_bar" autocomplete="false"
+Whistlr.TextField valueBinding="view.searchQuery" class="search-bar" placeholderTranslation="layout.header.search_bar" autocomplete="off"
 .search-button
 if view.resourceList
   if view.resourcesActive

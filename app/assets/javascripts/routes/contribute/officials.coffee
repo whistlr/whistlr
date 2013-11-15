@@ -1,10 +1,8 @@
 Whistlr.ContributeOfficialsRoute = Ember.Route.extend(
 
   model: ->
-    name = Whistlr.searchBar().get('searchQuery') if Whistlr.searchBar() != undefined
     @store.findQuery 'official',
       pending: "true"
-      name: name
 
   actions:
     getMore: ->

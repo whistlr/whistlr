@@ -1,5 +1,4 @@
 Whistlr.OfficialNewController = Ember.ObjectController.extend(
-  Whistlr.FormOfficialMixin
 
   actions:
     submit: (event, view) ->

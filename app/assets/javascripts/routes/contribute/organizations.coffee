@@ -1,10 +1,8 @@
 Whistlr.ContributeOrganizationsRoute = Ember.Route.extend(
 
   model: ->
-    name = Whistlr.searchBar().get('searchQuery') if Whistlr.searchBar() != undefined
     @store.findQuery 'organization',
       pending: "true"
-      name: name
 
   actions:
     getMore: ->

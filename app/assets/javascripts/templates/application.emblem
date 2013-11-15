@@ -4,7 +4,7 @@ header
     li = linkTo 'explore.everything' | #{t layout.header.explore}
     li = linkTo 'engage' | #{t layout.header.engage}
   .nav--center
-    Whistlr.searchQueryView
+    Whistlr.SearchQueryView
   ul.nav.nav--header.nav--right
     if auth.signedIn
       li.border--left = linkTo 'contribute.everything' | #{t layout.header.contribute}

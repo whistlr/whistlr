@@ -1,0 +1,7 @@
+form.icon--width
+  a{bindAttr class=":btn :btn--follow view.following:btn--unfollow"} click="submit target='view'"
+    if view.following
+      span = t shared.unfollow
+    else
+      span = t shared.follow
+    span.push-half--left.follow--icon

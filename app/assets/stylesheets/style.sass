@@ -112,6 +112,29 @@ code
   border: 0
   border-radius: 0
 
+.btn--follow
+  @extend .soft-half--top
+  @extend .secondary-font
+  background: $header-background-focus
+  display: inline-block
+  width: 200px
+  cursor: pointer
+  text-align: center
+  &:focus, &:hover
+    @include unmutable
+    background: $header-background
+
+.btn--unfollow
+  background: $header-background
+  &:focus, &:hover
+    background: $header-background-focus
+
+.follow--icon
+  display: inline-block
+  height: 22px
+  width: 22px
+  background-image: url(image_path('icons/follow.png'))
+
 // Lightbox
 
 #lightbox-mask

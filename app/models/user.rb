@@ -1,13 +1,12 @@
 class User < ActiveRecord::Base
   include Events::Timelineable
   
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :votes
-  has_many :responses, class_name: "Report::Response"
+  has_many :follows, dependent: :destroy
+  has_many :responses, class_name: "Report::Response", dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   has_one :developer_stats, class_name: "User::DeveloperStat"
   has_one :designer_stats, class_name: "User::DesignerStat"
@@ -34,6 +33,14 @@ class User < ActiveRecord::Base
   def response_for(report)
     response = responses.find_by(report: report)
     response.try(:value)
+  end
+
+  def following(followable)
+    follows.where(followable: followable).exists?
+  end
+
+  def create_following_if_none(followable)
+    follows.create(followable: followable) unless following(followable)
   end
 
 private

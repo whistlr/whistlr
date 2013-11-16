@@ -1,4 +1,4 @@
-Whistlr.Policy = DS.Model.extend Whistlr.EventableMixin, Whistlr.ReportableMixin, Whistlr.VersionableMixin, Whistlr.PollableMixin, Whistlr.LogoMixin,
+Whistlr.Policy = DS.Model.extend Whistlr.EventableMixin, Whistlr.ReportableMixin, Whistlr.VersionableMixin, Whistlr.PollableMixin, Whistlr.LogoMixin, Whistlr.FollowableMixin,
 
   model: "Policy"
   modelCamelized: "policy"

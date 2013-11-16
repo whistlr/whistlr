@@ -1,4 +1,4 @@
-Whistlr.Organization = DS.Model.extend Whistlr.EventableMixin, Whistlr.ReportableMixin, Whistlr.VersionableMixin, Whistlr.PollableMixin, Whistlr.SocialMixin, Whistlr.LogoMixin,
+Whistlr.Organization = DS.Model.extend Whistlr.EventableMixin, Whistlr.ReportableMixin, Whistlr.VersionableMixin, Whistlr.PollableMixin, Whistlr.SocialMixin, Whistlr.LogoMixin, Whistlr.FollowableMixin,
 
   model: "Organization"
   modelCamelized: "organization"

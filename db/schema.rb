@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130600000045) do
+ActiveRecord::Schema.define(version: 20131115165614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20130600000045) do
   end
 
   add_index "events", ["timelineable_id", "timelineable_type"], name: "index_events_on_timelineable_id_and_timelineable_type", using: :btree
+
+  create_table "follows", force: true do |t|
+    t.integer "followable_id"
+    t.string  "followable_type"
+    t.integer "user_id"
+    t.integer "comments_count",  default: 0, null: false
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "index_follows_on_followable_id_and_followable_type", using: :btree
+  add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
 
   create_table "officials", force: true do |t|
     t.string  "type",                            null: false

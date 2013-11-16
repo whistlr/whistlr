@@ -6,7 +6,7 @@ class Report::Version < Report
   include Stat::Whistlr
 
   before_create :connect_with_master_associates
-  after_create :assign_default_summary_to_participants
+  after_create :assign_default_summary_to_participants, :follow_participants
 
   add_event_to :user, :master, :officials, :organizations, :policies, :products
 
@@ -15,6 +15,12 @@ class Report::Version < Report
   end
 
 private
+
+  def follow_participants
+    participants.each do |participant|
+      user.create_following_if_none(participant.reportable)
+    end
+  end
 
   def assign_default_summary_to_participants
     participants.each do |participant|

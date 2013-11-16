@@ -11,3 +11,5 @@
       == facebookLinkIcon
       == twitterLinkIcon
       == websiteLinkIcon
+    .push--top
+      follow-button followable=this.model authToken=auth.authToken

@@ -9,6 +9,8 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
 
+    can :authenticate, :all if !user.new_record?
+
     # Vote
     can :create, Vote do |vote|
       if vote.voteable_type == "Report::Version"

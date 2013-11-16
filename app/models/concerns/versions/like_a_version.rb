@@ -9,14 +9,14 @@ module Versions::LikeAVersion
 
     validate :is_altered
 
-    after_save :create_version_attributes_with_extra_params
+    after_save :create_version_attributes_with_extra_params, :follow
     
     scope :approved, -> { includes(:version_attributes).where("version_attributes.approved = true") }
     scope :initial, -> { includes(:version_attributes).where("version_attributes.initial = true").first }
   end
 
   def versionable_attributes
-    self.attributes.except("id", "type", "approved", "declined", "pending", "master_id")
+    self.attributes.except("id", "type", "approved", "declined", "pending", "master_id", "responses_sum", "responses_disapprove", "responses_approve", "controversy", "disinterest")
   end
 
   def failure_handling
@@ -30,10 +30,10 @@ module Versions::LikeAVersion
 
   def success_handling
     if initial?
-      master.update_columns(approved: true, pending: false)
+      master.update_attributes(approved: true, pending: false)
       accepted_submission if respond_to?(:accepted_submission)
     else
-      master.update_columns(versionable_attributes)
+      master.update_attributes(versionable_attributes)
       accepted_edit if respond_to?(:accepted_edit)
     end
   end
@@ -73,6 +73,10 @@ private
 
   def create_version_attributes_with_extra_params
     create_version_attributes(initial: @initial, details_provided: details_count)
+  end
+
+  def follow
+    user.create_following_if_none(master)
   end
 
 end

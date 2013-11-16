@@ -236,6 +236,7 @@ Em.I18n.translations =
     edit: 'Edit'
     everything: 'Everything'
     expand: 'Expand [+]'
+    follow: 'Follow'
     general: 'General'
     load_more: 'Load More'
     loading_more: 'Loading More'
@@ -245,6 +246,7 @@ Em.I18n.translations =
     this_version: 'This Version'
     timeline: 'Timeline'
     submit: 'Submit'
+    unfollow: 'Unfollow'
     attributes:
       notes: 'Notes'
   users:

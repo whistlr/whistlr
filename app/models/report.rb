@@ -15,13 +15,9 @@ class Report < ActiveRecord::Base
 
   validates :summary, presence: true, length: {maximum: 140}
   validates :description, length: {maximum: 2500}
-  validates :participant_joins, presence: true
-  validates :evidence_joins, presence: true
 
   accepts_nested_attributes_for :participant_joins
   accepts_nested_attributes_for :evidence_joins
-
-  after_save :adjust_reportable_stats
 
   def name
     summary
@@ -32,19 +28,6 @@ class Report < ActiveRecord::Base
     response = Report::Response.where(user: params[:user],
      report_id: self.id).first_or_initialize(value: value)
     Report::Response.create_update_or_destroy_response(response, value)
-  end
-
-private
-
-  def adjust_reportable_stats
-    participants.each do |participant|
-      approved_reports_count = participant.reportable.approved_reports.count
-      reportable_controversy = approved_reports_count > 0 ? participant.reportable.approved_reports.sum(:controversy)/approved_reports_count : 0
-      participant.reportable.reportable_attributes.update_columns(
-        controversy: reportable_controversy,
-        favor: participant.reportable.collective_opinion,
-        report_count: participant.reportable.approved_reports.count)
-    end
   end
 
 end

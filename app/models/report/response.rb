@@ -1,7 +1,9 @@
 class Report::Response < ActiveRecord::Base
-  include Validations::UserCreated
 
   belongs_to :report
+  belongs_to :user
+
+  validates_presence_of :user, :report
 
   after_destroy :sum_responses, :adjust_reportable_stats
   after_save :sum_responses, :adjust_reportable_stats

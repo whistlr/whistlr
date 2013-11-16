@@ -4,6 +4,7 @@ class Vote < ActiveRecord::Base
   belongs_to :voteable, polymorphic: true
 
   validate :the_voteable_event_is_still_active
+  validates_presence_of :user, :voteable
 
   scope :yea_votes, -> { where("value > 0") }
   scope :nay_votes, -> { where("value < 0") }

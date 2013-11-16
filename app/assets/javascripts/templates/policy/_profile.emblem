@@ -9,10 +9,6 @@
     h1.delta = name
     if organization?
       .nano.push--bottom = linked-translation translation='policies.profile.owned_by' firstResource=organization secondResource=organization
-    .push--top
-      == facebookLinkIcon
-      == twitterLinkIcon
-      == websiteLinkIcon
     unless isNew
       .push--top
         follow-button followable=this.model authToken=auth.authToken

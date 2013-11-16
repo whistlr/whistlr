@@ -33,6 +33,7 @@ Em.I18n.translations =
       new_policies: 'New Policy'
     products:
       new_products: 'New Product'
+    recent_activity: 'Recent Activity'
   flash:
     resource_edited: "Your edit was successfully submitted. It is now awaiting peer review. You can check its progress by clicking on the 'Timeline' link in the top right corner of this page."
     resource_submitted: "Your submission was successful. It is now awaiting peer review. You can check its progress by clicking on the 'Timeline' link in the top right corner of this page."

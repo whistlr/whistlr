@@ -7,7 +7,7 @@ header
     Whistlr.SearchQueryView
   ul.nav.nav--header.nav--right
     if auth.signedIn
-      li.border--left = linkTo 'contribute.everything' | #{t layout.header.contribute}
+      li.border--left = linkTo 'contribute.recent_activity' | #{t layout.header.contribute}
       li
         Whistlr.AuthSignOutView
     else

@@ -11,10 +11,9 @@
       .nano.push--bottom = linked-translation translation='organizations.profile.owned_by' firstResource=parent secondResource=parent
     if location?
       .micro = location
-    .push--top
-      == facebookLinkIcon
-      == twitterLinkIcon
-      == websiteLinkIcon
+  span.profile__item.profile__interaction
+    == facebookLinkIcon
+    == twitterLinkIcon
+    == websiteLinkIcon
     unless isNew
-      .push--top
-        follow-button followable=this.model authToken=auth.authToken
+      follow-button followable=this.model authToken=auth.authToken

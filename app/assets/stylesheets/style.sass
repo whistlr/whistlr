@@ -361,8 +361,9 @@ header
 
 .profile__item
   @extend .soft-half--ends
+  @extend .push--right
   display: inline-block
-  width: 200px + ($base-line-height * 2)
+  width: 200px
   vertical-align: top
 
 @media screen and (max-width: 1100px)
@@ -372,11 +373,18 @@ header
       margin-right: 265px + ($base-line-height * 2)
 
     #main-column--left
+      @include unmutable
       @extend .center-column-margins
       position: relative
       top: 0
       left: 0
       width: auto
+      .profile__interaction
+        vertical-align: -500%
+        margin-left: $base-line-height * 2
+
+    #main-column--right
+      @include unmutable
 
   .unstable--right
     .center-column-margins

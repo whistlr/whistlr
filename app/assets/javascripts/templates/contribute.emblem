@@ -3,6 +3,7 @@
     h1.delta.highlight = t contribute.header
 
     ul.nav.nav--stacked
+     li.soft--bottom.soft-half--top = linkTo 'contribute.recent_activity' | #{t contribute.recent_activity}
      li = linkTo 'contribute.everything' | #{t shared.everything}
      li = linkTo 'contribute.officials' | #{t officials.other}
      li = linkTo 'contribute.organizations' | #{t organizations.other}

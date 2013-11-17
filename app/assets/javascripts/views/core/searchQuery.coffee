@@ -8,12 +8,11 @@ Whistlr.SearchQueryView = Em.View.extend
 
   officials: []
   organizations: []
-  policies: []
   products: []
 
   resourcesActive: (->
-    @get('officials')? || @get('organizations')? || @get('policies')? || @get('products')?
-  ).property('officials', 'organizations', 'policies', 'products')
+    @get('officials')? || @get('organizations')? || @get('products')?
+  ).property('officials', 'organizations', 'products')
 
   resourceList: (->
     input = @get 'searchQuery'
@@ -25,11 +24,6 @@ Whistlr.SearchQueryView = Em.View.extend
         per_page: 3
       )
       @set('organizations', store.findQuery 'organization',
-        approved: "true"
-        name: input
-        per_page: 3
-      )
-      @set('policies', store.findQuery 'policy',
         approved: "true"
         name: input
         per_page: 3

@@ -10,14 +10,12 @@ Whistlr.Router.map ()->
     @resource 'explore.everything', path: 'everything'
     @resource 'explore.organizations', path: 'organizations'
     @resource 'explore.products', path: 'products'
-    @resource 'explore.policies', path: 'policies'
     @resource 'explore.officials', path: 'officials'
   @resource 'contribute', ->
     @resource 'contribute.recent_activity', path: 'recent_activity'
     @resource 'contribute.everything', path: 'everything'
     @resource 'contribute.organizations', path: 'organizations'
     @resource 'contribute.products', path: 'products'
-    @resource 'contribute.policies', path: 'policies'
     @resource 'contribute.officials', path: 'officials'
 
   @resource 'vote'
@@ -35,13 +33,6 @@ Whistlr.Router.map ()->
     @resource 'product.report', path: 'reports', ->
       @route 'new'
   @route 'product.new', path: 'products/new'
-
-  @resource 'policy', path: 'policies/:policy_id', ->
-    @route 'edit'
-    @route 'timeline'
-    @resource 'policy.report', path: 'reports', ->
-      @route 'new'
-  @route 'policy.new', path: 'policies/new'
 
   @resource 'official', path: 'officials/:official_id', ->
     @route 'edit'

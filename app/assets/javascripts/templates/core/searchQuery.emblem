@@ -11,10 +11,6 @@ if view.resourceList
         li = linkTo 'organization.report' organization
           .milli = organization.name 
           .nano = t organizations.one
-      each policy in view.policies
-        li = linkTo 'policy.report' policy
-          .milli = policy.name 
-          .nano = t policies.one
       each product in view.products
         li = linkTo 'product.report' product
           .milli = product.name 

@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
     if params[:reportable_type]
       reportable = params[:reportable_type].constantize.find params[:reportable_id]
     else
-      if klass = ["official", "organization", "policy", "product"].detect { |pk| request.original_url.include? pk }
+      if klass = ["official", "organization", "product"].detect { |pk| request.original_url.include? pk }
         reportable = klass.camelize.constantize.find params[:id]
       end
     end

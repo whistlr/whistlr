@@ -22,18 +22,6 @@ if controller.organizations
   .text-align--right = linkTo 'explore.organizations'
     .more = t shared.more
 
-if controller.policies
-  h2.epsilon
-    t policies.other
-  hr.rule
-  ul.nav
-    each policy in controller.policies
-      li = linkTo 'policy.report' policy class="resource resource--mini"
-        .resource-image == policy.image
-        .resource-text = policy.name
-  .text-align--right = linkTo 'explore.policies'
-    .more = t shared.more
-
 if controller.products
   h2.epsilon
     t products.other

@@ -7,7 +7,6 @@
      li = linkTo 'contribute.everything' | #{t shared.everything}
      li = linkTo 'contribute.officials' | #{t officials.other}
      li = linkTo 'contribute.organizations' | #{t organizations.other}
-     li = linkTo 'contribute.policies' | #{t policies.other}
      li = linkTo 'contribute.products' | #{t products.other}
 
   #main-column--center

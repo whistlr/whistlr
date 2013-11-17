@@ -8,9 +8,6 @@ Whistlr.ExploreEverythingRoute = Ember.Route.extend
       organizations: @store.findQuery 'organization',
         approved: "true"
         per_page: 5
-      policies: @store.findQuery 'policy',
-        approved: "true"
-        per_page: 5
       products: @store.findQuery 'product',
         approved: "true"
         per_page: 5

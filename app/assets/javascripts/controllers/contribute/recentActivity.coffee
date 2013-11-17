@@ -4,4 +4,8 @@ Whistlr.ContributeRecentActivityController = Em.ArrayController.extend(
   itemController: 'organization'
 
   itemController: 'event'
+
+  eventsPresent: (->
+    @get('content').length > 0
+  ).property('content.length')
 )

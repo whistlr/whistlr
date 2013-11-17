@@ -1,7 +1,7 @@
-Whistlr.ExplorePoliciesRoute = Ember.Route.extend(
+Whistlr.ExploreProductsRoute = Ember.Route.extend(
 
   model: ->
-    @store.findQuery 'policy',
+    @store.findQuery 'product',
       approved: "true"
 
   actions:
@@ -12,8 +12,8 @@ Whistlr.ExplorePoliciesRoute = Ember.Route.extend(
       @fetchPage(page, perPage, controller)
 
   fetchPage: (page, perPage, controller) ->
-    $.getJSON "/policies", {page: page, per_page: perPage}, (response) =>
-      for policy in response.policies
-        @store.push('policy', policy)
+    $.getJSON "/products", {page: page, per_page: perPage}, (response) =>
+      for product in response.products
+        @store.push('product', product)
       controller.send('gotMore', page + 1)
 )

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131115165614) do
+ActiveRecord::Schema.define(version: 20131117171223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,23 +81,6 @@ ActiveRecord::Schema.define(version: 20131115165614) do
   add_index "organizations", ["parent_id"], name: "index_organizations_on_parent_id", where: "((approved IS TRUE) AND ((type)::text = 'Organization::Master'::text))", using: :btree
   add_index "organizations", ["pending"], name: "index_organizations_on_pending", using: :btree
   add_index "organizations", ["type"], name: "index_organizations_on_type", using: :btree
-
-  create_table "policies", force: true do |t|
-    t.string  "type",                            null: false
-    t.integer "master_id"
-    t.boolean "approved",        default: false, null: false
-    t.boolean "declined",        default: false, null: false
-    t.boolean "pending",         default: true,  null: false
-    t.integer "organization_id"
-    t.integer "upload_id"
-    t.string  "name",            default: "",    null: false
-  end
-
-  add_index "policies", ["approved"], name: "index_policies_on_approved", using: :btree
-  add_index "policies", ["name"], name: "index_policies_on_name", where: "((approved IS TRUE) AND ((type)::text = 'Policy::Master'::text))", using: :btree
-  add_index "policies", ["organization_id"], name: "index_policies_on_organization_id", where: "((approved IS TRUE) AND ((type)::text = 'Policy::Master'::text))", using: :btree
-  add_index "policies", ["pending"], name: "index_policies_on_pending", using: :btree
-  add_index "policies", ["type"], name: "index_policies_on_type", using: :btree
 
   create_table "poll_attributes", force: true do |t|
     t.integer "user_id"

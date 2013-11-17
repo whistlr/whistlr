@@ -46,14 +46,6 @@ class Ability
       !user.new_record? && user.archivist_reputation > BANNED
     end
 
-    # Policies
-    can :create, Policy do |policy|
-      !user.new_record? && user.archivist_reputation > BANNED
-    end
-    can :update, Policy do |policy|
-      !user.new_record? && user.archivist_reputation > BANNED
-    end
-
     # Products
     can :create, Product do |product|
       !user.new_record? && user.archivist_reputation > BANNED

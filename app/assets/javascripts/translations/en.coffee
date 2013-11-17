@@ -29,11 +29,10 @@ Em.I18n.translations =
       new_officials: 'New Official'
     organizations:
       new_organizations: 'New Organization'
-    policies:
-      new_policies: 'New Policy'
     products:
       new_products: 'New Product'
     recent_activity: 'Recent Activity'
+    about_recent_activity: "To receive updates about edits and reports, click the 'Follow' button on an organization, official, or product. Those updates will appear here for your convenience."
   flash:
     resource_edited: "Your edit was successfully submitted. It is now awaiting peer review. You can check its progress by clicking on the 'Timeline' link in the top right corner of this page."
     resource_submitted: "Your submission was successful. It is now awaiting peer review. You can check its progress by clicking on the 'Timeline' link in the top right corner of this page."
@@ -110,34 +109,6 @@ Em.I18n.translations =
     versions:
       revised: "{{firstLink}} proposed revisions to the organization {{secondLink}}."
       submitted: "{{firstLink}} submitted the organization {{secondLink}}."
-  policies:
-    one: "Policy"
-    other: "Policies"
-    attributes:
-      facebook_alias: 'Facebook Alias'
-      image: 'Logo'
-      name: 'Name'
-      organization: 'Organization'
-      twitter_alias: 'Twitter Alias'
-      website: 'Website'
-    edit:
-      header: 'Edit Policy'
-    form:
-      tips:
-        name: "The name of the policy."
-        organization: "The name of the organization the policy belongs to."
-    new:
-      header: 'New Policy'
-      p1: "A <em>policy</em> is an operating guideline for an organization. This might be a governmental bill that was passed or an internal memo on behavior for a company."
-    profile:
-      owned_by: 'Policy of {{firstLink}}'
-    reports:
-      header: "Reports"
-    timeline:
-      header: "Timeline for Policy"
-    versions:
-      revised: "{{firstLink}} proposed revisions to the policy {{secondLink}}."
-      submitted: "{{firstLink}} submitted the policy {{secondLink}}."
   products:
     one: "Product"
     other: "Products"

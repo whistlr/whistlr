@@ -28,20 +28,6 @@ ul.nav
   .more = t shared.more
 
 h2.epsilon
-  t policies.other
-hr.rule
-ul.nav
-  li = linkTo 'policy.new' class="resource resource--mini"
-    .resource-image.resource-image--new
-    .resource-text = t contribute.policies.new_policies
-  each policy in controller.policies
-    li = linkTo 'policy.report' policy class="resource resource--mini"
-      .resource-image == policy.image
-      .resource-text = policy.name
-.text-align--right = linkTo 'contribute.policies'
-  .more = t shared.more
-
-h2.epsilon
   t products.other
 hr.rule
 ul.nav

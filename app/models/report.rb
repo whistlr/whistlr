@@ -7,7 +7,6 @@ class Report < ActiveRecord::Base
   has_many :participants, class_name: "Report::Participant", through: :participant_joins
   has_many :officials, class_name: "Official::Master", through: :participants, source: :reportable, source_type: "Official"
   has_many :organizations, class_name: "Organization::Master", through: :participants, source: :reportable, source_type: "Organization"
-  has_many :policies, class_name: "Policy::Master", through: :participants, source: :reportable, source_type: "Policy"
   has_many :products, class_name: "Product::Master", through: :participants, source: :reportable, source_type: "Product"
   has_many :evidence_joins, class_name: "Report::Evidence::Join", inverse_of: :report
   has_many :evidence, class_name: "Report::Evidence", through: :evidence_joins

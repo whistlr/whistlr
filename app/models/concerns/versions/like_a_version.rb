@@ -19,15 +19,6 @@ module Versions::LikeAVersion
     self.attributes.except("id", "type", "approved", "declined", "pending", "master_id", "responses_sum", "responses_disapprove", "responses_approve", "controversy", "disinterest")
   end
 
-  def failure_handling
-    if self.initial?
-      versionable.update_column(:pending, false)
-      rejected_submission if respond_to?(:rejected_submission)
-    else
-      rejected_edit if respond_to?(:rejected_edit)
-    end
-  end
-
   def success_handling
     if initial?
       master.update_attributes(approved: true, pending: false)
@@ -40,7 +31,7 @@ module Versions::LikeAVersion
 
   def failure_handling
     if self.initial?
-      versionable.update_columns(pending: false, declined: true)
+      master.update_columns(pending: false, declined: true)
       rejected_submission if respond_to?(:rejected_submission)
     else
       rejected_edit if respond_to?(:rejected_edit)

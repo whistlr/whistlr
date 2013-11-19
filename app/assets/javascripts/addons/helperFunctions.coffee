@@ -32,9 +32,9 @@ Whistlr.addVersionRowProperty = (propertyName) ->
   ).property('previousVersion')
 
 String::toPath = ->
-  @replace /([A-Z])/g, ($1) ->
+  newString = @replace /([A-Z])/g, ($1) ->
     "/" + $1.toLowerCase()
-  @replace(/::/g, '/')
+  newString.replace(/::/g, '')
 
 String::doterize = ->
   @replace /([A-Z])/g, ($1) ->

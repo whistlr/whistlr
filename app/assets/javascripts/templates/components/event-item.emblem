@@ -6,5 +6,5 @@
       .icon.checkmark.muted-extra
     else
       .icon.xmark.muted-extra
-= eventPartial event.eventable.type
+= event-partial event=event
 .cf

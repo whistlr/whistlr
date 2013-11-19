@@ -598,7 +598,7 @@
                     event.preventDefault();
                 }
                 if (window.event) {
-                    window.event.returnValue = false;
+                    window.event.preventDefault();
                 }
                 return;
             }
@@ -1284,7 +1284,7 @@
                 }
 
                 if (window.event) {
-                    window.event.returnValue = false;
+                    window.event.preventDefault();
                 }
             }
         });

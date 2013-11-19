@@ -10,3 +10,4 @@
     partial "product/form"
 
   #main-column--right
+    Whistlr.ComplimentaryView

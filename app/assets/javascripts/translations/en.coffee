@@ -6,6 +6,16 @@ Em.I18n.translations =
     welcome:
       header: "Welcome to Whistlr"
       text1: "The site is still young and there's plenty of opportunity to contribute. Catalog businesses and officials, report on their activities, and help us map out threads of power and ethical responsibility."
+  compliments:
+    controversal_officials: "Controversal Officials"
+    disfavored_officials: "Unpopular Officials"
+    favored_officials: "Favored Officials"
+    controversal_organizations: "Controversal Organizations"
+    disfavored_organizations: "Unpopular Organizations"
+    favored_organizations: "Favored Organizations"
+    controversal_products: "Controversal Products"
+    disfavored_products: "Unpopular Products"
+    favored_products: "Favored Products"
   devise:
     register: "Register"
     sign_up: "Sign Up"
@@ -129,7 +139,7 @@ Em.I18n.translations =
         organization: "The name of the organization that manufactures the product."
     new:
       header: 'New Product'
-      p1: "A <em>product</em> might be a manufactured item, service, or media, such as a film or newspaper."
+      p1: "A <em>product</em> might be a manufactured item, service, governmental policy, or media, such as a film or newspaper."
     profile:
       owned_by: 'Produced by {{firstLink}}'
     reports:

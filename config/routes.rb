@@ -18,6 +18,7 @@ Whistlr::Application.routes.draw do
   resources :uploads, only: [:create]
 
   resources :events, only: [:index]
+  resources :compliments, only: [:index]
 
   resources :reports, only: [:create, :update, :show, :index]
   resources :report_participants, only: [:show], controller: "report/participants"

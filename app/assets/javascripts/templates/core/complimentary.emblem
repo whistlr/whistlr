@@ -1,0 +1,14 @@
+h6.push--left.muted.milli = view.title
+ul.nav
+  each official in view.officials
+    li = linkTo 'official.report' official class="resource resource--mini"
+      .resource-image == official.image
+      .resource-text = official.name
+  each organization in view.organizations
+    li = linkTo 'organization.report' organization class="resource resource--mini"
+      .resource-image == organization.image
+      .resource-text = organization.name
+  each product in view.products
+    li = linkTo 'product.report' product class="resource resource--mini"
+      .resource-image == product.image
+      .resource-text = product.name

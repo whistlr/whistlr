@@ -10,3 +10,4 @@
     partial "organization/form"
 
   #main-column--right
+    Whistlr.ComplimentaryView

@@ -340,6 +340,7 @@ header
 
 #main-column--right
   @extend .soft
+  @extend .hard--sides
   @include opacity(65)
   @include hover-popout
   position: fixed
@@ -429,6 +430,10 @@ header
   text-align: center
   border: thin solid $main-border
 
+#main-column--right
+  .resource
+    border: 0
+
 .resource-image
   height: 200px
   width: 200px
@@ -448,8 +453,7 @@ header
   overflow: hidden
 
 .resource--mini
-  @extend .push-half--right
-  @extend .push-half--bottom
+  margin: 0 0 9px 12px !important
   width: 110px + $base-line-height
   height: 178px
   .resource-image

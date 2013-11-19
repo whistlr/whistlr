@@ -2,9 +2,8 @@ class ProductVersionSerializer < ActiveModel::Serializer
   root :product
   embed :ids, include: true
   
-  attributes :id, :type, :approved, :declined, :pending, :facebook_alias, :facebook_id, :name, :twitter_alias, :website
+  attributes :id, :type, :approved, :declined, :pending, :facebook_alias, :facebook_id, :name, :twitter_alias, :website, :organization_id
   has_one :upload
-  has_one :organization
 
   has_one :user
   has_one :master, root: :products

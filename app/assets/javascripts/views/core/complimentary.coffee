@@ -38,23 +38,31 @@ Whistlr.ComplimentaryView = Em.View.extend
       @get('organizations').clear()
       @get('products').clear()
       if response.uploads?
+        serializer = store.serializerFor('upload')
         for upload in response.uploads
-          store.push('upload', upload)
+          normalized = serializer.normalize(Whistlr.Upload, upload)
+          store.push('upload', normalized)
       if response.officials?
+        serializer = store.serializerFor('official')
         for official in response.officials
-          stored = store.push('official', official)
+          normalized = serializer.normalize(Whistlr.Official, official)
+          stored = store.push('official', normalized)
           if official.upload_id?
             stored.set('upload', store.find('upload', official.upload_id))
           @get('officials').pushObject(stored)
       if response.organizations?
+        serializer = store.serializerFor('organization')
         for organization in response.organizations
-          stored = store.push('organization', organization)
+          normalized = serializer.normalize(Whistlr.Organization, organization)
+          stored = store.push('organization', normalized)
           if organization.upload_id?
             stored.set('upload', store.find('upload', organization.upload_id))
           @get('organizations').pushObject(stored)
       if response.products?
+        serializer = store.serializerFor('product')
         for product in response.products
-          stored = store.push('product', product)
+          normalized = serializer.normalize(Whistlr.Product, product)
+          stored = store.push('product', normalized)
           if product.upload_id?
             stored.set('upload', store.find('upload', product.upload_id))
           @get('products').pushObject(stored)

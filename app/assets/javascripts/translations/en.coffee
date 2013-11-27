@@ -170,6 +170,8 @@ Em.I18n.translations =
             involvement: 'Participant Involvement'
             summary: 'Participant Summary'
         joins: 'Participants'
+    edit:
+      header: "Edit Report"
     evidence:
       one: "Evidence"
       other: "Evidence"
@@ -187,6 +189,7 @@ Em.I18n.translations =
       tips:
         description: "A longer recounting of the events of the report."
         summary: "A brief (140 characters or less) description of the report. Remain as neutral as possible while still conveying key controversies."
+    new: "New Report"
     participants:
       one: "Participant"
       other: "Participants"
@@ -209,7 +212,8 @@ Em.I18n.translations =
         active_opponent: "Active Opponent"
         primary_opponent: "Primary Opponent"
       new_participant: 'New Participant'
-    new: "New Report"
+    timeline:
+      header: "Timeline for Report"
     versions:
       revised: "{{firstLink}} proposed revisions to the report: {{secondLink}}."
       submitted: "{{firstLink}} submitted a report: {{secondLink}}."

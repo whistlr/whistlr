@@ -5,8 +5,13 @@ Whistlr::Application.routes.draw do
 
   concern :resourceful do
     member do
-      resources :events, path: :timeline
       resources :reports
+    end
+  end
+
+  concern :eventful do
+    member do
+      resources :events, path: :timeline
     end
   end
 
@@ -20,24 +25,31 @@ Whistlr::Application.routes.draw do
   resources :events, only: [:index]
   resources :compliments, only: [:index]
 
-  resources :reports, only: [:create, :update, :show, :index]
+  resources :reports, only: [:create, :edit, :update, :show, :index] do
+    concerns :eventful
+  end
+  
   resources :report_participants, only: [:show], controller: "report/participants"
   resources :responses, only: [:create], controller: "report/responses"
 
   resources :organizations do
     concerns :resourceful
+    concerns :eventful
   end
 
   resources :products do
     concerns :resourceful
+    concerns :eventful
   end
 
   resources :policies do
     concerns :resourceful
+    concerns :eventful
   end
 
   resources :officials do
     concerns :resourceful
+    concerns :eventful
   end
 
   resource :engage, controller: :generic

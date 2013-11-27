@@ -1,5 +1,5 @@
 module Query::Params
-  
+
   def query_params(model)
     query = [ build_query_string(model) ]
     query << build_query_array

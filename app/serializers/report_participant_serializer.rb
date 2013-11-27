@@ -3,6 +3,8 @@ class ReportParticipantSerializer < ActiveModel::Serializer
   
   attributes :involvement, :summary, :reportableType, :reportable, :id
 
+  has_one :previous, root: :report_participant
+
   has_many :reports
 
   def reportableType

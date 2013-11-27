@@ -7,28 +7,29 @@ if event.isExpanded
   a.milli.float--right.forefront.push--ends click="collapse target='event'"
     t shared.collapse
   .cf
-  h3.epsilon.push--top.flush--bottom = t shared.general
-  hr.rule
-  table.table--striped
-    colgroup
-      col.20
-      col.40
-      col.40
-    thead
-      th
-      th = t shared.this_version
-      th = t shared.previous
-    tbody
-      if event.eventable.summaryChanged
-        tr
-          th = t reports.attributes.summary
-          td = event.eventable.summary
-          td = event.eventable.previousVersion.summary
-      if event.eventable.descriptionChanged
-        tr
-          th = t reports.attributes.description
-          td = format-markdown event.eventable.description
-          td = format-markdown event.eventable.previousVersion.description
+  if event.eventable.reportChanged
+    h3.epsilon.push--top.flush--bottom = t shared.general
+    hr.rule
+    table.table--striped
+      colgroup
+        col.20
+        col.40
+        col.40
+      thead
+        th
+        th = t shared.this_version
+        th = t shared.previous
+      tbody
+        if event.eventable.summaryChanged
+          tr
+            th = t reports.attributes.summary
+            td = event.eventable.summary
+            td = event.eventable.previousVersion.summary
+        if event.eventable.descriptionChanged
+          tr
+            th = t reports.attributes.description
+            td = format-markdown event.eventable.description
+            td = format-markdown event.eventable.previousVersion.description
   if event.eventable.changedParticipants
     h3.epsilon.push--top.flush--bottom = t reports.participants.other
     hr.rule
@@ -81,8 +82,6 @@ if event.isExpanded
             th = t reports.evidence.attributes.url
             td = evidence.url
             td = evidence.previousVersion.url
-          tr
-            td
   if event.eventable.pollAttributes.notes
     = format-markdown event.eventable.pollAttributes.notes
   a.milli.float--right.forefront.push--top click="collapse target='event'"

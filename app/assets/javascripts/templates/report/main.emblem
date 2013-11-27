@@ -1,0 +1,4 @@
+.banner
+  h1 = name
+
+p = format-markdown description

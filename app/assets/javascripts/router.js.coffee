@@ -20,6 +20,11 @@ Whistlr.Router.map ()->
 
   @resource 'vote'
 
+  @resource 'report', path: 'reports/:report_id', ->
+    @route 'main'
+    @route 'edit'
+    @route 'timeline'
+
   @resource 'organization', path: 'organizations/:organization_id', ->
     @route 'edit'
     @route 'timeline'

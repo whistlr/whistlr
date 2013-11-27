@@ -1,0 +1,7 @@
+.collapsed--left
+  #main-column--center
+    partial "report/links"
+    outlet
+
+  #main-column--right
+    Whistlr.ComplimentaryView

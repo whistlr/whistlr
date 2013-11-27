@@ -59,7 +59,7 @@ module Versions::LikeAVersion
 private
 
   def is_altered
-    errors[:base] << I18n.t("errors.shared.no_changes") if details_count == 0
+    errors[:base] << I18n.t("errors.shared.no_changes") if details_count == 0 && master.class != Report::Master
   end
 
   def create_version_attributes_with_extra_params

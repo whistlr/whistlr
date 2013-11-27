@@ -28,22 +28,28 @@ Whistlr.Report = DS.Model.extend Whistlr.EventableMixin, Whistlr.VersionableMixi
   ).property('summary')
 
   changedParticipants: (->
-    participants = @get 'participants'
-    previousVersion = @get 'previousVersion'
-    if previousVersion
-      return participants
+    participants = @get 'participants.content'
+    previousParticipants = @get 'previousVersion.participants.content'
+    alteredParticpants = Whistlr.alteredProperties previousParticipants, participants
+    if alteredParticpants
+      return alteredParticpants
     else
-      return participants
+      return false
   ).property('previousVersion')
 
   changedEvidence: (->
-    evidence = @get 'evidence'
-    previousVersion = @get 'previousVersion'
-    if previousVersion
-      return evidence
+    evidence = @get 'evidence.content'
+    previousEvidence = @get 'previousVersion.evidence.content'
+    alteredEvidence = Whistlr.alteredProperties previousEvidence, evidence
+    if alteredEvidence
+      return alteredEvidence
     else
-      return evidence
+      return false
   ).property('previousVersion')
+
+  reportChanged: (->
+    @get('summaryChanged') || @get('descriptionChanged')
+  ).property('summaryChanged, descriptionChanged')
 
   summaryChanged: Whistlr.addVersionRowProperty('summary')
   descriptionChanged: Whistlr.addVersionRowProperty('description')

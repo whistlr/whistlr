@@ -1,0 +1,1 @@
+Whistlr.ReportEditView = Em.View.extend()

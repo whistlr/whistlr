@@ -1,3 +1,4 @@
+Whistlr.TextField type="hidden" valueBinding="id"
 li
   Whistlr.TextField valueBinding="summary" placeholderTranslation="reports.participants.attributes.summary" tip="reports.participants.form.tips.summary"
 li

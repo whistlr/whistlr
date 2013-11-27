@@ -1,3 +1,4 @@
+Whistlr.TextField type="hidden" valueBinding="id"
 li
   Whistlr.TextField valueBinding="citation" placeholderTranslation="reports.evidence.attributes.citation" tip="reports.evidence.form.tips.citation"
 li

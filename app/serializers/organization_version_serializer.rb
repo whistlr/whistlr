@@ -9,7 +9,6 @@ class OrganizationVersionSerializer < ActiveModel::Serializer
     object.children.collect{|child| child.id}
   end
 
-  has_one :user
   has_one :version_attributes
   has_one :poll_attributes
 end

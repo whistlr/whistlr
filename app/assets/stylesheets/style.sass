@@ -367,6 +367,11 @@ header
   width: 200px
   vertical-align: top
 
+.collapsed--left
+  .center-column-margins
+    margin-left: 0
+    margin-right: 265px + ($base-line-height * 2)
+
 @media screen and (max-width: 1100px)
   .unstable--left
     .center-column-margins
@@ -593,6 +598,7 @@ header
   width: 90%
 
 .sub-fields--remove
+  cursor: pointer
   display: inline-block
   vertical-align: top
   margin-top: 5px

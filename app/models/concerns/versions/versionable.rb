@@ -30,6 +30,38 @@ module Versions::Versionable
     approved_versions.last || initial_version unless versions.length == 0
   end
 
+  def nested_model_has_changed(previous_nested_version, param_values)
+    previous_nested_version.attributes.except("id", "previous_id").each do |attr, value|
+      return true if value.to_s != param_values[attr].to_s
+    end
+    return false
+  end
+
+  def update_with_nested_models(main_params, nested_model_params)
+    ActiveRecord::Base.transaction do
+      version = create_version(main_params)
+      nested_model_params.each do |param_key, param_values|
+        nested_model_name = param_key.to_s.gsub("_attributes", "").to_sym
+        nested_model_array = self.public_send(nested_model_name)
+        param_values.each do |key|
+          if key[:id].present? && previous_nested_version = nested_model_array.find(key[:id])
+            if nested_model_has_changed(previous_nested_version, key)
+              new_nested_version = version.public_send(nested_model_name).new(key.except("id"))
+              new_nested_version.previous = previous_nested_version
+              new_nested_version.save!
+              version.public_send(nested_model_name) << new_nested_version
+            else
+              version.public_send(nested_model_name) << previous_nested_version
+            end
+          else
+            version.public_send(nested_model_name).create(key.except("id"))
+          end
+        end
+      end
+      return version
+    end
+  end
+
 private
 
   def clone_initial_version

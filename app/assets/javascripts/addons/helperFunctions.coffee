@@ -31,6 +31,12 @@ Whistlr.addVersionRowProperty = (propertyName) ->
     Whistlr.showVersionRow this, propertyName
   ).property('previousVersion')
 
+Whistlr.alteredProperties = (originalProperties, newProperties) ->
+  alertedProperties = []
+  $.each newProperties, (index, value) ->
+    alertedProperties.push newProperties[index] if -1 == $.inArray(value, originalProperties)
+  return alertedProperties
+
 String::toPath = ->
   newString = @replace /([A-Z])/g, ($1) ->
     "/" + $1.toLowerCase()

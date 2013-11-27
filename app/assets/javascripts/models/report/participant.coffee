@@ -40,7 +40,7 @@ Whistlr.ReportParticipant = DS.Model.extend
     reportable = @get 'reportable'
     if reportable?
       reportable.get('name')
-  ).property('reportable.name')
+  ).property('reportable')
 
   reportableList: (->
     input = @get 'reportableInput'

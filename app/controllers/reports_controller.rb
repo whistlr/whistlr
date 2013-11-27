@@ -1,7 +1,6 @@
 class ReportsController < ApplicationController
   include Query::Params
 
-  before_action :set_report, only: [:show, :edit, :update]
   respond_to :json, :html
 
   def index
@@ -35,58 +34,31 @@ class ReportsController < ApplicationController
   end
 
   def edit
-    authorize! :update, report
-    report.participants.build if report.participants.blank?
-    report.evidence.build if report.evidence.blank?
-    report.versions.new
-    respond_with(version, responder: TransitionResponder)
   end
 
   def update
+    report = Report.find(params[:id])
     authorize! :update, report
-    if report.update_with_nested_models(report_params, nested_model_params)
-      redirect_to report, notice: t('report.versions.create.revision_submitted')
-    else
-      update_transition_responder
-    end
+    version = report.update_with_nested_models(primary_model_params, nested_model_params)
+    respond_with version
   end
 
 private
-  def set_report
-    report = Report.find(params[:id])
-  end
 
   def report_attr
     [:summary, :description]
   end
 
   def participant_attr
-    [:_destroy, :involvement, :summary, :reportable_id, :reportable_type]
+    [:_destroy, :involvement, :summary, :reportable_id, :reportable_type, :id]
   end
 
   def evidence_attr
-    [:_destroy, :citation, :url, :upload_id]
-  end
-
-  def report_and_nested_model_params
-    filtered_params = params.require(:report).permit([report_attr + [participants_attributes: participant_attr]+[evidence_attributes: evidence_attr]])
-    additional_params = {user: current_user, participants_attributes: [user: current_user, approved: true, pending: false, submitted_with_report: true], evidence_attributes: [user: current_user, approved: true, pending: false, submitted_with_report: true]}
-    result = filtered_params.merge(additional_params) do |key, oldval, newval|
-      if newval.is_a? Array
-        oldval ||= {}
-        oldval.map {|key| key.merge(newval.first)}
-      elsif newval.is_a? Hash
-        oldval ||= {}
-        oldval.merge newval
-      else
-        newval
-      end
-    end
-    result.permit!
+    [:_destroy, :citation, :url, :id]
   end
 
   def report_params
-    joined_params.require(:report).permit(:summary, :description, participant_joins_attributes: [ participant_attributes: [:_destroy, :involvement, :summary, :reportable_id, :reportable_type] ], evidence_joins_attributes: [ evidence_attributes: [:_destroy, :citation, :url, :upload_id ] ]).merge(user: current_user)
+    joined_params.require(:report).permit(report_attr, participant_joins_attributes: [ participant_attributes: participant_attr ], evidence_joins_attributes: [ evidence_attributes: evidence_attr ]).merge(user: current_user)
   end
 
   def joined_params
@@ -108,21 +80,12 @@ private
     vetted_params
   end
 
+  def primary_model_params
+    params.require(:report).permit(report_attr).merge(user: current_user)
+  end
+
   def nested_model_params
-    filtered_params = params.require(:report).permit([[participants_attributes: participant_attr]+[evidence_attributes: evidence_attr]])
-    additional_params = {participants_attributes: [user: current_user], evidence_attributes: [user: current_user]}
-    result = filtered_params.merge(additional_params) do |key, oldval, newval|
-      if newval.is_a? Array
-        oldval ||= {}
-        Hash[oldval.map {|k, v| [k, v.merge(newval.first)]}]
-      elsif newval.is_a? Hash
-        oldval ||= {}
-        oldval.merge newval
-      else
-        newval
-      end
-    end
-    result.permit!
+    params.require(:report).permit([[participants_attributes: participant_attr]+[evidence_attributes: evidence_attr]])
   end
 
 end

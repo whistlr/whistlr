@@ -52,3 +52,7 @@ Whistlr.ReportParticipant = DS.Model.extend
       @store.findQuery type.camelize(),
         name: @get 'reportableInput'
   ).property('reportableInput')
+
+  reportableLink: (->
+    @get('reportable.modelCamelized') + ".report"
+  ).property('reportable')

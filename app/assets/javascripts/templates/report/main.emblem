@@ -7,7 +7,7 @@ h3.epsilon.push--top.flush--bottom = t reports.participants.other
 hr.rule
 each participant in participants
   p
-    span.bold = linkTo participant.reportable.modelCamelized participant.reportable
+    span.bold = linkTo participant.reportableLink participant.reportable
       participant.reportable.name
     span.micro &nbsp;(#{involvementConverter participant})
     span :

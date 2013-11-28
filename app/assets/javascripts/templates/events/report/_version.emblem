@@ -46,9 +46,9 @@ if event.isExpanded
         tbody
           tr
             th = t reports.participants.one
-            td = linkTo participant.reportable.modelCamelized participant.reportable
+            td = linkTo participant.reportableLink participant.reportable
               participant.reportable.name
-            td = linkTo participant.previousVersion.reportable.modelCamelized participant.previousVersion.reportable
+            td = linkTo participant.previousVersion.reportableLink participant.previousVersion.reportable
               participant.previousVersion.reportable.name
           tr
             th = t reports.participants.attributes.summary

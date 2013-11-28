@@ -46,7 +46,7 @@ class ReportsController < ApplicationController
 private
 
   def report_attr
-    [:summary, :description]
+    [:summary, :description, :notes]
   end
 
   def participant_attr

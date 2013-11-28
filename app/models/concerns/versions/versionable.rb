@@ -26,6 +26,10 @@ module Versions::Versionable
     versions.create(params.merge(initial: initial))
   end
 
+  def initialize_version(params, initial = false)
+    versions.new(params.merge(initial: initial))
+  end
+
   def last_approved_version
     approved_versions.last || initial_version unless versions.length == 0
   end
@@ -38,28 +42,30 @@ module Versions::Versionable
   end
 
   def update_with_nested_models(main_params, nested_model_params)
-    ActiveRecord::Base.transaction do
-      version = create_version(main_params)
-      nested_model_params.each do |param_key, param_values|
-        nested_model_name = param_key.to_s.gsub("_attributes", "").to_sym
-        nested_model_array = self.public_send(nested_model_name)
-        param_values.each do |key|
+    version = initialize_version(main_params)
+    nested_model_params.each do |param_key, param_values|
+      nested_model_name = param_key.to_s.gsub("_attributes", "").to_sym
+      nested_model_array = self.public_send(nested_model_name)
+      nested_model_class = self.class.reflect_on_association(nested_model_name.to_sym).options[:class_name].constantize
+      param_values.each do |key|
+        if key[:_destroy] == false
           if key[:id].present? && previous_nested_version = nested_model_array.find(key[:id])
             if nested_model_has_changed(previous_nested_version, key)
-              new_nested_version = version.public_send(nested_model_name).new(key.except("id"))
+              new_nested_version = nested_model_class.new(key.except("id"))
               new_nested_version.previous = previous_nested_version
-              new_nested_version.save!
               version.public_send(nested_model_name) << new_nested_version
             else
               version.public_send(nested_model_name) << previous_nested_version
             end
           else
-            version.public_send(nested_model_name).create(key.except("id"))
+            new_nested_version = nested_model_class.new(key.except("id"))
+            version.public_send(nested_model_name) << new_nested_version
           end
         end
       end
-      return version
     end
+    version.save
+    version
   end
 
 private

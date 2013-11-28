@@ -164,6 +164,9 @@ code
 
 // Utility
 
+.hidden
+  display: none
+
 .inline-block
   display: inline-block
 
@@ -495,6 +498,19 @@ header
 
 .approve
   background-image: url(image_path('icons/approve.png'))
+
+.references
+  column-width: 250px
+  -moz-column-width: 220px
+  -webkit-column-width: 250px
+  li
+    @extend .push--left
+
+.outgoing-link
+  display: inline-block
+  width: 20px
+  height: 20px
+  background-image: url(image_path('icons/outgoing-link.png'))
 
 // Profile
 

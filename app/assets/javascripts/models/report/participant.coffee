@@ -12,6 +12,8 @@ Whistlr.ReportParticipant = DS.Model.extend
   involvement: DS.attr()
   summary: DS.attr()
 
+  _destroy: DS.attr 'boolean', {defaultValue: false}
+
   name: (->
     @get 'summary'
   ).property('summary')

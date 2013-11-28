@@ -37,6 +37,15 @@ Whistlr.alteredProperties = (originalProperties, newProperties) ->
     alertedProperties.push newProperties[index] if -1 == $.inArray(value, originalProperties)
   return alertedProperties
 
+Whistlr.removedProperties = (originalProperties, newProperties) ->
+  alertedProperties = []
+  previousIds = []
+  previousIds.push newProperty.get('previousVersion.id') for newProperty in newProperties
+  if originalProperties
+    $.each originalProperties, (index, value) ->
+      alertedProperties.push originalProperties[index] if -1 == $.inArray(value, newProperties) && -1 == $.inArray(value.id, previousIds)
+  return alertedProperties
+
 String::toPath = ->
   newString = @replace /([A-Z])/g, ($1) ->
     "/" + $1.toLowerCase()

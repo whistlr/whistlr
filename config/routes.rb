@@ -27,6 +27,7 @@ Whistlr::Application.routes.draw do
 
   resources :reports, only: [:create, :edit, :update, :show, :index] do
     concerns :eventful
+    get "main" => 'generic#show'
   end
   
   resources :report_participants, only: [:show], controller: "report/participants"

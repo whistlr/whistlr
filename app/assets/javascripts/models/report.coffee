@@ -27,6 +27,12 @@ Whistlr.Report = DS.Model.extend Whistlr.EventableMixin, Whistlr.VersionableMixi
     @get 'summary'
   ).property('summary')
 
+  participantsAltered: (->
+    changedParticipants = @get "changedParticipants"
+    removedParticipants = @get "removedParticipants"
+    changedParticipants || removedParticipants
+  ).property("changedParticipants, removedParticipants")
+
   changedParticipants: (->
     participants = @get 'participants.content'
     previousParticipants = @get 'previousVersion.participants.content'
@@ -37,10 +43,36 @@ Whistlr.Report = DS.Model.extend Whistlr.EventableMixin, Whistlr.VersionableMixi
       return false
   ).property('previousVersion')
 
+  removedParticipants: (->
+    participants = @get 'participants.content'
+    previousParticipants = @get 'previousVersion.participants.content'
+    alteredParticpants = Whistlr.removedProperties previousParticipants, participants
+    if alteredParticpants
+      return alteredParticpants
+    else
+      return false
+  ).property('previousVersion')
+
+  evidenceAltered: (->
+    changedEvidence = @get "changedEvidence"
+    removedEvidence = @get "removedEvidence"
+    changedEvidence || removedEvidence
+  ).property("changedEvidence, removedEvidence")
+
   changedEvidence: (->
     evidence = @get 'evidence.content'
     previousEvidence = @get 'previousVersion.evidence.content'
     alteredEvidence = Whistlr.alteredProperties previousEvidence, evidence
+    if alteredEvidence
+      return alteredEvidence
+    else
+      return false
+  ).property('previousVersion')
+
+  removedEvidence: (->
+    evidence = @get 'evidence.content'
+    previousEvidence = @get 'previousVersion.evidence.content'
+    alteredEvidence = Whistlr.removedProperties previousEvidence, evidence
     if alteredEvidence
       return alteredEvidence
     else

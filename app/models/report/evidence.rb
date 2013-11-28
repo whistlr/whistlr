@@ -4,6 +4,8 @@ class Report::Evidence < ActiveRecord::Base
 
   strip_attributes
 
+  attr_accessor :_destroy
+
   has_many :reports, through: :report_joins
   has_many :report_joins, class_name: "Report::Evidence::Join"
 

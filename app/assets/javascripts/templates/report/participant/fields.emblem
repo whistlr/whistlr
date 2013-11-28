@@ -1,11 +1,13 @@
 Whistlr.TextField type="hidden" valueBinding="id"
-li
-  Whistlr.TextField valueBinding="summary" placeholderTranslation="reports.participants.attributes.summary" tip="reports.participants.form.tips.summary"
-li
-  Whistlr.Select valueBinding="involvement" content=involvementTypes optionValuePath="content.value" optionLabelPath="content.name" tip="reports.participants.form.tips.involvement"
-li
-  Whistlr.Select valueBinding="reportableType" content=resourceTypes tip="reports.participants.form.tips.reportable_type"
-li
-  Whistlr.TextField valueBinding="reportableInput" placeholderTranslation="reports.participants.attributes.reportable_name" tip="reports.participants.form.tips.reportable_name" autocomplete="off"
-  Whistlr.TextField type="hidden" valueBinding="reportable"
-  = organization-autocomplete setTo="reportable" organizations=reportableList
+Whistlr.TextField type="hidden" valueBinding="_destroy"
+unless _destroy
+  li
+    Whistlr.TextField valueBinding="summary" placeholderTranslation="reports.participants.attributes.summary" tip="reports.participants.form.tips.summary"
+  li
+    Whistlr.Select valueBinding="involvement" content=involvementTypes optionValuePath="content.value" optionLabelPath="content.name" tip="reports.participants.form.tips.involvement"
+  li
+    Whistlr.Select valueBinding="reportableType" content=resourceTypes tip="reports.participants.form.tips.reportable_type"
+  li
+    Whistlr.TextField valueBinding="reportableInput" placeholderTranslation="reports.participants.attributes.reportable_name" tip="reports.participants.form.tips.reportable_name" autocomplete="off"
+    Whistlr.TextField type="hidden" valueBinding="reportable"
+    = organization-autocomplete setTo="reportable" organizations=reportableList

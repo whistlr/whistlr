@@ -2,3 +2,23 @@
   h1 = name
 
 p = format-markdown description
+
+h3.epsilon.push--top.flush--bottom = t reports.participants.other
+hr.rule
+each participant in participants
+  p
+    span.bold = linkTo participant.reportable.modelCamelized participant.reportable
+      participant.reportable.name
+    span.micro &nbsp;(#{involvementConverter participant})
+    span :
+    span.push-half--left = participant.name
+
+
+h3.epsilon.push--top.flush--bottom = t reports.evidence.other
+hr.rule
+ol.references
+  each item in evidence
+    li
+      span = item.citation
+      if item.url
+        span.push-half--left == item.link

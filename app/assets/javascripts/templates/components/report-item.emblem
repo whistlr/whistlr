@@ -10,6 +10,10 @@ if report.isExpanded
     p = format-markdown report.description
   a.milli.float--right.forefront.push--top click="collapse target='report'"
     t shared.collapse
+  .milli.float--right.forefront.push--top.push-half--right
+    span = linkTo 'report.main' report
+      t shared.full_report
+    span.push-half--left |
   .cf
 else
   a.milli.float--right.forefront.push--top click="expand target='report'"

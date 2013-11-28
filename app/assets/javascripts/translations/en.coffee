@@ -223,6 +223,7 @@ Em.I18n.translations =
     everything: 'Everything'
     expand: 'Expand [+]'
     follow: 'Follow'
+    full_report: 'Full Report'
     general: 'General'
     load_more: 'Load More'
     loading_more: 'Loading More'

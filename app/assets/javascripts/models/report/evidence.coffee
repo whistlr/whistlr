@@ -4,6 +4,8 @@ Whistlr.ReportEvidence = DS.Model.extend
   citation: DS.attr()
   url: DS.attr()
 
+  _destroy: DS.attr 'boolean', {defaultValue: false}
+
   reports: DS.hasMany 'report',
     inverse: 'participants'
   upload: DS.belongsTo 'upload'
@@ -16,3 +18,8 @@ Whistlr.ReportEvidence = DS.Model.extend
   previousVersion: (->
     @get('previous')
   ).property('previous')
+
+  link: (->
+    url = @get "url"
+    "<a href='#{url}' target='_blank' class='outgoing-link'></a>"
+  ).property('url')

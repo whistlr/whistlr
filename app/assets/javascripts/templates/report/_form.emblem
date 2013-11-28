@@ -10,16 +10,18 @@ form.push--bottom submit="submit"
         Whistlr.TextArea valueBinding="description" placeholderTranslation="reports.attributes.description" tip="reports.form.tips.description"
       h6.thin.sub-fields-title = t reports.participants.other
       each participants
-        hr.rule
-        a.sub-fields--remove click="removeParticipant this" X
-        .sub-fields = render "report.participant.fields" this
+        div class=this._destroy:hidden:shown
+          hr.rule
+          a.sub-fields--remove click="removeParticipant this" X
+          .sub-fields = render "report.participant.fields" this
       button.btn.btn--alt click="addParticipant"
         t reports.participants.new_participant
       h6.thin.sub-fields-title.push--top = t reports.evidence.other
       each evidence
-        hr.rule
-        a.sub-fields--remove click="removeEvidence this" X
-        .sub-fields = render "report.evidence.fields" this
+        div class=this._destroy:hidden:shown
+          hr.rule
+          a.sub-fields--remove click="removeEvidence this" X
+          .sub-fields = render "report.evidence.fields" this
       button.btn.btn--alt click="addEvidence"
         t reports.evidence.add_evidence
       li.push--top

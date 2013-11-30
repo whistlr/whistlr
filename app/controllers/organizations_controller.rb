@@ -11,7 +11,7 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    organization = Organization.find(params[:id])
+    organization = Organization.friendly.find(params[:id])
     respond_with organization
   end
 
@@ -30,7 +30,7 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    organization = Organization::Master.find(params[:id])
+    organization = Organization::Master.friendly.find(params[:id])
     authorize! :update, organization
     version = organization.create_version(organization_params)
     respond_with version

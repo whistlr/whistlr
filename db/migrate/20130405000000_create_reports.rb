@@ -2,6 +2,7 @@ class CreateReports < ActiveRecord::Migration
   def change
     create_table :reports do |t|
       t.string :type, null: false
+      t.string :slug
 
       t.integer :master_id
 
@@ -28,5 +29,6 @@ class CreateReports < ActiveRecord::Migration
     add_index :reports, :responses_approve
     add_index :reports, :controversy
     add_index :reports, :disinterest
+    add_index :reports, :slug, unique: true, where: "type = 'Report::Master'"
   end
 end

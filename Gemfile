@@ -5,14 +5,15 @@ gem "thin"
 gem "pg"
 gem "debugger"
 gem "figaro"
+gem 'friendly_id', '~> 5.0.0'
 
 gem "jquery-rails"
 gem "jquery-fileupload-rails"
 
 gem "active_model_serializers"
 gem "ember-rails"
-gem "ember-source"
-gem "handlebars-source"
+gem "ember-source", "1.2.0.beta.3"
+gem "handlebars-source", "1.0.12"
 gem "emblem-rails"
 
 gem 'ember-auth-rails'

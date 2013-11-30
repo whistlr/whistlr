@@ -16,7 +16,7 @@ module Versions::LikeAVersion
   end
 
   def versionable_attributes
-    self.attributes.except("id", "type", "approved", "declined", "pending", "master_id", "responses_sum", "responses_disapprove", "responses_approve", "controversy", "disinterest")
+    self.attributes.except("id", "type", "approved", "declined", "pending", "master_id", "slug", "responses_sum", "responses_disapprove", "responses_approve", "controversy", "disinterest")
   end
 
   def success_handling

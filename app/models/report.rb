@@ -1,5 +1,6 @@
 class Report < ActiveRecord::Base
   include Validations::UserCreated
+  include Friendly::SluggableBase
 
   strip_attributes
 

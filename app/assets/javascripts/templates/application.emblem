@@ -2,12 +2,12 @@ header
   ul.nav.nav--header.nav--left
     li.border--left = linkTo 'home' | #{t layout.header.whistlr}
     li = linkTo 'explore.everything' | #{t layout.header.explore}
-    li = linkTo 'engage' | #{t layout.header.engage}
+    li = linkTo 'discuss' | #{t layout.header.discuss}
   .nav--center
     Whistlr.SearchQueryView
   ul.nav.nav--header.nav--right
     if auth.signedIn
-      li.border--left = linkTo 'contribute.recent_activity' | #{t layout.header.contribute}
+      li.border--left = linkTo 'workdesk.recent_activity' | #{t layout.header.workdesk}
       li
         Whistlr.AuthSignOutView
     else

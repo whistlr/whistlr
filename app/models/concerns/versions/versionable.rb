@@ -71,7 +71,7 @@ module Versions::Versionable
 private
 
   def clone_initial_version
-    params = self.attributes.except("id", "type", "approved", "pending", "declined", "master_id").merge(user: user, notes: notes)
+    params = self.attributes.except("id", "type", "approved", "pending", "declined", "master_id", "slug").merge(user: user, notes: notes)
     self.create_version(params, true)
   end
 end

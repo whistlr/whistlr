@@ -2,7 +2,7 @@
   if approved?
     .return = linkTo 'explore.officials' | #{t officials.other}
   else
-    .return = linkTo 'contribute.officials' | #{t officials.other}
+    .return = linkTo 'workdesk.officials' | #{t officials.other}
   span.profile__item
     == image
   span.profile__item

@@ -1,4 +1,4 @@
-Whistlr.Report = DS.Model.extend Whistlr.EventableMixin, Whistlr.VersionableMixin, Whistlr.PollableMixin,
+Whistlr.Report = DS.Model.extend Whistlr.EventableMixin, Whistlr.VersionableMixin, Whistlr.PollableMixin, Whistlr.SluggableMixin,
 
   model: "Report"
 

@@ -1,0 +1,15 @@
+ul.nav
+  li = linkTo 'organization.new' class="resource"
+    .resource-image.resource-image--new
+    .resource-text = t workdesk.organizations.new_organizations
+  each organization in controller
+    li = linkTo 'organization.report' organization class="resource"
+      .resource-image == organization.image
+      .resource-text = organization.name
+  if loadingMore
+    .border--ends.soft--ends.center
+      t shared.loading_more
+  else
+    a click='getMore'
+      .border--ends.soft--ends.center.clickable
+        t shared.load_more

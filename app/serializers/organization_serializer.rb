@@ -1,7 +1,7 @@
 class OrganizationSerializer < ActiveModel::Serializer
   embed :ids, include: true
   
-  attributes :id, :type, :following, :approved, :declined, :pending, :city, :country, :facebook_alias, :facebook_id, :name, :region, :twitter_alias, :website, :parent_id, :children_ids
+  attributes :id, :type, :slug, :following, :approved, :declined, :pending, :city, :country, :facebook_alias, :facebook_id, :name, :region, :twitter_alias, :website, :parent_id, :children_ids
   has_one :upload
 
   def children_ids

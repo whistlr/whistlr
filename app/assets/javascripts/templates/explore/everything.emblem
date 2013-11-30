@@ -2,7 +2,7 @@ if controller.officials
   h2.epsilon
     t officials.other
   hr.rule
-  ul.nav
+  ul.nav.everything-list
     each official in controller.officials
       li = linkTo 'official.report' official class="resource resource--mini"
         .resource-image == official.image
@@ -14,7 +14,7 @@ if controller.organizations
   h2.epsilon
     t organizations.other
   hr.rule
-  ul.nav
+  ul.nav.everything-list
     each organization in controller.organizations
       li = linkTo 'organization.report' organization class="resource resource--mini"
         .resource-image == organization.image
@@ -26,7 +26,7 @@ if controller.products
   h2.epsilon
     t products.other
   hr.rule
-  ul.nav
+  ul.nav.everything-list
     each product in controller.products
       li = linkTo 'product.report' product class="resource resource--mini"
         .resource-image == product.image

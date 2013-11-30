@@ -1,0 +1,42 @@
+
+h2.epsilon
+  t officials.other
+hr.rule
+ul.nav.everything-list
+  li = linkTo 'official.new' class="resource resource--mini"
+    .resource-image.resource-image--new
+    .resource-text = t workdesk.officials.new_officials
+  each official in controller.officials
+    li = linkTo 'official.report' official class="resource resource--mini"
+      .resource-image == official.image
+      .resource-text = official.name
+.text-align--right = linkTo 'workdesk.officials'
+  .more = t shared.more
+
+h2.epsilon
+  t organizations.other
+hr.rule
+ul.nav.everything-list
+  li = linkTo 'organization.new' class="resource resource--mini"
+    .resource-image.resource-image--new
+    .resource-text = t workdesk.organizations.new_organizations
+  each organization in controller.organizations
+    li = linkTo 'organization.report' organization class="resource resource--mini"
+      .resource-image == organization.image
+      .resource-text = organization.name
+.text-align--right = linkTo 'workdesk.organizations'
+  .more = t shared.more
+
+h2.epsilon
+  t products.other
+hr.rule
+ul.nav.everything-list
+  li = linkTo 'product.new' class="resource resource--mini"
+    .resource-image.resource-image--new
+    .resource-text = t workdesk.products.new_products
+  each product in controller.products
+    li = linkTo 'product.report' product class="resource resource--mini"
+      .resource-image == product.image
+      .resource-text = product.name
+.text-align--right = linkTo 'workdesk.products'
+  .more = t shared.more

@@ -1,4 +1,4 @@
-Whistlr.Official = DS.Model.extend Whistlr.EventableMixin, Whistlr.ReportableMixin, Whistlr.VersionableMixin, Whistlr.PollableMixin, Whistlr.SocialMixin, Whistlr.PortraitMixin, Whistlr.FollowableMixin,
+Whistlr.Official = DS.Model.extend Whistlr.EventableMixin, Whistlr.ReportableMixin, Whistlr.VersionableMixin, Whistlr.PollableMixin, Whistlr.SocialMixin, Whistlr.PortraitMixin, Whistlr.FollowableMixin, Whistlr.SluggableMixin,
 
   model: "Official"
   modelCamelized: "official"

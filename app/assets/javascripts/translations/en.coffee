@@ -5,7 +5,7 @@ Em.I18n.translations =
       content: "Coming soon."
     welcome:
       header: "Welcome to Whistlr"
-      text1: "The site is still young and there's plenty of opportunity to contribute. Catalog businesses and officials, report on their activities, and help us map out threads of power and ethical responsibility."
+      text1: "The site is still young and there's plenty of opportunity to workdesk. Catalog businesses and officials, report on their activities, and help us map out threads of power and ethical responsibility."
   compliments:
     controversal_officials: "Controversal Officials"
     disfavored_officials: "Unpopular Officials"
@@ -33,8 +33,8 @@ Em.I18n.translations =
       error: ""
   explore:
     header: 'Explore'
-  contribute:
-    header: 'Contribute'
+  workdesk:
+    header: 'Workdesk'
     officials:
       new_officials: 'New Official'
     organizations:
@@ -54,8 +54,8 @@ Em.I18n.translations =
       website: "The full URL for the organization's public-facing website. Eg:\r\r    http://www.cia.gov/\r\r    http://www.aljazeera.com/\r\r    http://www.scientology.org/\r\r    http://austintexas.gov/"
   layout:
     header:
-      contribute: 'Contribute'
-      engage: 'Engage'
+      workdesk: 'Workdesk'
+      discuss: 'Discuss'
       explore: 'Explore'
       search_bar: 'Search'
       whistlr: 'Whistlr'

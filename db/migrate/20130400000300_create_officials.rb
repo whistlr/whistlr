@@ -2,6 +2,7 @@ class CreateOfficials < ActiveRecord::Migration
   def change
     create_table :officials do |t|
       t.string :type, null: false
+      t.string :slug
 
       t.integer :master_id
 
@@ -24,5 +25,6 @@ class CreateOfficials < ActiveRecord::Migration
     add_index :officials, :approved
     add_index :officials, :pending
     add_index :officials, :name, where: "approved IS TRUE AND type = 'Official::Master'"
+    add_index :officials, :slug, unique: true, where: "type = 'Official::Master'"
   end
 end

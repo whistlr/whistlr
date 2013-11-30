@@ -2,7 +2,7 @@
   if approved?
     .return = linkTo 'explore.products' | #{t products.other}
   else
-    .return = linkTo 'contribute.products' | #{t products.other}
+    .return = linkTo 'workdesk.products' | #{t products.other}
   span.profile__item
     == image
   span.profile__item

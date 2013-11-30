@@ -2,6 +2,7 @@ class CreateOrganizations < ActiveRecord::Migration
   def change
     create_table :organizations do |t|
       t.string :type, null: false
+      t.string :slug
 
       t.integer :master_id
 
@@ -29,5 +30,6 @@ class CreateOrganizations < ActiveRecord::Migration
     add_index :organizations, [:country, :region, :city], where: "approved IS TRUE AND type = 'Organization::Master'"
     add_index :organizations, :parent_id, where: "approved IS TRUE AND type = 'Organization::Master'"
     add_index :organizations, :name, where: "approved IS TRUE AND type = 'Organization::Master'"
+    add_index :organizations, :slug, unique: true, where: "type = 'Organization::Master'"
   end
 end

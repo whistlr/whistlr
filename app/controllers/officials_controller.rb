@@ -11,7 +11,7 @@ class OfficialsController < ApplicationController
   end
 
   def show
-    official = Official.find(params[:id])
+    official = Official.friendly.find(params[:id])
     respond_with official
   end
 
@@ -30,7 +30,7 @@ class OfficialsController < ApplicationController
   end
 
   def update
-    official = Official::Master.find(params[:id])
+    official = Official::Master.friendly.find(params[:id])
     authorize! :update, official
     version = official.create_version(official_params)
     respond_with version

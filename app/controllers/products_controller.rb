@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    product = Product.find(params[:id])
+    product = Product.friendly.find(params[:id])
     respond_with product
   end
 
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product = Product::Master.find(params[:id])
+    product = Product::Master.friendly.find(params[:id])
     authorize! :update, product
     version = product.create_version(product_params)
     respond_with version

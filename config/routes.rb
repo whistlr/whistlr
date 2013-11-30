@@ -53,7 +53,7 @@ Whistlr::Application.routes.draw do
     concerns :eventful
   end
 
-  resource :engage, controller: :generic
+  resource :discuss, controller: :generic
   
   resource :explore, only: [:show], controller: :generic do
     resources :everything, only: [:index], controller: :generic
@@ -63,7 +63,7 @@ Whistlr::Application.routes.draw do
     resources :products, only: [:index, :show], controller: :generic
   end
 
-  resource :contribute, only: [:show], controller: :generic do
+  resource :workdesk, only: [:show], controller: :generic do
     resources :recent_activities, path: 'recent_activity', only: [:index]
     resources :everything, only: [:index], controller: :generic
     resources :organizations, controller: :generic

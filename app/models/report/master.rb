@@ -2,6 +2,7 @@ class Report::Master < Report
   include Events::Timelineable
   include Versions::Versionable
   include Follows::Followable
+  include Friendly::Sluggable
   
   validates :participant_joins, presence: true
   validates :evidence_joins, presence: true
@@ -11,6 +12,16 @@ class Report::Master < Report
   def active_model_serializer
     ReportSerializer
   end
+
+  def slug_candidates
+    [
+      :summary
+    ]
+  end
+
+    def should_generate_new_friendly_id?
+      slug.blank? || summary_changed?
+    end
 
 private
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117171223) do
+ActiveRecord::Schema.define(version: 20131129172137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,14 +30,27 @@ ActiveRecord::Schema.define(version: 20131117171223) do
     t.integer "followable_id"
     t.string  "followable_type"
     t.integer "user_id"
-    t.integer "comments_count",  default: 0, null: false
   end
 
   add_index "follows", ["followable_id", "followable_type"], name: "index_follows_on_followable_id_and_followable_type", using: :btree
   add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
 
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
   create_table "officials", force: true do |t|
     t.string  "type",                            null: false
+    t.string  "slug"
     t.integer "master_id"
     t.boolean "approved",        default: false, null: false
     t.boolean "declined",        default: false, null: false
@@ -55,10 +68,12 @@ ActiveRecord::Schema.define(version: 20131117171223) do
   add_index "officials", ["approved"], name: "index_officials_on_approved", using: :btree
   add_index "officials", ["name"], name: "index_officials_on_name", where: "((approved IS TRUE) AND ((type)::text = 'Official::Master'::text))", using: :btree
   add_index "officials", ["pending"], name: "index_officials_on_pending", using: :btree
+  add_index "officials", ["slug"], name: "index_officials_on_slug", unique: true, where: "((type)::text = 'Official::Master'::text)", using: :btree
   add_index "officials", ["type"], name: "index_officials_on_type", using: :btree
 
   create_table "organizations", force: true do |t|
     t.string  "type",                           null: false
+    t.string  "slug"
     t.integer "master_id"
     t.boolean "approved",       default: false, null: false
     t.boolean "declined",       default: false, null: false
@@ -80,6 +95,7 @@ ActiveRecord::Schema.define(version: 20131117171223) do
   add_index "organizations", ["name"], name: "index_organizations_on_name", where: "((approved IS TRUE) AND ((type)::text = 'Organization::Master'::text))", using: :btree
   add_index "organizations", ["parent_id"], name: "index_organizations_on_parent_id", where: "((approved IS TRUE) AND ((type)::text = 'Organization::Master'::text))", using: :btree
   add_index "organizations", ["pending"], name: "index_organizations_on_pending", using: :btree
+  add_index "organizations", ["slug"], name: "index_organizations_on_slug", unique: true, where: "((type)::text = 'Organization::Master'::text)", using: :btree
   add_index "organizations", ["type"], name: "index_organizations_on_type", using: :btree
 
   create_table "poll_attributes", force: true do |t|
@@ -100,6 +116,7 @@ ActiveRecord::Schema.define(version: 20131117171223) do
 
   create_table "products", force: true do |t|
     t.string  "type",                            null: false
+    t.string  "slug"
     t.integer "master_id"
     t.boolean "approved",        default: false, null: false
     t.boolean "declined",        default: false, null: false
@@ -118,6 +135,7 @@ ActiveRecord::Schema.define(version: 20131117171223) do
   add_index "products", ["name"], name: "index_products_on_name", where: "((approved IS TRUE) AND ((type)::text = 'Product::Master'::text))", using: :btree
   add_index "products", ["organization_id"], name: "index_products_on_organization_id", where: "((approved IS TRUE) AND ((type)::text = 'Product::Master'::text))", using: :btree
   add_index "products", ["pending"], name: "index_products_on_pending", using: :btree
+  add_index "products", ["slug"], name: "index_products_on_slug", unique: true, where: "((type)::text = 'Product::Master'::text)", using: :btree
   add_index "products", ["type"], name: "index_products_on_type", using: :btree
 
   create_table "report_evidence", force: true do |t|
@@ -178,6 +196,7 @@ ActiveRecord::Schema.define(version: 20131117171223) do
 
   create_table "reports", force: true do |t|
     t.string  "type",                                 null: false
+    t.string  "slug"
     t.integer "master_id"
     t.boolean "approved",             default: false, null: false
     t.boolean "declined",             default: false, null: false
@@ -198,6 +217,7 @@ ActiveRecord::Schema.define(version: 20131117171223) do
   add_index "reports", ["responses_approve"], name: "index_reports_on_responses_approve", using: :btree
   add_index "reports", ["responses_disapprove"], name: "index_reports_on_responses_disapprove", using: :btree
   add_index "reports", ["responses_sum"], name: "index_reports_on_responses_sum", using: :btree
+  add_index "reports", ["slug"], name: "index_reports_on_slug", unique: true, where: "((type)::text = 'Report::Master'::text)", using: :btree
   add_index "reports", ["type"], name: "index_reports_on_type", using: :btree
 
   create_table "uploads", force: true do |t|

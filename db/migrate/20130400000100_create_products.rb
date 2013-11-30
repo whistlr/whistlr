@@ -2,6 +2,7 @@ class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
       t.string :type, null: false
+      t.string :slug
 
       t.integer :master_id
 
@@ -26,5 +27,6 @@ class CreateProducts < ActiveRecord::Migration
     add_index :products, :pending
     add_index :products, :organization_id, where: "approved IS TRUE AND type = 'Product::Master'"
     add_index :products, :name, where: "approved IS TRUE AND type = 'Product::Master'"
+    add_index :products, :slug, unique: true, where: "type = 'Product::Master'"
   end
 end

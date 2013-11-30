@@ -4,19 +4,19 @@ Whistlr.Router.map ()->
   @route 'home', path: '/'
   @route 'static.welcome', path: 'welcome'
 
-  @resource 'engage'
+  @resource 'discuss'
 
   @resource 'explore', ->
     @resource 'explore.everything', path: 'everything'
     @resource 'explore.organizations', path: 'organizations'
     @resource 'explore.products', path: 'products'
     @resource 'explore.officials', path: 'officials'
-  @resource 'contribute', ->
-    @resource 'contribute.recent_activity', path: 'recent_activity'
-    @resource 'contribute.everything', path: 'everything'
-    @resource 'contribute.organizations', path: 'organizations'
-    @resource 'contribute.products', path: 'products'
-    @resource 'contribute.officials', path: 'officials'
+  @resource 'workdesk', ->
+    @resource 'workdesk.recent_activity', path: 'recent_activity'
+    @resource 'workdesk.everything', path: 'everything'
+    @resource 'workdesk.organizations', path: 'organizations'
+    @resource 'workdesk.products', path: 'products'
+    @resource 'workdesk.officials', path: 'officials'
 
   @resource 'vote'
 

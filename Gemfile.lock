@@ -64,8 +64,8 @@ GEM
       debugger-linecache (~> 1.2.0)
       debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.3)
-    devise (3.2.1)
+    debugger-ruby_core_source (1.2.4)
+    devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -115,7 +115,7 @@ GEM
       ember-source (~> 1.0)
     ember-data-source (1.0.0.beta.3)
       ember-source
-    ember-rails (0.14.0)
+    ember-rails (0.14.1)
       active_model_serializers
       barber (>= 0.4.1)
       ember-data-source
@@ -124,9 +124,9 @@ GEM
       handlebars-source
       jquery-rails (>= 1.0.17)
       railties (>= 3.1)
-    ember-source (1.1.2)
+    ember-source (1.2.0.beta.3)
       handlebars-source (= 1.0.12)
-    emblem-rails (0.2.0)
+    emblem-rails (0.2.1)
       barber-emblem (~> 0.1.1)
       ember-rails (>= 0.14.0)
     emblem-source (0.3.4)
@@ -144,6 +144,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    friendly_id (5.0.1)
+      activerecord (~> 4.0.0)
     handlebars-source (1.0.12)
     highline (1.6.20)
     hike (1.2.3)
@@ -159,8 +161,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.25)
-    mini_magick (3.6.0)
+    mime-types (1.25.1)
+    mini_magick (3.7.0)
       subexec (~> 0.2.1)
     minitest (4.7.5)
     multi_json (1.8.2)
@@ -175,7 +177,7 @@ GEM
     pg (0.17.0)
     polyglot (0.3.3)
     rack (1.5.2)
-    rack-oauth2 (1.0.6)
+    rack-oauth2 (1.0.7)
       activesupport (>= 2.3)
       attr_required (>= 0.0.5)
       httpclient (>= 2.2.0.2)
@@ -205,7 +207,7 @@ GEM
     slim (2.0.2)
       temple (~> 0.6.6)
       tilt (>= 1.3.3, < 2.1)
-    sprockets (2.10.0)
+    sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -262,12 +264,13 @@ DEPENDENCIES
   ember-auth-strategy-token-rails
   ember-auth-strategy-token-source
   ember-rails
-  ember-source
+  ember-source (= 1.2.0.beta.3)
   emblem-rails
   exception_notification
   fb_graph
   figaro
-  handlebars-source
+  friendly_id (~> 5.0.0)
+  handlebars-source (= 1.0.12)
   jquery-fileupload-rails
   jquery-rails
   mini_magick

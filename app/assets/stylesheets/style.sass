@@ -461,9 +461,11 @@ header
   overflow: hidden
 
 .resource--mini
-  margin: 0 0 9px 12px !important
+  margin: 9px 0 0 12px !important
   width: 110px + $base-line-height
   height: 178px
+  &:hover, &:focus
+    box-shadow: 0 0 9px 5px $main-border
   .resource-image
     height: 110px
     width: 110px
@@ -484,6 +486,10 @@ header
   .resource--mini  
     &:hover, &:focus
       box-shadow: 0 0 9px 5px #eee
+
+.everything-list
+  height: 195px
+  overflow: hidden
 
 // Reports
 

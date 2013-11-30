@@ -7,10 +7,10 @@ class ReportsController < ApplicationController
     params[:page] ||= 0
     params[:per_page] ||= 25
     if params[:reportable_type]
-      reportable = params[:reportable_type].constantize.find params[:reportable_id]
+      reportable = params[:reportable_type].constantize.friendly.find params[:reportable_id]
     else
       if klass = ["official", "organization", "product"].detect { |pk| request.original_url.include? pk }
-        reportable = klass.camelize.constantize.find params[:id]
+        reportable = klass.camelize.constantize.friendly.find params[:id]
       end
     end
     reports = reportable.approved_reports.where(query_params(Report)).offset(params[:page].to_i * params[:per_page].to_i).limit(params[:per_page].to_i)
@@ -18,7 +18,7 @@ class ReportsController < ApplicationController
   end
 
   def show
-    respond_with Report.find params[:id]
+    respond_with Report.friendly.find params[:id]
   end
 
   def new
@@ -37,7 +37,7 @@ class ReportsController < ApplicationController
   end
 
   def update
-    report = Report.find(params[:id])
+    report = Report.friendly.find(params[:id])
     authorize! :update, report
     version = report.update_with_nested_models(primary_model_params, nested_model_params)
     respond_with version

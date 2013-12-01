@@ -1,0 +1,102 @@
+html
+  head
+    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+    scss:
+
+      .email--wrapper{
+        font-family: Verdana, Geneva, sans-serif;
+        width: 100%;
+        line-height: 27px;
+        border-collapse: collapse;
+        font-size: 20px;
+        background: #FFFCC4;
+        color: #424134;
+        a{
+          color: #424134;
+        }
+      }
+
+      .border--top{
+        background: #00585F;
+        height: 5px;
+      }
+
+      .header{
+        height: 36px;
+        font-size: 27px;
+        font-weight: bolder;
+        color: #00585F;
+      }
+
+      .body{
+        background: #FFF;
+      }
+
+      .footer{
+        font-size: 14px;
+        text-align: right;
+        height: 32px;
+        color: #FFF;
+      }
+
+      .padding--top{
+        height: 27px;
+      }
+
+      .v-padding--minor{
+        height: 9px;
+      }
+
+      .padding--outer{
+        width: 45px;
+      }
+
+      .padding--inner{
+        width: 18px;
+      }
+
+      .center{
+        text-align: center;
+      }
+
+      .signature{
+        font-family: "Arial Black", Gadget, sans-serif;
+      }
+
+  body
+    table.email--wrapper
+      tr.border--top
+        td.padding--outer
+        td.padding--inner
+        td
+        td.padding--inner
+        td.padding--outer
+      tr.padding--top
+      tr
+        td
+        td
+        td.header Whistlr
+        td
+        td
+        td
+      tr
+        td
+        td.body
+        td.body
+          = yield
+          p
+            span In Solidarity,
+            br
+            span.signature All of Us
+        td.body
+        td
+      tr.v-padding--minor
+      tr.v-padding--minor
+      tr
+        td
+        td
+        td.footer
+          = link_to "www.whistlr.org", root_url
+        td
+        td
+      tr.v-padding--minor

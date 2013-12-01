@@ -6,6 +6,8 @@ gem "pg"
 gem "debugger"
 gem "figaro"
 gem 'friendly_id', '~> 5.0.0'
+gem 'premailer-rails'
+gem 'nokogiri'
 
 gem "jquery-rails"
 gem "jquery-fileupload-rails"

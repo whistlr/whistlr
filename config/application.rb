@@ -26,6 +26,10 @@ module Whistlr
     # config.i18n.default_locale = :de
 
     config.ember.app_name = "Whistlr"
+
+    config.to_prepare do
+      Devise::Mailer.layout "email"
+    end
     
   end
 end

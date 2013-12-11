@@ -1,1 +1,0 @@
-Whistlr.PolicyReportView = Em.View.extend()

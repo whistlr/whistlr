@@ -1,8 +1,0 @@
-.unstable--left
-  partial "policy/profile"
-
-  #main-column--center
-    partial "policy/links"
-    outlet
-
-  #main-column--right

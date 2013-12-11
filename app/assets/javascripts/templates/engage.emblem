@@ -1,8 +1,0 @@
-.unstable--right
-  #main-column--left
-
-  #main-column--center
-    = outlet
-
-  #main-column--right
-    Whistlr.ComplimentaryView

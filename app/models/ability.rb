@@ -62,6 +62,14 @@ class Ability
       !user.new_record? && user.archivist_reputation > BANNED
     end
 
+    # Affiliations
+    can :create, Affiliation do |affiliation|
+      !user.new_record? && user.archivist_reputation > BANNED
+    end
+    can :update, Affiliation do |affiliation|
+      !user.new_record? && user.archivist_reputation > BANNED
+    end
+
     # Users
     can :update, User do |edited_user|
       edited_user.id == user.id

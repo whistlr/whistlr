@@ -7,6 +7,9 @@ Whistlr.Official = DS.Model.extend Whistlr.EventableMixin, Whistlr.ReportableMix
     inverse: 'master'
   master: DS.belongsTo 'official',
     inverse: 'versions'
+
+  relations: DS.hasMany 'affiliation',
+    inverse: 'official'
     
   name: DS.attr()
   bio: DS.attr()

@@ -7,6 +7,9 @@ Whistlr.Organization = DS.Model.extend Whistlr.EventableMixin, Whistlr.Reportabl
     inverse: 'master'
   master: DS.belongsTo 'organization',
     inverse: 'versions'
+
+  relations: DS.hasMany 'affiliation',
+    inverse: 'organization'
     
   city: DS.attr()
   country: DS.attr()

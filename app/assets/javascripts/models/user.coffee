@@ -3,3 +3,4 @@ Whistlr.User  = DS.Model.extend Whistlr.FollowableMixin,
   email: DS.attr()
   archivistReputation: DS.attr()
   whistlrReputation: DS.attr()
+  slug: DS.attr()

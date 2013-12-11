@@ -1,0 +1,5 @@
+if officials
+  ul.autocomplete
+    each official in officials
+      li{action setItem official setTo on="click" target='view'}
+        .milli = official.name 

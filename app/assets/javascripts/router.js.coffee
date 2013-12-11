@@ -26,6 +26,18 @@ Whistlr.Router.map ()->
     @route 'timeline'
 
   @resource 'organization', path: 'organizations/:organization_id', ->
+    @route 'products'
+    @route 'organizations'
+    @resource 'organization.officials', path: 'officials', ->
+      @resource 'organization.officials.contributee', path: 'contributee', ->
+        @route 'new'
+        @resource 'organization.officials.contributee.edit', path: ':affiliation_id/edit'
+      @resource 'organization.officials.executive', path: 'executive', ->
+        @route 'new'
+        @resource 'organization.officials.executive.edit', path: ':affiliation_id/edit'
+      @resource 'organization.officials.owner', path: 'owner', ->
+        @route 'new'
+        @resource 'organization.officials.owner.edit', path: ':affiliation_id/edit'
     @route 'edit'
     @route 'timeline'
     @resource 'organization.report', path: 'reports', ->
@@ -40,6 +52,16 @@ Whistlr.Router.map ()->
   @route 'product.new', path: 'products/new'
 
   @resource 'official', path: 'officials/:official_id', ->
+    @resource 'official.organizations', path: 'organizations', ->
+      @resource 'official.organizations.contributee', path: 'contributee', ->
+        @route 'new'
+        @resource 'official.organizations.contributee.edit', path: ':affiliation_id/edit'
+      @resource 'official.organizations.executive', path: 'executive', ->
+        @route 'new'
+        @resource 'official.organizations.executive.edit', path: ':affiliation_id/edit'
+      @resource 'official.organizations.owner', path: 'owner', ->
+        @route 'new'
+        @resource 'official.organizations.owner.edit', path: ':affiliation_id/edit'
     @route 'edit'
     @route 'timeline'
     @resource 'official.report', path: 'reports', ->

@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   include Events::Timelineable
+         
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
   
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

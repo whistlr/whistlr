@@ -1,0 +1,1 @@
+Whistlr.OrganizationOfficialsExecutiveNewController = Ember.ObjectController.extend(Whistlr.FormOrganizationOfficialsMixin)

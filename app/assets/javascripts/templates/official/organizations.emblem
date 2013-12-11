@@ -1,0 +1,87 @@
+.banner
+  h1
+    t organizations.other
+
+h2.epsilon
+  span = t officials.organizations.stock_in
+  span.push--left = linkTo 'official.organizations.owner.new' official
+    .new-blackish-icon
+outlet ownerNew
+if controller.owners
+  table.table--striped
+    colgroup
+      col
+      col.t45
+      col.t5
+    thead
+      tr
+        th = t organizations.one
+        th = t affiliations.owners.attributes.shares
+        th
+    tbody
+      each owner in controller.owners
+        tr
+          td = linkTo 'organization.report' owner.organization
+            owner.organization.name
+          td = owner.sharesInPercentage
+          td = linkTo 'official.organizations.owner.edit' official owner
+            .edit-icon
+hr.rule
+
+h2.epsilon
+  span = t officials.organizations.employed_by
+  span.push--left = linkTo 'official.organizations.executive.new' official
+    .new-blackish-icon
+outlet executiveNew
+if controller.executives
+  table.table--striped
+    colgroup
+      col
+      col.t25
+      col.t25
+      col.t20
+      col.t5
+    thead
+      tr
+        th = t organizations.one
+        th = t affiliations.executives.attributes.title
+        th = t affiliations.executives.attributes.dates
+        th = t affiliations.executives.attributes.amount
+        th
+    tbody
+      each executive in controller.executives
+        tr
+          td = linkTo 'organization.report' executive.organization
+            executive.organization.name
+          td = executive.title
+          td = executive.dates
+          td = executive.amountInDollars
+          td = linkTo 'official.organizations.executive.edit' official executive
+            .edit-icon
+hr.rule
+
+h2.epsilon
+  span = t officials.organizations.received_contributions
+  span.push--left = linkTo 'official.organizations.contributee.new' official
+    .new-blackish-icon
+outlet contributeeNew
+if controller.contributees
+  table.table--striped
+    colgroup
+      col
+      col.t45
+      col.t5
+    thead
+      tr
+        th = t organizations.one
+        th = t affiliations.contributees.attributes.amount
+        th
+    tbody
+      each contributee in controller.contributees
+        tr
+          td = linkTo 'organization.report' contributee.organization
+            contributee.organization.name
+          td = contributee.amountInDollars
+          td = linkTo 'official.organizations.contributee.edit' official contributee
+            .edit-icon
+hr.rule

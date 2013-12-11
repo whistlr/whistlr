@@ -1,0 +1,19 @@
+form submit="submit"
+
+  if errors
+    .error-explanation = displayErrors errors root="officials.organizations"
+  .form-body
+    ul.form-fields
+      li
+        Whistlr.TextField valueBinding="officialInput" placeholderTranslation="officials.one" tip="affiliations.form.tips.official" autocomplete="off"
+        Whistlr.TextField type="hidden" valueBinding="official"
+        = official-autocomplete setTo="official" officials=officialList
+      li
+        Whistlr.TextField valueBinding="shares" placeholderTranslation="affiliations.owners.attributes.shares" tip="affiliations.owners.form.tips.shares"
+      li.push--top
+        Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="form.tips.notes"
+
+    Whistlr.FormTipBoxView
+
+  .form-actions.push--bottom
+    Whistlr.Button

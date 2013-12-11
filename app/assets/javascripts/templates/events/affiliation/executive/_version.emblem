@@ -1,0 +1,61 @@
+if event.eventable.versionAttributes.initial?
+  t affiliations.executives.versions.submitted userBinding=event.eventable.submittedBy.name officialBinding=event.eventable.official.name organizationBinding=event.eventable.organization.name
+else
+  t affiliations.executives.versions.revised userBinding=event.eventable.submittedBy.name officialBinding=event.eventable.official.name organizationBinding=event.eventable.organization.name
+
+if event.isExpanded
+  a.milli.float--right.forefront.push--ends click="collapse target='event'"
+    t shared.collapse
+  .cf
+  table.table--striped
+    colgroup
+      col.20
+      col.40
+      col.40
+    thead
+      th
+      th = t shared.this_version
+      th = t shared.previous
+    tbody
+      if event.eventable.officialChanged
+        tr
+          th = t officials.one
+          td = linkTo 'official' event.eventable.official
+            event.eventable.official.name
+          td = linkTo 'official' event.eventable.previousVersion.official
+            event.eventable.previousVersion.official.name
+      if event.eventable.organizationChanged
+        tr
+          th = t organizations.one
+          td = linkTo 'organization' event.eventable.organization
+            event.eventable.organization.name
+          td = linkTo 'organization' event.eventable.previousVersion.organization
+            event.eventable.previousVersion.organization.name
+      if event.eventable.amountChanged
+        tr
+          th = t affiliations.executives.attributes.amount
+          td = event.eventable.amountInDollars
+          td = event.eventable.previousVersion.amountInDollars
+      if event.eventable.titleChanged
+        tr
+          th = t affiliations.executives.attributes.title
+          td = event.eventable.title
+          td = event.eventable.previousVersion.title
+      if event.eventable.startDateChanged
+        tr
+          th = t affiliations.executives.attributes.startDate
+          td = event.eventable.startDate
+          td = event.eventable.previousVersion.startDate
+      if event.eventable.endDateChanged
+        tr
+          th = t affiliations.executives.attributes.endDate
+          td = event.eventable.endDate
+          td = event.eventable.previousVersion.endDate
+  if event.eventable.pollAttributes.notes
+    = format-markdown event.eventable.pollAttributes.notes
+  a.milli.float--right.forefront.push--top click="collapse target='event'"
+    t shared.collapse
+else
+  a.milli.float--right.forefront.push--top click="expand target='event'"
+    t shared.expand
+.cf

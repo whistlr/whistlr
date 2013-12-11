@@ -1,7 +1,7 @@
 if event.eventable.versionAttributes.initial?
-  linked-translation translation='officials.versions.submitted' firstResource=event.eventable.submittedBy secondResource=event.eventable.master
+  t officials.versions.submitted userBinding=event.eventable.submittedBy.name officialBinding=event.eventable.master.name
 else
-  linked-translation translation='officials.versions.revised' firstResource=event.eventable.submittedBy secondResource=event.eventable.master
+  t officials.versions.revised userBinding=event.eventable.submittedBy.name officialBinding=event.eventable.master.name
 
 if event.isExpanded
   a.milli.float--right.forefront.push--ends click="collapse target='event'"

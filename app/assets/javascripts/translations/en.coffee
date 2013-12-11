@@ -6,6 +6,51 @@ Em.I18n.translations =
     welcome:
       header: "Welcome to Whistlr"
       text1: "The site is still young and there's plenty of opportunity to workdesk. Catalog businesses and officials, report on their activities, and help us map out threads of power and ethical responsibility."
+  affiliations:
+    form:
+      tips:
+        organization: "The organization this official is affiliated with."
+        official: "The official this organization is affiliated with."
+    contributees:
+      attributes:
+        amount: "Amount"
+      form:
+        tips:
+          amount: "The total amount in dollars given to the official by this organization."
+      versions:
+        submitted:
+          "{{user}} reports that {{official}} received a contribution from {{organization}}."
+        revised:
+          "{{user}} revised the report that {{official}} received a contribution from {{organization}}."
+    executives:
+      attributes:
+        title: "Title"
+        amount: "Salary"
+        dates: "Dates"
+        startDate: "Start Date"
+        endDate: "End Date"
+      form:
+        tips:
+          title: "The official's title, such as CEO, Vice President of Communications, or Senator. If the official has had multiple titles with this organization, submit each one as a separate affiliation."
+          amount: "The yearly salary of this official in dollars. If the salary changed from year-to-year, use the latest salary. Include bonuses if applicable."
+          startDate: "The year the official began his or her term."
+          endDate: "The year the official ended his or her term."
+      versions:
+        submitted:
+          "{{user}} reports that {{official}} was an executive of {{organization}}."
+        revised:
+          "{{user}} revised the report that {{official}} was an executive of {{organization}}."
+    owners:
+      attributes:
+        shares: "Percent Ownership"
+      form:
+        tips:
+          shares: "The percentage of this organization that the official owns."
+      versions:
+        submitted:
+          "{{user}} reports that {{official}} has a share in {{organization}}."
+        revised:
+          "{{user}} revised the report that {{official}} has a share in {{organization}}."
   compliments:
     controversal_officials: "Controversal Officials"
     disfavored_officials: "Unpopular Officials"
@@ -78,13 +123,17 @@ Em.I18n.translations =
     new:
       header: 'New Official'
       p1: "An <em>official</em> can include any public figure, from elected representatives to board members of a company."
+    organizations:
+      employed_by: "Executive"
+      stock_in: "Owner"
+      received_contributions: "Contribution Recipient"
     reports:
       header: "Reports"
     timeline:
       header: "Timeline for Official"
     versions:
-      revised: "{{firstLink}} proposed revisions to the official {{secondLink}}."
-      submitted: "{{firstLink}} submitted the official {{secondLink}}."
+      revised: "{{user}} proposed revisions to the official {{official}}."
+      submitted: "{{user}} submitted the official {{official}}."
   organizations:
     one: 'Organization'
     other: 'Organizations'
@@ -110,15 +159,19 @@ Em.I18n.translations =
     new:
       header: 'New Organization'
       p1: "Our definition of <em>organization</em> is inclusive by design. It encompasses everything from corporations to governments to fraternal orders to&mdash;well, any other institution you can think of."
+    officials:
+      employed_by: "Executives"
+      stock_in: "Owners"
+      received_contributions: "Contribution Recipients"
     profile:
-      owned_by: 'Owned by {{firstLink}}'
+      owned_by: 'Owned by '
     reports:
       header: "Reports"
     timeline:
       header: "Timeline for Organization"
     versions:
-      revised: "{{firstLink}} proposed revisions to the organization {{secondLink}}."
-      submitted: "{{firstLink}} submitted the organization {{secondLink}}."
+      revised: "{{user}} proposed revisions to the organization {{organization}}."
+      submitted: "{{user}} submitted the organization {{organization}}."
   products:
     one: "Product"
     other: "Products"
@@ -141,14 +194,14 @@ Em.I18n.translations =
       header: 'New Product'
       p1: "A <em>product</em> might be a manufactured item, service, governmental policy, or media, such as a film or newspaper."
     profile:
-      owned_by: 'Produced by {{firstLink}}'
+      owned_by: 'Produced by {{user}}'
     reports:
       header: "Reports"
     timeline:
       header: "Timeline for Product"
     versions:
-      revised: "{{firstLink}} proposed revisions to the product {{secondLink}}."
-      submitted: "{{firstLink}} submitted the product {{secondLink}}."
+      revised: "{{user}} proposed revisions to the product {{product}}."
+      submitted: "{{user}} submitted the product {{product}}."
   reports:
     one: 'Report'
     other: 'Reports'
@@ -215,8 +268,8 @@ Em.I18n.translations =
     timeline:
       header: "Timeline for Report"
     versions:
-      revised: "{{firstLink}} proposed revisions to the report: {{secondLink}}."
-      submitted: "{{firstLink}} submitted a report: {{secondLink}}."
+      revised: "{{user}} proposed revisions to the report: {{report}}."
+      submitted: "{{user}} submitted a report: {{report}}."
   shared:
     collapse: 'Collapse [-]'
     edit: 'Edit'

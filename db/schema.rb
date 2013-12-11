@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129172137) do
+ActiveRecord::Schema.define(version: 20131204172138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "affiliations", force: true do |t|
+    t.string  "type",                            null: false
+    t.integer "master_id"
+    t.boolean "approved",        default: false, null: false
+    t.boolean "declined",        default: false, null: false
+    t.boolean "pending",         default: true,  null: false
+    t.integer "organization_id"
+    t.integer "official_id"
+    t.string  "start_date"
+    t.string  "end_date"
+    t.string  "title"
+    t.integer "amount"
+    t.float   "shares"
+  end
+
+  add_index "affiliations", ["approved"], name: "index_affiliations_on_approved", using: :btree
+  add_index "affiliations", ["official_id"], name: "index_affiliations_on_official_id", using: :btree
+  add_index "affiliations", ["organization_id"], name: "index_affiliations_on_organization_id", using: :btree
+  add_index "affiliations", ["type"], name: "index_affiliations_on_type", using: :btree
 
   create_table "events", force: true do |t|
     t.integer  "eventable_id"
@@ -369,6 +389,7 @@ ActiveRecord::Schema.define(version: 20131129172137) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
+    t.string   "slug",                                           default: "",   null: false
   end
 
   add_index "users", ["active"], name: "index_users_on_active", using: :btree
@@ -384,6 +405,7 @@ ActiveRecord::Schema.define(version: 20131129172137) do
   add_index "users", ["name"], name: "index_users_on_name", using: :btree
   add_index "users", ["organizer_reputation"], name: "index_users_on_organizer_reputation", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   add_index "users", ["translator_reputation"], name: "index_users_on_translator_reputation", using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   add_index "users", ["whistlr_reputation"], name: "index_users_on_whistlr_reputation", using: :btree

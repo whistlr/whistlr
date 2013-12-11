@@ -8,7 +8,10 @@
   span.profile__item
     h1.delta = name
     if parent?
-      .nano.push--bottom = linked-translation translation='organizations.profile.owned_by' firstResource=parent secondResource=parent
+      .nano.push--bottom
+        span = t organizations.profile.owned_by
+        span = linkTo 'organization.report' parent
+          parent.name
     if location?
       .micro = location
   span.profile__item.profile__interaction

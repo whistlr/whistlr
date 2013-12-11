@@ -1,0 +1,46 @@
+if event.eventable.versionAttributes.initial?
+  t affiliations.owners.versions.submitted userBinding=event.eventable.submittedBy.name officialBinding=event.eventable.official.name organizationBinding=event.eventable.organization.name
+else
+  t affiliations.owners.versions.revised userBinding=event.eventable.submittedBy.name officialBinding=event.eventable.official.name organizationBinding=event.eventable.organization.name
+
+if event.isExpanded
+  a.milli.float--right.forefront.push--ends click="collapse target='event'"
+    t shared.collapse
+  .cf
+  table.table--striped
+    colgroup
+      col.20
+      col.40
+      col.40
+    thead
+      th
+      th = t shared.this_version
+      th = t shared.previous
+    tbody
+      if event.eventable.officialChanged
+        tr
+          th = t officials.one
+          td = linkTo 'official' event.eventable.official
+            event.eventable.official.name
+          td = linkTo 'official' event.eventable.previousVersion.official
+            event.eventable.previousVersion.official.name
+      if event.eventable.organizationChanged
+        tr
+          th = t organizations.one
+          td = linkTo 'organization' event.eventable.organization
+            event.eventable.organization.name
+          td = linkTo 'organization' event.eventable.previousVersion.organization
+            event.eventable.previousVersion.organization.name
+      if event.eventable.sharesChanged
+        tr
+          th = t affiliations.owners.attributes.shares
+          td = event.eventable.sharesInPercentage
+          td = event.eventable.previousVersion.sharesInPercentage
+  if event.eventable.pollAttributes.notes
+    = format-markdown event.eventable.pollAttributes.notes
+  a.milli.float--right.forefront.push--top click="collapse target='event'"
+    t shared.collapse
+else
+  a.milli.float--right.forefront.push--top click="expand target='event'"
+    t shared.expand
+.cf

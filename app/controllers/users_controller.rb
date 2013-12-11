@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    respond_with User.find(params[:id])
+    respond_with User.friendly.find(params[:id])
   end
 
 private

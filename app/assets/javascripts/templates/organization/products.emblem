@@ -1,0 +1,16 @@
+.banner
+  h1
+    t products.other
+
+ul.block-list
+  each product in controller
+    li = linkTo 'product.report' product class="resource"
+      .resource-image == product.image
+      .resource-text = product.name
+  if loadingMore
+    li.soft--ends.center
+      t shared.loading_more
+  else
+    li.soft--ends.center.clickable
+      a.block-list__link click='getMore'
+        t shared.load_more

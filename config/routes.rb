@@ -25,6 +25,8 @@ Whistlr::Application.routes.draw do
   resources :events, only: [:index]
   resources :compliments, only: [:index]
 
+  resources :affiliations
+
   resources :reports, only: [:create, :edit, :update, :show, :index] do
     concerns :eventful
     get "main" => 'generic#show'
@@ -36,6 +38,18 @@ Whistlr::Application.routes.draw do
   resources :organizations do
     concerns :resourceful
     concerns :eventful
+    resources :products, only: [:index], on: :member
+    resources :organizations, only: [:index], on: :member
+    resources :officials, controller: "affiliations" do
+      collection do
+        get 'contributee/new' => "affiliations#new"
+        get 'executive/new' => "affiliations#new"
+        get 'owner/new' => "affiliations#new"
+        get 'contributee/:affiliation_id/edit' => "affiliations#edit"
+        get 'executive/:affiliation_id/edit' => "affiliations#edit"
+        get 'owner/:affiliation_id/edit' => "affiliations#edit"
+      end
+    end
   end
 
   resources :products do
@@ -43,14 +57,19 @@ Whistlr::Application.routes.draw do
     concerns :eventful
   end
 
-  resources :policies do
-    concerns :resourceful
-    concerns :eventful
-  end
-
   resources :officials do
     concerns :resourceful
     concerns :eventful
+    resources :organizations, controller: "affiliations" do
+      collection do
+        get 'contributee/new' => "affiliations#new"
+        get 'executive/new' => "affiliations#new"
+        get 'owner/new' => "affiliations#new"
+        get 'contributee/:affiliation_id/edit' => "affiliations#edit"
+        get 'executive/:affiliation_id/edit' => "affiliations#edit"
+        get 'owner/:affiliation_id/edit' => "affiliations#edit"
+      end
+    end
   end
 
   resource :discuss, controller: :generic

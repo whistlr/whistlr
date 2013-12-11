@@ -8,7 +8,10 @@
   span.profile__item
     h1.delta = name
     if organization?
-      .nano.push--bottom = linked-translation translation='products.profile.owned_by' firstResource=organization secondResource=organization
+      .nano.push--bottom
+        span = t products.profile.owned_by
+        span = linkTo 'organization.report' organization
+          organization.name
   span.profile__item.profile__interaction
     == facebookLinkIcon
     == twitterLinkIcon

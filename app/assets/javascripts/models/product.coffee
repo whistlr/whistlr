@@ -7,12 +7,33 @@ Whistlr.Product = DS.Model.extend Whistlr.EventableMixin, Whistlr.ReportableMixi
     inverse: 'master'
   master: DS.belongsTo 'product',
     inverse: 'versions'
+
+  eans: DS.hasMany('product.ean', nested: true),
+    inverse: 'products'
     
   name: DS.attr()
-  ean13: DS.attr()
 
   organization: DS.belongsTo 'organization'
 
   nameChanged: Whistlr.addVersionRowProperty('name')
   organizationChanged: Whistlr.addVersionRowProperty('organization')
-  ean13Changed: Whistlr.addVersionRowProperty('ean13')
+
+  changedEans: (->
+    ean = @get 'eans.content'
+    previousEan = @get 'previousVersion.eans.content'
+    alteredEan = Whistlr.alteredProperties previousEan, ean
+    if alteredEan
+      return alteredEan
+    else
+      return false
+  ).property('previousVersion')
+
+  removedEans: (->
+    ean = @get 'eans.content'
+    previousEan = @get 'previousVersion.eans.content'
+    alteredEan = Whistlr.removedProperties previousEan, ean
+    if alteredEan
+      return alteredEan
+    else
+      return false
+  ).property('previousVersion')

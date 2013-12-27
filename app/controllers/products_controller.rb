@@ -32,16 +32,41 @@ class ProductsController < ApplicationController
   def update
     product = Product::Master.friendly.find(params[:id])
     authorize! :update, product
-    version = product.create_version(product_params)
+    version = product.update_with_nested_models(primary_model_params, nested_model_params)
     respond_with version
   end
 
 private
 
-  def product_params
-    params.require(:product).permit(:name, :upload_id, :organization_id,
-      :facebook_alias, :twitter_alias, :website, :notes).
-      merge(user: current_user)
+  def product_attr
+    [:name, :upload_id, :organization_id, :facebook_alias, :twitter_alias, :website, :notes]
   end
 
+  def ean_attr
+    [:_destroy, :code, :id]
+  end
+
+  def product_params
+    joined_params.require(:product).permit(product_attr, ean_joins_attributes: [ ean_attributes: ean_attr ]).merge(user: current_user)
+  end
+
+  def joined_params
+    vetted_params = params.dup
+    eans = vetted_params[:product].extract!(:eans_attributes)
+    if eans[:eans_attributes].present?
+      vetted_params[:product].merge!(ean_joins_attributes: [])
+      eans[:eans_attributes].each do |ean|
+        vetted_params[:product][:ean_joins_attributes] << {ean_attributes: ean}
+      end
+    end
+    vetted_params
+  end
+
+  def primary_model_params
+    params.require(:product).permit(product_attr).merge(user: current_user)
+  end
+
+  def nested_model_params
+    params.require(:product).permit([[eans_attributes: ean_attr]])
+  end
 end

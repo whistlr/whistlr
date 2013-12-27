@@ -15,3 +15,11 @@ Whistlr.FormProductMixin = Ember.Mixin.create
   ).property('organizationInput')
 
   errors: null
+
+  actions:
+    addEan: ->
+      ean = @store.createRecord('product.ean')
+      @get('eans').pushObject(ean)
+
+    removeEan: (ean) ->
+      ean.set "_destroy", true

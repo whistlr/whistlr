@@ -29,11 +29,6 @@ if event.isExpanded
             event.eventable.organization.name
           td = linkTo 'product' event.eventable.previousVersion.organization
             event.eventable.previousVersion.organization.name
-      if event.eventable.Ean13Changed
-        tr
-          th = t products.attributes.ean13
-          td == event.eventable.ean13
-          td == event.eventable.previousVersion.ean13
       if event.eventable.facebookAliasChanged
         tr
           th = t products.attributes.facebook_alias
@@ -54,6 +49,16 @@ if event.isExpanded
           th = t products.attributes.image
           td == event.eventable.image
           td == event.eventable.previousVersion.image
+      each ean in event.eventable.changedEans
+        tr
+          th = t products.eans.attributes.code
+          td = ean.code
+          td = ean.previousVersion.code
+      each ean in event.eventable.removedEans
+        tr
+          th = t products.eans.attributes.code
+          td
+          td = ean.code
   if event.eventable.pollAttributes.notes
     = format-markdown event.eventable.pollAttributes.notes
   a.milli.float--right.forefront.push--top click="collapse target='event'"

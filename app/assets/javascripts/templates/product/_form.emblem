@@ -11,8 +11,6 @@ form submit="submit"
         Whistlr.TextField type="hidden" valueBinding="organization"
         = organization-autocomplete setTo="organization" organizations=organizationList
       li
-        Whistlr.TextField valueBinding="ean13" placeholderTranslation="products.attributes.ean13" tip="products.form.tips.ean13"
-      li
         Whistlr.TextField valueBinding="facebookAlias" placeholderTranslation="products.attributes.facebook_alias" tip="form.tips.facebook"
       li
         Whistlr.TextField valueBinding="twitterAlias" placeholderTranslation="products.attributes.twitter_alias" tip="form.tips.twitter"
@@ -20,6 +18,13 @@ form submit="submit"
         Whistlr.TextField valueBinding="website" placeholderTranslation="products.attributes.website" tip="form.tips.website"
       li
         Whistlr.FileFieldView
+      hr.rule.push-half--bottom
+      each eans
+        div class=this._destroy:hidden:shown
+          a.sub-fields--remove click="removeEan this" X
+          .sub-fields.hard--bottom = render "product.ean.fields" this
+      button.btn.btn--alt.thin.flush--top click="addEan"
+        t products.eans.new_ean
       li.push--top
         Whistlr.TextArea valueBinding="notes" placeholderTranslation="shared.attributes.notes" tip="form.tips.notes"
 

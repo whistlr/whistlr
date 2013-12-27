@@ -1,0 +1,5 @@
+Whistlr.TextField type="hidden" valueBinding="id"
+Whistlr.TextField type="hidden" valueBinding="_destroy"
+unless _destroy
+  li
+    Whistlr.TextField valueBinding="code" placeholderTranslation="products.eans.attributes.code" tip="products.form.tips.ean13"

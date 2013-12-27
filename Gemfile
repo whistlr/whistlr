@@ -48,6 +48,24 @@ gem "fb_graph"
 
 group :development do
   gem "capistrano", '~> 2.15'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'debugger'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'shoulda'
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'guard-rspec'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :production do

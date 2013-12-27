@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204172138) do
+ActiveRecord::Schema.define(version: 20131227171330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,19 @@ ActiveRecord::Schema.define(version: 20131204172138) do
 
   add_index "poll_attributes", ["pollable_id", "pollable_type"], name: "index_poll_attributes_on_pollable_id_and_pollable_type", using: :btree
 
+  create_table "product_ean_joins", force: true do |t|
+    t.integer "product_id", null: false
+    t.integer "ean_id",     null: false
+  end
+
+  add_index "product_ean_joins", ["ean_id"], name: "index_product_ean_joins_on_ean_id", using: :btree
+  add_index "product_ean_joins", ["product_id"], name: "index_product_ean_joins_on_product_id", using: :btree
+
+  create_table "product_eans", force: true do |t|
+    t.string  "code",        null: false
+    t.integer "previous_id"
+  end
+
   create_table "products", force: true do |t|
     t.string  "type",                            null: false
     t.string  "slug"
@@ -144,7 +157,6 @@ ActiveRecord::Schema.define(version: 20131204172138) do
     t.integer "organization_id"
     t.integer "upload_id"
     t.string  "name",            default: "",    null: false
-    t.string  "ean13"
     t.string  "website"
     t.string  "facebook_id"
     t.string  "facebook_alias"

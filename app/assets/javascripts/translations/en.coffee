@@ -176,13 +176,18 @@ Em.I18n.translations =
     one: "Product"
     other: "Products"
     attributes:
-      ean13: 'EAN13'
       facebook_alias: 'Facebook Alias'
       image: 'Portrait'
       name: 'Name'
       organization: 'Organization'
       twitter_alias: 'Twitter Alias'
       website: 'Website'
+    eans:
+      one: "EAN-13"
+      other: "EAN-13s"
+      attributes:
+        code: "EAN-13"
+      new_ean: "Add EAN-13"
     edit:
       header: 'Edit Product'
     form:

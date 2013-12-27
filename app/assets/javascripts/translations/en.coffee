@@ -108,7 +108,6 @@ Em.I18n.translations =
     one: "Official"
     other: "Officials"
     attributes:
-      bio: 'Bio'
       facebook_alias: 'Facebook Alias'
       image: 'Portrait'
       name: 'Name'
@@ -118,7 +117,6 @@ Em.I18n.translations =
       header: 'Edit Official'
     form:
       tips:
-        bio: "A brief biography of the official, preferably under 500 characters."
         name: "The official's full name."
     new:
       header: 'New Official'

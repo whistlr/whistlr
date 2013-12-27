@@ -28,7 +28,7 @@ Whistlr.Affiliation = DS.Model.extend Whistlr.EventableMixin, Whistlr.Versionabl
   ).property('startDate, endDate')
 
   amountInDollars: (->
-    "$#{@get('amount')}"
+    "$#{@get('amount').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}"
   ).property('amount')
 
   sharesInPercentage: (->

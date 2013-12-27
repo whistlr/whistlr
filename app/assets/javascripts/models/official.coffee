@@ -12,7 +12,5 @@ Whistlr.Official = DS.Model.extend Whistlr.EventableMixin, Whistlr.ReportableMix
     inverse: 'official'
     
   name: DS.attr()
-  bio: DS.attr()
 
   nameChanged: Whistlr.addVersionRowProperty('name')
-  bioChanged: Whistlr.addVersionRowProperty('bio')

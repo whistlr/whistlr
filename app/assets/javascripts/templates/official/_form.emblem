@@ -7,8 +7,6 @@ form submit="submit"
       li
         Whistlr.TextField valueBinding="name" placeholderTranslation="officials.attributes.name" tip="officials.form.tips.name"
       li
-        Whistlr.TextArea valueBinding="bio" placeholderTranslation="officials.attributes.bio" tip="officials.form.tips.bio"
-      li
         Whistlr.TextField valueBinding="facebookAlias" placeholderTranslation="officials.attributes.facebook_alias" tip="form.tips.facebook"
       li
         Whistlr.TextField valueBinding="twitterAlias" placeholderTranslation="officials.attributes.twitter_alias" tip="form.tips.twitter"

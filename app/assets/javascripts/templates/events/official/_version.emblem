@@ -22,11 +22,6 @@ if event.isExpanded
           th = t officials.attributes.name
           td = event.eventable.name
           td = event.eventable.previousVersion.name
-      if event.eventable.bioChanged
-        tr
-          th = t officials.attributes.bio
-          td = event.eventable.bio
-          td = event.eventable.previousVersion.bio
       if event.eventable.facebookAliasChanged
         tr
           th = t officials.attributes.facebook_alias

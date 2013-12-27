@@ -6,6 +6,8 @@ set :deploy_to, '/var/www/whistlr.org'
 server "198.58.97.33", :web, :app, :db, primary: true
 set :user, "timothythehuman"
 
+set :shared_children, shared_children + %w{public/uploads}
+
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
 
@@ -16,6 +18,14 @@ set :default_environment, {
 set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
 
 require "bundler/capistrano" 
+
+namespace :sake do
+  desc "Run a task on a remote server."
+  # run like: cap staging rake:invoke task=a_certain_task  
+  task :invoke do
+    run("cd #{deploy_to}/current && bundle exec rake #{ENV['task']} RAILS_ENV=#{rails_env}")
+  end
+end
 
 namespace :figaro do
   desc "SCP transfer figaro configuration to the shared folder"

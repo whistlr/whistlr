@@ -39,7 +39,7 @@ class OfficialsController < ApplicationController
 private
 
   def official_params
-    params.require(:official).permit(:name, :upload_id, :bio,
+    params.require(:official).permit(:name, :upload_id,
       :facebook_alias, :twitter_alias, :website, :notes).
       merge(user: current_user)
   end

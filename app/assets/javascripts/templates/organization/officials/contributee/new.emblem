@@ -1,1 +1,1 @@
-partial "organization/officials/owner/form"
+partial "organization/officials/contributee/form"

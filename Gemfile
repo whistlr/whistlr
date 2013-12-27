@@ -61,7 +61,6 @@ end
 group :test do
   gem 'shoulda'
   gem 'faker'
-  gem 'capybara'
   gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'launchy'
@@ -69,5 +68,5 @@ group :test do
 end
 
 group :production do
-  gem 'exception_notification'
+  gem "exception_notification", "~> 4.0.1"
 end

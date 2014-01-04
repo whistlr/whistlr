@@ -12,7 +12,7 @@ module Reports::Reportable
   end
 
   def collective_opinion
-    report_participants.sum do |participant|
+    report_participants.to_a.sum do |participant|
       participant.master_report.try(:approved?) ? participant.master_report.responses.sum("value * (#{participant.involvement} * #{participant.involvement})") : 0
     end
   end

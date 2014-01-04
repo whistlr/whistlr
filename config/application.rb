@@ -30,6 +30,8 @@ module Whistlr
     config.to_prepare do
       Devise::Mailer.layout "email"
     end
+
+    config.i18n.enforce_available_locales = true
     
   end
 end

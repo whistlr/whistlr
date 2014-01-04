@@ -14,12 +14,16 @@ module Versions::Versionable
     scope :not_declined, -> { where(declined: false) }
   end
 
+  def initial_version
+    versions.initial
+  end
+
   def approved_versions
     versions.approved
   end
 
-  def initial_version
-    versions.initial
+  def last_approved_version
+    approved_versions.last || initial_version unless versions.length == 0
   end
 
   def create_version(params, initial = false)
@@ -28,10 +32,6 @@ module Versions::Versionable
 
   def initialize_version(params, initial = false)
     versions.new(params.merge(initial: initial))
-  end
-
-  def last_approved_version
-    approved_versions.last || initial_version unless versions.length == 0
   end
 
   def nested_model_has_changed(previous_nested_version, param_values)

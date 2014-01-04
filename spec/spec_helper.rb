@@ -3,7 +3,6 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
-require "capybara/rspec"
 require 'database_cleaner'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -22,11 +21,6 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
 
   config.include Warden::Test::Helpers
-
-  # Custom helpers
-  config.extend ControllerMacros, :type => :controller
-  config.include FeatureMacros
-  config.include Helpers
 
   # ## Mock Framework
   #

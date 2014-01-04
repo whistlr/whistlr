@@ -59,7 +59,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'shoulda'
+  gem 'shoulda-matchers'
   gem 'faker'
   gem 'database_cleaner'
   gem 'guard-rspec'

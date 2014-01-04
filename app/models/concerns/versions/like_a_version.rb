@@ -11,8 +11,8 @@ module Versions::LikeAVersion
 
     after_save :create_version_attributes_with_extra_params, :follow
     
-    scope :approved, -> { includes(:version_attributes).where("version_attributes.approved = true") }
-    scope :initial, -> { includes(:version_attributes).where("version_attributes.initial = true").first }
+    scope :approved, -> { includes(:version_attributes).where("version_attributes.approved = true").references(:version_attributes) }
+    scope :initial, -> { includes(:version_attributes).where("version_attributes.initial = true").references(:version_attributes).first }
   end
 
   def versionable_attributes
